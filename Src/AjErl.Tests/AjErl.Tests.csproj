@@ -38,6 +38,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Language\AtomTests.cs" />
     <Compile Include="Language\ListTests.cs" />
     <Compile Include="Language\TupleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
