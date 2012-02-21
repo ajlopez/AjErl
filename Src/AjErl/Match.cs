@@ -35,6 +35,15 @@
                 return newcontext;
             }
 
+            if (obj1 is List)
+                if (obj2 is List)
+                    return ((List)obj1).Match((List)obj2, context);
+                else
+                    return null;
+
+            if (obj2 is List)
+                return null;
+
             return null;
         }
     }

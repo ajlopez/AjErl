@@ -28,5 +28,18 @@ namespace AjErl.Tests
             Assert.IsTrue(context.HasValue("one"));
             Assert.IsFalse(context.HasValue("two"));
         }
+
+        [TestMethod]
+        public void GetValueUsingParent()
+        {
+            Context parent = new Context();
+            Context context = new Context(parent);
+
+            parent.SetValue("one", 1);
+            Assert.IsTrue(context.HasValue("one"));
+            Assert.IsFalse(context.HasValue("two"));
+            Assert.AreEqual(1, context.GetValue("one"));
+            Assert.IsNull(context.GetValue("two"));
+        }
     }
 }

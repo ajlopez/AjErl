@@ -26,7 +26,13 @@ namespace AjErl
 
         public object GetValue(string name)
         {
-            return this.values[name];
+            if (this.values.ContainsKey(name))
+                return this.values[name];
+
+            if (this.parent != null)
+                return this.parent.GetValue(name);
+
+            return null;
         }
 
         public bool HasValue(string name)
@@ -41,3 +47,4 @@ namespace AjErl
         }
     }
 }
+
