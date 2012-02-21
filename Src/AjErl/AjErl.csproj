@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Experssions\IExpression.cs" />
+    <Compile Include="Language\List.cs" />
     <Compile Include="Language\Tuple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
