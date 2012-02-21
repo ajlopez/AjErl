@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AjErl
 {
-    class Context
+    public class Context
     {
     }
 }
