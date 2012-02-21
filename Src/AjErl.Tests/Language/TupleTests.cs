@@ -47,6 +47,25 @@ namespace AjErl.Tests.Language
         }
 
         [TestMethod]
+        public void MatchTuplesWithAVariable()
+        {
+            Tuple tuple = new Tuple(new object[] { 1, new Variable("X"), 3 });
+            Tuple tuple2 = new Tuple(new object[] { 1, 2, 3 });
+            Context context = new Context();
+            Context result = tuple.Match(tuple2, context);
+
+            Assert.IsNotNull(result);
+            Assert.AreNotEqual(context, result);
+            Assert.AreEqual(2, result.GetValue("X"));
+
+            Context result2 = tuple2.Match(tuple, context);
+
+            Assert.IsNotNull(result);
+            Assert.AreNotEqual(context, result2);
+            Assert.AreEqual(2, result2.GetValue("X"));
+        }
+
+        [TestMethod]
         public void MatchTuplesWithNullElement()
         {
             Tuple tuple = new Tuple(new object[] { 1, null, 3 });
