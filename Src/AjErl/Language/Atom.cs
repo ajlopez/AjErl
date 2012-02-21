@@ -15,5 +15,10 @@
         }
 
         public string Name { get { return this.name; } }
+
+        public override string ToString()
+        {
+            return this.name;
+        }
     }
 }

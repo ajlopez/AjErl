@@ -93,5 +93,29 @@ namespace AjErl.Tests.Language
             Assert.IsNull(tuple.Match(tuple2, context));
             Assert.IsNull(tuple2.Match(tuple, context));
         }
+
+        [TestMethod]
+        public void SimpleTupleToString()
+        {
+            Tuple tuple = new Tuple(new object[] { 1, 2, 3 });
+
+            Assert.AreEqual("{1, 2, 3}", tuple.ToString());
+        }
+
+        [TestMethod]
+        public void TupleWithVariableToString()
+        {
+            Tuple tuple = new Tuple(new object[] { 1, new Variable("X"), 3 });
+
+            Assert.AreEqual("{1, X, 3}", tuple.ToString());
+        }
+
+        [TestMethod]
+        public void TupleWithAtomToString()
+        {
+            Tuple tuple = new Tuple(new object[] { 1, new Atom("atom"), 3 });
+
+            Assert.AreEqual("{1, atom, 3}", tuple.ToString());
+        }
     }
 }

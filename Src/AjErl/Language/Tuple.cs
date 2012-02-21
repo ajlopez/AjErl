@@ -34,5 +34,24 @@
 
             return context;
         }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            builder.Append("{");
+
+            for (int k = 0; k < this.elements.Count; k++) 
+            {
+                if (k > 0)
+                    builder.Append(", ");
+
+                builder.Append(this.elements[k].ToString());
+            }
+
+            builder.Append("}");
+
+            return builder.ToString();
+        }
     }
 }

@@ -17,5 +17,13 @@ namespace AjErl.Tests.Language
 
             Assert.AreEqual("X", variable.Name);
         }
+
+        [TestMethod]
+        public void VariableToString()
+        {
+            Variable variable = new Variable("X");
+
+            Assert.AreEqual("X", variable.ToString());
+        }
     }
 }

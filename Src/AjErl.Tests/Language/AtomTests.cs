@@ -17,6 +17,14 @@ namespace AjErl.Tests.Language
 
             Assert.AreEqual("one", atom.Name);
         }
+
+        [TestMethod]
+        public void AtomToString()
+        {
+            Atom atom = new Atom("one");
+
+            Assert.AreEqual("one", atom.ToString());
+        }
     }
 }
 
