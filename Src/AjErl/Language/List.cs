@@ -32,5 +32,33 @@
 
             return AjErl.Match.MatchObjects(this.tail, list.Tail, result);
         }
+
+        public override string ToString()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.Append("[");
+
+            builder.Append(this.head.ToString());
+
+            object rest = this.tail;
+
+            while (rest is List)
+            {
+                builder.Append(", ");
+                List list = (List)rest;
+                builder.Append(list.Head);
+                rest = list.tail;
+            }
+
+            if (rest != null)
+            {
+                builder.Append("|");
+                builder.Append(rest.ToString());
+            }
+
+            builder.Append("]");
+
+            return builder.ToString();
+        }
     }
 }

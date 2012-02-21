@@ -93,6 +93,30 @@ namespace AjErl.Tests.Language
         }
 
         [TestMethod]
+        public void SimpleListToString()
+        {
+            List list = new List(1, 2);
+
+            Assert.AreEqual("[1|2]", list.ToString());
+        }
+
+        [TestMethod]
+        public void SimpleListWithTwoElementsToString()
+        {
+            List list = new List(1, new List(2, null));
+
+            Assert.AreEqual("[1, 2]", list.ToString());
+        }
+
+        [TestMethod]
+        public void SimpleListWithTwoElementsAndTailToString()
+        {
+            List list = new List(1, new List(2, 3));
+
+            Assert.AreEqual("[1, 2|3]", list.ToString());
+        }
+
+        [TestMethod]
         public void MatchWithAVariable()
         {
             List list = new List(1, new Variable("X"));
