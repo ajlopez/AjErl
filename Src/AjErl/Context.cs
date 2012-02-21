@@ -18,5 +18,10 @@ namespace AjErl
         {
             return this.values[name];
         }
+
+        public bool HasValue(string name)
+        {
+            return this.values.ContainsKey(name);
+        }
     }
 }

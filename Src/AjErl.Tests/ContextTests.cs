@@ -18,5 +18,15 @@ namespace AjErl.Tests
 
             Assert.AreEqual(1, context.GetValue("one"));
         }
+
+        [TestMethod]
+        public void HasValue()
+        {
+            Context context = new Context();
+
+            context.SetValue("one", 1);
+            Assert.IsTrue(context.HasValue("one"));
+            Assert.IsFalse(context.HasValue("two"));
+        }
     }
 }

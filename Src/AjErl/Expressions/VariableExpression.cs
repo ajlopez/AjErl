@@ -15,8 +15,13 @@ using AjErl.Language;
             this.variable = variable;
         }
 
+        public Variable Variable { get { return this.variable; } }
+
         public object Evaluate(Context context)
         {
+            if (!context.HasValue(this.variable.Name))
+                return this.variable;
+
             return context.GetValue(this.variable.Name);
         }
     }
