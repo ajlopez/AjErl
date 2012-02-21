@@ -38,10 +38,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContextTests.cs" />
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
     <Compile Include="Language\AtomTests.cs" />
     <Compile Include="Language\ListTests.cs" />
     <Compile Include="Language\TupleTests.cs" />
+    <Compile Include="Language\VariableTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
