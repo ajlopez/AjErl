@@ -24,5 +24,10 @@ using AjErl.Language;
 
             return context.GetValue(this.variable.Name);
         }
+
+        public bool HasVariable()
+        {
+            return true;
+        }
     }
 }

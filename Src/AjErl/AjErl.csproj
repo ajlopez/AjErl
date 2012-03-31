@@ -53,6 +53,7 @@
     <Compile Include="Context.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\AtomExpression.cs" />
+    <Compile Include="Expressions\MatchExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
     <Compile Include="Expressions\VariableExpression.cs" />
     <Compile Include="Language\Atom.cs" />

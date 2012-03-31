@@ -37,8 +37,25 @@ namespace AjErl.Tests.Compiler
             Assert.IsNotNull(expression);
             Assert.IsInstanceOfType(expression, typeof(AtomExpression));
 
-            AtomExpression varexpression = (AtomExpression)expression;
-            Assert.AreEqual("ok", varexpression.Atom.Name);
+            AtomExpression atomexpression = (AtomExpression)expression;
+            Assert.AreEqual("ok", atomexpression.Atom.Name);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseSimpleMatch()
+        {
+            Parser parser = new Parser("X=ok.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(MatchExpression));
+
+            MatchExpression matchexpression = (MatchExpression)expression;
+            Assert.IsNotNull(matchexpression.LeftExpression);
+            Assert.IsNotNull(matchexpression.RightExpression);
 
             Assert.IsNull(parser.ParseExpression());
         }

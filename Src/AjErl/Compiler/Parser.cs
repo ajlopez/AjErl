@@ -23,6 +23,31 @@ using AjErl.Expressions;
 
         public IExpression ParseExpression()
         {
+            IExpression expression = this.ParseSimpleExpression();
+
+            if (expression == null)
+                return null;
+
+            Token token = this.NextToken();
+
+            if (token == null)
+                return expression;
+
+            if (token.Type == TokenType.Operator && token.Value == "=")
+            {
+                expression = new MatchExpression(expression, this.ParseSimpleExpression());
+                this.ParsePoint();
+            }
+            else if (token.Type == TokenType.Separator && token.Value == ".")
+                ;
+            else
+                throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+
+            return expression;
+        }
+
+        private IExpression ParseSimpleExpression()
+        {
             Token token = this.NextToken();
             IExpression expression = null;
 
@@ -35,8 +60,6 @@ using AjErl.Expressions;
                 expression = new AtomExpression(new Atom(token.Value));
             else
                 throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
-
-            this.ParsePoint();
 
             return expression;
         }

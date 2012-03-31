@@ -14,19 +14,17 @@ namespace AjErl.Tests.Expressions
         [TestMethod]
         public void CreateSimpleConstantExpression()
         {
-            Atom atom = new Atom("atom");
-            ConstantExpression expr = new ConstantExpression(atom);
+            ConstantExpression expr = new ConstantExpression(10);
 
-            Assert.AreEqual(atom, expr.Value);
+            Assert.AreEqual(10, expr.Value);
         }
 
         [TestMethod]
         public void EvaluateSimpleConstantExpression()
         {
-            Atom atom = new Atom("atom");
-            ConstantExpression expr = new ConstantExpression(atom);
+            ConstantExpression expr = new ConstantExpression(10);
 
-            Assert.AreEqual(atom, expr.Evaluate(null));
+            Assert.AreEqual(10, expr.Evaluate(null));
         }
     }
 }

@@ -21,5 +21,10 @@
         {
             return this.atom;
         }
+
+        public bool HasVariable()
+        {
+            return false;
+        }
     }
 }

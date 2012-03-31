@@ -18,6 +18,7 @@ namespace AjErl.Tests.Expressions
             AtomExpression expression = new AtomExpression(atom);
 
             Assert.AreEqual(atom, expression.Atom);
+            Assert.IsFalse(expression.HasVariable());
         }
 
         [TestMethod]

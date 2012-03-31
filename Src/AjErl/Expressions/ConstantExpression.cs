@@ -20,5 +20,10 @@
         {
             return this.value;
         }
+
+        public bool HasVariable()
+        {
+            return false;
+        }
     }
 }
