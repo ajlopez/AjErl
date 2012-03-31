@@ -45,5 +45,17 @@ namespace AjErl.Tests.Compiler
             Assert.AreEqual(TokenType.Variable, token.Type);
             Assert.AreEqual("X", token.Value);
         }
+
+        [TestMethod]
+        public void GetEqualAsOperator()
+        {
+            Lexer lexer = new Lexer("=");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+            Assert.AreEqual("=", token.Value);
+        }
     }
 }

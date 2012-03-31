@@ -11,6 +11,8 @@
         Variable,
         Integer,
         Real,
-        String
+        String,
+        Operator,
+        Separator
     }
 }

@@ -8,6 +8,7 @@
 
     public class Lexer
     {
+        private static string operators = "=";
         private TextReader reader;
 
         public Lexer(string text)
@@ -26,6 +27,9 @@
 
             if (ich == -1)
                 return null;
+
+            if (operators.Contains((char)ich))
+                return new Token(((char)ich).ToString(), TokenType.Operator);
 
             string name = string.Empty;
 
