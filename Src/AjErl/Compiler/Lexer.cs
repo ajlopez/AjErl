@@ -22,11 +22,14 @@
 
         public Token NextToken()
         {
-            int ich = this.NextChar();
+            int ich = this.NextCharSkippingWhiteSpaces();
+
+            if (ich == -1)
+                return null;
 
             string name = string.Empty;
 
-            while (ich != -1)
+            while (ich != -1 && !char.IsWhiteSpace((char) ich))
             {
                 char ch = (char)ich;
                 name += ch;
@@ -40,5 +43,16 @@
         {
             return this.reader.Read();
         }
+
+        private int NextCharSkippingWhiteSpaces()
+        {
+            int ich = this.NextChar();
+
+            while (ich != -1 && char.IsWhiteSpace((char)ich))
+                ich = this.NextChar();
+
+            return ich;
+        }
     }
 }
+

@@ -21,5 +21,17 @@ namespace AjErl.Tests.Compiler
             Assert.AreEqual(TokenType.Atom, token.Type);
             Assert.AreEqual("ok", token.Value);
         }
+
+        [TestMethod]
+        public void GetAtomWithSurroundingSpaces()
+        {
+            Lexer lexer = new Lexer("  ok   ");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Atom, token.Type);
+            Assert.AreEqual("ok", token.Value);
+        }
     }
 }
