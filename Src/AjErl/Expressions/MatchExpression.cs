@@ -26,6 +26,9 @@
             object left = this.leftexpr.Evaluate(context);
             object right = this.rightexpr.Evaluate(context);
 
+            if (!Match.MatchObjects(left, right, context))
+                throw new Exception("Invalid Match");
+
             return null;
         }
 

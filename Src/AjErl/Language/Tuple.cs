@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class Tuple
+    public class Tuple : IElement
     {
         private IList<object> elements;
 
@@ -53,6 +53,19 @@
             builder.Append("}");
 
             return builder.ToString();
+        }
+
+        public Variable FirstVariable()
+        {
+            foreach (var element in this.elements)
+                if (element is IElement)
+                {
+                    var result = ((IElement)element).FirstVariable();
+                    if (result != null)
+                        return result;
+                }
+
+            return null;
         }
     }
 }

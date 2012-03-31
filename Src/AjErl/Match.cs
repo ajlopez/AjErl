@@ -39,6 +39,12 @@
                 else
                     return false;
 
+            if (obj1 is Tuple)
+                if (obj2 is Tuple)
+                    return ((Tuple)obj1).Match((Tuple)obj2, context);
+                else
+                    return false;
+
             return false;
         }
     }

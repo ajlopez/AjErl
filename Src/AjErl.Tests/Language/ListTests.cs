@@ -149,6 +149,25 @@ namespace AjErl.Tests.Language
             Assert.AreEqual(list2.Head, context.GetValue("H"));
             Assert.AreEqual(list2.Tail, context.GetValue("T"));
         }
+
+        [TestMethod]
+        public void FirstVariable()
+        {
+            List list = new List(new Variable("H"), new Variable("T"));
+            var result = list.FirstVariable();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("H", result.Name);
+        }
+
+        [TestMethod]
+        public void NoVariable()
+        {
+            List list = new List(1, 2);
+            var result = list.FirstVariable();
+
+            Assert.IsNull(result);
+        }
     }
 }
 

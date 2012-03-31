@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class List
+    public class List : IElement
     {
         private object head;
         private object tail;
@@ -59,6 +59,23 @@
             builder.Append("]");
 
             return builder.ToString();
+        }
+
+        public Variable FirstVariable()
+        {
+            Variable result = null;
+
+            if (this.head is IElement)
+            {
+                result = (Variable)this.head;
+                if (result != null)
+                    return result;
+            }
+
+            if (this.tail is IElement) 
+                result = ((IElement)this.tail).FirstVariable();
+
+            return result;
         }
     }
 }

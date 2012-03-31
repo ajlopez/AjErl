@@ -106,6 +106,25 @@ namespace AjErl.Tests.Language
         }
 
         [TestMethod]
+        public void FirstVariable()
+        {
+            Tuple tuple = new Tuple(new object[] { 1, new Variable("X"), 3 });
+            var result = tuple.FirstVariable();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("X", result.Name);
+        }
+
+        [TestMethod]
+        public void NoVariable()
+        {
+            Tuple tuple = new Tuple(new object[] { 1, 2, 3 });
+            var result = tuple.FirstVariable();
+
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
         public void TupleWithAtomToString()
         {
             Tuple tuple = new Tuple(new object[] { 1, new Atom("atom"), 3 });

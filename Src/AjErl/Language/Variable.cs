@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
 
-    public class Variable
+    public class Variable : IElement
     {
         private string name;
 
@@ -19,6 +19,11 @@
         public override string ToString()
         {
             return this.name;
+        }
+
+        public Variable FirstVariable()
+        {
+            return this;
         }
     }
 }
