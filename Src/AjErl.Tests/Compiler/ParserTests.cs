@@ -26,5 +26,21 @@ namespace AjErl.Tests.Compiler
 
             Assert.IsNull(parser.ParseExpression());
         }
+
+        [TestMethod]
+        public void ParseAtom()
+        {
+            Parser parser = new Parser("ok.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(AtomExpression));
+
+            AtomExpression varexpression = (AtomExpression)expression;
+            Assert.AreEqual("ok", varexpression.Atom.Name);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
     }
 }

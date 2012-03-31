@@ -24,17 +24,21 @@ using AjErl.Expressions;
         public IExpression ParseExpression()
         {
             Token token = this.NextToken();
+            IExpression expression = null;
 
             if (token == null)
                 return null;
 
             if (token.Type == TokenType.Variable)
-            {
-                this.ParsePoint();
-                return new VariableExpression(new Variable(token.Value));
-            }
+                expression = new VariableExpression(new Variable(token.Value));
+            else if (token.Type == TokenType.Atom)
+                expression = new AtomExpression(new Atom(token.Value));
+            else
+                throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
 
-            throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+            this.ParsePoint();
+
+            return expression;
         }
 
         private Token NextToken()
