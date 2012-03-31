@@ -81,5 +81,37 @@ namespace AjErl.Tests.Compiler
             Assert.AreEqual(TokenType.Separator, token.Type);
             Assert.AreEqual(".", token.Value);
         }
+
+        [TestMethod]
+        public void GetSimpleMatch()
+        {
+            Lexer lexer = new Lexer("X=ok.");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Variable, token.Type);
+            Assert.AreEqual("X", token.Value);
+
+            token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+            Assert.AreEqual("=", token.Value);
+
+            token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Atom, token.Type);
+            Assert.AreEqual("ok", token.Value);
+
+            token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Separator, token.Type);
+            Assert.AreEqual(".", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
     }
 }

@@ -11,6 +11,7 @@
         private static string operators = "=";
         private static string separators = ".";
         private TextReader reader;
+        private Stack<int> chars = new Stack<int>();
 
         public Lexer(string text)
             : this(new StringReader(text))
@@ -36,12 +37,15 @@
 
             string name = string.Empty;
 
-            while (ich != -1 && !char.IsWhiteSpace((char) ich))
+            while (ich != -1 && IsNameChar((char) ich))
             {
                 char ch = (char)ich;
                 name += ch;
                 ich = this.NextChar();
             }
+
+            if (ich != -1)
+                this.PushChar(ich);
 
             if (char.IsUpper(name[0]) || name[0] == '_')
                 return new Token(name, TokenType.Variable);
@@ -51,6 +55,9 @@
 
         private int NextChar()
         {
+            if (this.chars.Count > 0)
+                return this.chars.Pop();
+
             return this.reader.Read();
         }
 
@@ -62,6 +69,19 @@
                 ich = this.NextChar();
 
             return ich;
+        }
+
+        private void PushChar(int ich)
+        {
+            this.chars.Push(ich);
+        }
+
+        private static bool IsNameChar(char ch)
+        {
+            if (char.IsLetterOrDigit(ch) || ch == '_')
+                return true;
+
+            return false;
         }
     }
 }
