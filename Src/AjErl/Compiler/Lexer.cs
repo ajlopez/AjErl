@@ -36,6 +36,9 @@
                 ich = this.NextChar();
             }
 
+            if (char.IsUpper(name[0]))
+                return new Token(name, TokenType.Variable);
+
             return new Token(name, TokenType.Atom);
         }
 
