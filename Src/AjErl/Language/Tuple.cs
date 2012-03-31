@@ -21,18 +21,19 @@
             return this.elements[position];
         }
 
-        public Context Match(Tuple tuple, Context context)
+        public bool Match(Tuple tuple, Context context)
         {
             if (tuple == null)
-                return null;
+                return false;
 
             if (tuple.Arity != this.Arity)
-                return null;
+                return false;
 
             for (int k = 0; k < this.elements.Count && context != null; k++)
-                context = AjErl.Match.MatchObjects(this.elements[k], tuple.ElementAt(k), context);
+                if (!AjErl.Match.MatchObjects(this.elements[k], tuple.ElementAt(k), context))
+                    return false;
 
-            return context;
+            return true;
         }
 
         public override string ToString()

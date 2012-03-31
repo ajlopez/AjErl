@@ -25,7 +25,7 @@ namespace AjErl.Tests.Language
             List list = new List(1, 2);
             Context context = new Context();
 
-            Assert.IsNull(list.Match(null, context));
+            Assert.IsFalse(list.Match(null, context));
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace AjErl.Tests.Language
             List list = new List(1, 2);
             Context context = new Context();
 
-            Assert.AreEqual(context, list.Match(list, context));
+            Assert.IsTrue(list.Match(list, context));
         }
 
         [TestMethod]
@@ -44,8 +44,8 @@ namespace AjErl.Tests.Language
             List list2 = new List(1, 2);
             Context context = new Context();
 
-            Assert.AreEqual(context, list.Match(list2, context));
-            Assert.AreEqual(context, list2.Match(list, context));
+            Assert.IsTrue(list.Match(list2, context));
+            Assert.IsTrue(list2.Match(list, context));
         }
 
         [TestMethod]
@@ -55,8 +55,8 @@ namespace AjErl.Tests.Language
             List list2 = new List(1, 2);
             Context context = new Context();
 
-            Assert.IsNull(list.Match(list2, context));
-            Assert.IsNull(list2.Match(list, context));
+            Assert.IsFalse(list.Match(list2, context));
+            Assert.IsFalse(list2.Match(list, context));
         }
 
         [TestMethod]
@@ -66,8 +66,8 @@ namespace AjErl.Tests.Language
             List list2 = new List(1, 2);
             Context context = new Context();
 
-            Assert.IsNull(list.Match(list2, context));
-            Assert.IsNull(list2.Match(list, context));
+            Assert.IsFalse(list.Match(list2, context));
+            Assert.IsFalse(list2.Match(list, context));
         }
 
         [TestMethod]
@@ -77,8 +77,8 @@ namespace AjErl.Tests.Language
             List list2 = new List(1, new List(2, 3));
             Context context = new Context();
 
-            Assert.AreEqual(context, list.Match(list2, context));
-            Assert.AreEqual(context, list2.Match(list, context));
+            Assert.IsTrue(list.Match(list2, context));
+            Assert.IsTrue(list2.Match(list, context));
         }
 
         [TestMethod]
@@ -88,8 +88,8 @@ namespace AjErl.Tests.Language
             List list2 = new List(1, new List(2, 3));
             Context context = new Context();
 
-            Assert.IsNull(list.Match(list2, context));
-            Assert.IsNull(list2.Match(list, context));
+            Assert.IsFalse(list.Match(list2, context));
+            Assert.IsFalse(list2.Match(list, context));
         }
 
         [TestMethod]
@@ -123,17 +123,13 @@ namespace AjErl.Tests.Language
             List list2 = new List(1, new List(2, 3));
             Context context = new Context();
 
-            var result = list.Match(list2, context);
+            Assert.IsTrue(list.Match(list2, context));
 
-            Assert.IsNotNull(result);
-            Assert.AreNotEqual(context, result);
-            Assert.AreEqual(list2.Tail, result.GetValue("X"));
+            Assert.AreEqual(list2.Tail, context.GetValue("X"));
 
-            var result2 = list2.Match(list, context);
+            Assert.IsTrue(list2.Match(list, context));
 
-            Assert.IsNotNull(result2);
-            Assert.AreNotEqual(context, result2);
-            Assert.AreEqual(list2.Tail, result2.GetValue("X"));
+            Assert.AreEqual(list2.Tail, context.GetValue("X"));
         }
 
         [TestMethod]
@@ -143,19 +139,15 @@ namespace AjErl.Tests.Language
             List list2 = new List(1, new List(2, 3));
             Context context = new Context();
 
-            var result = list.Match(list2, context);
+            Assert.IsTrue(list.Match(list2, context));
 
-            Assert.IsNotNull(result);
-            Assert.AreNotEqual(context, result);
-            Assert.AreEqual(list2.Head, result.GetValue("H"));
-            Assert.AreEqual(list2.Tail, result.GetValue("T"));
+            Assert.AreEqual(list2.Head, context.GetValue("H"));
+            Assert.AreEqual(list2.Tail, context.GetValue("T"));
 
-            var result2 = list2.Match(list, context);
+            Assert.IsTrue(list2.Match(list, context));
 
-            Assert.IsNotNull(result2);
-            Assert.AreNotEqual(context, result2);
-            Assert.AreEqual(list2.Head, result2.GetValue("H"));
-            Assert.AreEqual(list2.Tail, result2.GetValue("T"));
+            Assert.AreEqual(list2.Head, context.GetValue("H"));
+            Assert.AreEqual(list2.Tail, context.GetValue("T"));
         }
     }
 }

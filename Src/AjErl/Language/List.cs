@@ -20,17 +20,17 @@
 
         public object Tail { get { return this.tail; } }
 
-        public Context Match(List list, Context context)
+        public bool Match(List list, Context context)
         {
             if (list == null)
-                return null;
+                return false;
 
             var result = AjErl.Match.MatchObjects(this.head, list.Head, context);
 
-            if (result == null)
-                return null;
+            if (!result)
+                return false;
 
-            return AjErl.Match.MatchObjects(this.tail, list.Tail, result);
+            return AjErl.Match.MatchObjects(this.tail, list.Tail, context);
         }
 
         public override string ToString()
