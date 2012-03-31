@@ -9,6 +9,7 @@
     public class Lexer
     {
         private static string operators = "=";
+        private static string separators = ".";
         private TextReader reader;
 
         public Lexer(string text)
@@ -30,6 +31,8 @@
 
             if (operators.Contains((char)ich))
                 return new Token(((char)ich).ToString(), TokenType.Operator);
+            if (separators.Contains((char)ich))
+                return new Token(((char)ich).ToString(), TokenType.Separator);
 
             string name = string.Empty;
 
@@ -40,7 +43,7 @@
                 ich = this.NextChar();
             }
 
-            if (char.IsUpper(name[0]))
+            if (char.IsUpper(name[0]) || name[0] == '_')
                 return new Token(name, TokenType.Variable);
 
             return new Token(name, TokenType.Atom);
