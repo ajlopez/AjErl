@@ -21,7 +21,7 @@
 
             if (obj1 is Variable && !(obj2 is Variable))
             {
-                Variable variable = (Variable) obj1;
+                Variable variable = (Variable)obj1;
                 context.SetValue(variable.Name, obj2);
                 return true;
             }

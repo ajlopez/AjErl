@@ -1,13 +1,13 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AjErl.Language;
-using AjErl.Expressions;
-
-namespace AjErl.Tests.Expressions
+﻿namespace AjErl.Tests.Expressions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using AjErl.Expressions;
+    using AjErl.Language;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class AtomExpressionTests
     {

@@ -2,9 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
-    using System.IO;
 
     public class Lexer
     {
@@ -37,7 +37,7 @@
 
             string name = string.Empty;
 
-            while (ich != -1 && IsNameChar((char) ich))
+            while (ich != -1 && IsNameChar((char)ich))
             {
                 char ch = (char)ich;
                 name += ch;
@@ -51,6 +51,14 @@
                 return new Token(name, TokenType.Variable);
 
             return new Token(name, TokenType.Atom);
+        }
+
+        private static bool IsNameChar(char ch)
+        {
+            if (char.IsLetterOrDigit(ch) || ch == '_')
+                return true;
+
+            return false;
         }
 
         private int NextChar()
@@ -74,14 +82,6 @@
         private void PushChar(int ich)
         {
             this.chars.Push(ich);
-        }
-
-        private static bool IsNameChar(char ch)
-        {
-            if (char.IsLetterOrDigit(ch) || ch == '_')
-                return true;
-
-            return false;
         }
     }
 }

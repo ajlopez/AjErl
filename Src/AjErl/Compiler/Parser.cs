@@ -37,13 +37,12 @@ using AjErl.Expressions;
             {
                 expression = new MatchExpression(expression, this.ParseSimpleExpression());
                 this.ParsePoint();
+                return expression;
             }
             else if (token.Type == TokenType.Separator && token.Value == ".")
-                ;
-            else
-                throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+                return expression;
 
-            return expression;
+            throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
         }
 
         private IExpression ParseSimpleExpression()
