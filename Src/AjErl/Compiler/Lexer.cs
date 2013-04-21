@@ -30,16 +30,21 @@
             if (ich == -1)
                 return null;
 
-            if (operators.Contains((char)ich))
-                return new Token(((char)ich).ToString(), TokenType.Operator);
-            if (separators.Contains((char)ich))
-                return new Token(((char)ich).ToString(), TokenType.Separator);
+            char ch = (char)ich;
+
+            if (operators.Contains(ch))
+                return new Token(ch.ToString(), TokenType.Operator);
+            if (separators.Contains(ch))
+                return new Token(ch.ToString(), TokenType.Separator);
+
+            if (char.IsDigit(ch))
+                return this.NextInteger(ch);
 
             string name = string.Empty;
 
             while (ich != -1 && IsNameChar((char)ich))
             {
-                char ch = (char)ich;
+                ch = (char)ich;
                 name += ch;
                 ich = this.NextChar();
             }
@@ -51,6 +56,19 @@
                 return new Token(name, TokenType.Variable);
 
             return new Token(name, TokenType.Atom);
+        }
+
+        private Token NextInteger(char ch)
+        {
+            string value = ch.ToString();
+            int ich;
+
+            for (ich = this.NextChar(); ich != -1 && char.IsDigit((char)ich); ich = this.NextChar())
+                value += (char)ich;
+
+            this.PushChar(ich);
+
+            return new Token(value, TokenType.Integer);
         }
 
         private static bool IsNameChar(char ch)

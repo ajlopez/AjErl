@@ -113,5 +113,19 @@
 
             Assert.IsNull(lexer.NextToken());
         }
+
+        [TestMethod]
+        public void GetInteger()
+        {
+            Lexer lexer = new Lexer("123");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Integer, token.Type);
+            Assert.AreEqual("123", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
     }
 }
