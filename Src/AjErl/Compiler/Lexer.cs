@@ -40,6 +40,9 @@
             if (char.IsDigit(ch))
                 return this.NextInteger(ch);
 
+            if (ch == '"')
+                return this.NextString();
+
             string name = string.Empty;
 
             while (ich != -1 && IsNameChar((char)ich))
@@ -69,6 +72,20 @@
             this.PushChar(ich);
 
             return new Token(value, TokenType.Integer);
+        }
+
+        private Token NextString()
+        {
+            string value = string.Empty;
+            int ich;
+
+            for (ich = this.NextChar(); ich != -1 && (char)ich != '"'; ich = this.NextChar())
+                value += (char)ich;
+
+            if (ich == -1)
+                throw new ParserException("unclosed string");
+
+            return new Token(value, TokenType.String);
         }
 
         private static bool IsNameChar(char ch)
