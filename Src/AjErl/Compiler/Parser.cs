@@ -60,6 +60,8 @@
                 expression = new AtomExpression(new Atom(token.Value));
             else if (token.Type == TokenType.Integer)
                 expression = new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
+            else if (token.Type == TokenType.String)
+                expression = new ConstantExpression(token.Value);
             else
                 throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
 
