@@ -51,7 +51,7 @@
 
         private static bool IsNameChar(char ch)
         {
-            if (char.IsLetterOrDigit(ch) || ch == '_')
+            if (char.IsLetterOrDigit(ch) || ch == '_' || ch == '@')
                 return true;
 
             return false;

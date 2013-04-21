@@ -35,6 +35,30 @@
         }
 
         [TestMethod]
+        public void GetAtomWithUnderscore()
+        {
+            Lexer lexer = new Lexer("is_ok");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Atom, token.Type);
+            Assert.AreEqual("is_ok", token.Value);
+        }
+
+        [TestMethod]
+        public void GetAtomWithAt()
+        {
+            Lexer lexer = new Lexer("joe@somehost");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Atom, token.Type);
+            Assert.AreEqual("joe@somehost", token.Value);
+        }
+
+        [TestMethod]
         public void GetVariable()
         {
             Lexer lexer = new Lexer("X");
