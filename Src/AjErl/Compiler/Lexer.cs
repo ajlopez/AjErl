@@ -43,22 +43,32 @@
             if (ch == '"')
                 return this.NextString();
 
-            string name = string.Empty;
+            if (IsNameChar(ch))
+                return this.NextName(ch);
 
-            while (ich != -1 && IsNameChar((char)ich))
-            {
-                ch = (char)ich;
-                name += ch;
-                ich = this.NextChar();
-            }
+            throw new ParserException(string.Format("unexpected '{0}'", ch));
+        }
 
-            if (ich != -1)
-                this.PushChar(ich);
+        private static bool IsNameChar(char ch)
+        {
+            if (char.IsLetterOrDigit(ch) || ch == '_')
+                return true;
 
-            if (char.IsUpper(name[0]) || name[0] == '_')
-                return new Token(name, TokenType.Variable);
+            return false;
+        }
 
-            return new Token(name, TokenType.Atom);
+        private Token NextName(char ch)
+        {
+            string value = ch.ToString();
+            TokenType type = char.IsUpper(ch) || ch == '_' ? TokenType.Variable : TokenType.Atom;
+            int ich;
+
+            for (ich = this.NextChar(); ich != -1 && IsNameChar((char)ich); ich = this.NextChar())
+                value += (char)ich;
+
+            this.PushChar(ich);
+
+            return new Token(value, type);
         }
 
         private Token NextInteger(char ch)
@@ -86,14 +96,6 @@
                 throw new ParserException("unclosed string");
 
             return new Token(value, TokenType.String);
-        }
-
-        private static bool IsNameChar(char ch)
-        {
-            if (char.IsLetterOrDigit(ch) || ch == '_')
-                return true;
-
-            return false;
         }
 
         private int NextChar()
