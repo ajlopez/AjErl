@@ -2,9 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Text;
-using AjErl.Expressions;
+    using AjErl.Expressions;
     using AjErl.Language;
 
     public class Parser
@@ -57,6 +58,8 @@ using AjErl.Expressions;
                 expression = new VariableExpression(new Variable(token.Value));
             else if (token.Type == TokenType.Atom)
                 expression = new AtomExpression(new Atom(token.Value));
+            else if (token.Type == TokenType.Integer)
+                expression = new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
             else
                 throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
 
