@@ -100,6 +100,17 @@
 
         private int NextChar()
         {
+            int ich = this.NextSimpleChar();
+
+            if (ich >= 0 && (char)ich == '%')
+                for (ich = this.NextSimpleChar(); ich != -1 && (char)ich != '\n';)
+                    ich = this.NextSimpleChar();
+
+            return ich;
+        }
+
+        private int NextSimpleChar()
+        {
             if (this.chars.Count > 0)
                 return this.chars.Pop();
 

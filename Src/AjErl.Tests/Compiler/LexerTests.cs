@@ -20,6 +20,36 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Atom, token.Type);
             Assert.AreEqual("ok", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void SkipCommentAndGetAtom()
+        {
+            Lexer lexer = new Lexer("% this is a comment\nok");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Atom, token.Type);
+            Assert.AreEqual("ok", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetAtomAndSkipComment()
+        {
+            Lexer lexer = new Lexer("ok % this is a comment");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Atom, token.Type);
+            Assert.AreEqual("ok", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
         }
 
         [TestMethod]
@@ -32,6 +62,8 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Atom, token.Type);
             Assert.AreEqual("ok", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
         }
 
         [TestMethod]
@@ -44,6 +76,8 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Atom, token.Type);
             Assert.AreEqual("is_ok", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
         }
 
         [TestMethod]
@@ -56,6 +90,8 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Atom, token.Type);
             Assert.AreEqual("joe@somehost", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
         }
 
         [TestMethod]
@@ -68,6 +104,8 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Variable, token.Type);
             Assert.AreEqual("X", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
         }
 
         [TestMethod]
@@ -80,6 +118,8 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Variable, token.Type);
             Assert.AreEqual("_ok", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
         }
 
         [TestMethod]
@@ -92,6 +132,8 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Operator, token.Type);
             Assert.AreEqual("=", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
         }
 
         [TestMethod]
@@ -104,6 +146,8 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Separator, token.Type);
             Assert.AreEqual(".", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
         }
 
         [TestMethod]
