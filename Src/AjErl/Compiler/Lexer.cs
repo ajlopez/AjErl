@@ -79,9 +79,32 @@
             for (ich = this.NextChar(); ich != -1 && char.IsDigit((char)ich); ich = this.NextChar())
                 value += (char)ich;
 
+            if (ich != -1 && (char)ich == '.')
+                return this.NextReal(value);
+
             this.PushChar(ich);
 
             return new Token(value, TokenType.Integer);
+        }
+
+        private Token NextReal(string integer)
+        {
+            string value = integer + ".";
+
+            int ich;
+
+            for (ich = this.NextChar(); ich != -1 && char.IsDigit((char)ich); ich = this.NextChar())
+                value += (char)ich;
+
+            this.PushChar(ich);
+
+            if (value.EndsWith("."))
+            {
+                this.PushChar('.');
+                return new Token(value.Substring(0, value.Length - 1), TokenType.Integer);
+            }
+
+            return new Token(value, TokenType.Real);
         }
 
         private Token NextString()

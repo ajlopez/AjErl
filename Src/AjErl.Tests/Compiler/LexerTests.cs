@@ -211,6 +211,20 @@
         }
 
         [TestMethod]
+        public void GetReal()
+        {
+            Lexer lexer = new Lexer("123.45");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Real, token.Type);
+            Assert.AreEqual("123.45", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetString()
         {
             Lexer lexer = new Lexer("\"foo\"");
