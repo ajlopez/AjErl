@@ -10,6 +10,14 @@
         private object head;
         private object tail;
 
+        public static List MakeList(IList<object> elements) 
+        {
+            if (elements.Count == 0)
+                return null;
+
+            return new List(elements[0], MakeList(elements.Skip(1).ToList()));
+        }
+
         public List(object head, object tail)
         {
             this.head = head;
