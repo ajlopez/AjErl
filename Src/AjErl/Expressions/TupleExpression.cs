@@ -15,6 +15,8 @@
             this.expressions = new System.Collections.Generic.List<IExpression>(expressions);
         }
 
+        public IList<IExpression> Expressions { get { return this.expressions; } }
+
         public object Evaluate(Context context)
         {
             IList<object> elements = new List<object>();

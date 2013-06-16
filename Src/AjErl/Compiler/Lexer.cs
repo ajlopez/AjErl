@@ -9,9 +9,10 @@
     public class Lexer
     {
         private static string operators = "=";
-        private static string separators = ".{}";
+        private static string separators = ".,{}";
         private TextReader reader;
         private Stack<int> chars = new Stack<int>();
+        private Stack<Token> tokens = new Stack<Token>();
 
         public Lexer(string text)
             : this(new StringReader(text))
@@ -25,6 +26,9 @@
 
         public Token NextToken()
         {
+            if (this.tokens.Count > 0)
+                return this.tokens.Pop();
+
             int ich = this.NextCharSkippingWhiteSpaces();
 
             if (ich == -1)
@@ -47,6 +51,11 @@
                 return this.NextName(ch);
 
             throw new ParserException(string.Format("unexpected '{0}'", ch));
+        }
+
+        public void PushToken(Token token)
+        {
+            this.tokens.Push(token);
         }
 
         private static bool IsNameChar(char ch)

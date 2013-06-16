@@ -151,6 +151,20 @@
         }
 
         [TestMethod]
+        public void GetCommaAsOperator()
+        {
+            Lexer lexer = new Lexer(",");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Separator, token.Type);
+            Assert.AreEqual(",", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetSimpleMatch()
         {
             Lexer lexer = new Lexer("X=ok.");

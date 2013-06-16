@@ -62,15 +62,56 @@
                 expression = new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
             else if (token.Type == TokenType.String)
                 expression = new ConstantExpression(token.Value);
+            else if (token.Type == TokenType.Separator && token.Value == "{")
+            {
+                var expressions = this.ParseExpressionList();
+                this.ParseToken(TokenType.Separator, "}");
+                expression = new TupleExpression(expressions);
+            }
             else
-                throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+                this.PushToken(token);
 
             return expression;
+        }
+
+        private IList<IExpression> ParseExpressionList()
+        {
+            List<IExpression> expressions = new List<IExpression>();
+
+            for (IExpression expr = this.ParseSimpleExpression(); expr != null; expr = this.ParseSimpleExpression())
+            {
+                expressions.Add(expr);
+
+                Token token = this.NextToken();
+
+                if (token != null && token.Type == TokenType.Separator && token.Value == ",")
+                    continue;
+
+                if (token != null)
+                    this.PushToken(token);
+
+                break;
+            }
+
+            return expressions;
         }
 
         private Token NextToken()
         {
             return this.lexer.NextToken();
+        }
+
+        private void PushToken(Token token)
+        {
+            this.lexer.PushToken(token);
+        }
+
+        private void ParseToken(TokenType type, string value)
+        {
+            Token token = this.NextToken();
+
+            if (token == null || token.Type != type || token.Value != value)
+                throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
         }
 
         private void ParsePoint()
