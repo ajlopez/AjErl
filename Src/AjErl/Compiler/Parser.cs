@@ -67,6 +67,12 @@
                 this.ParseToken(TokenType.Separator, "}");
                 expression = new TupleExpression(expressions);
             }
+            else if (token.Type == TokenType.Separator && token.Value == "[")
+            {
+                var expressions = this.ParseExpressionList();
+                this.ParseToken(TokenType.Separator, "]");
+                expression = new ListExpression(expressions);
+            }
             else
                 this.PushToken(token);
 

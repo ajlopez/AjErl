@@ -95,6 +95,26 @@
         }
 
         [TestMethod]
+        public void ParseList()
+        {
+            Parser parser = new Parser("[1,2,3].");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(ListExpression));
+
+            ListExpression listexpression = (ListExpression)expression;
+            Assert.IsNotNull(listexpression.Expressions);
+            Assert.AreEqual(3, listexpression.Expressions.Count);
+
+            foreach (var expr in listexpression.Expressions)
+                Assert.IsInstanceOfType(expr, typeof(ConstantExpression));
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
         public void ParseTuple()
         {
             Parser parser = new Parser("{1,2,3}.");
