@@ -113,5 +113,107 @@
 
             Assert.IsNull(parser.ParseExpression());
         }
+
+        [TestMethod]
+        public void ParseEmptyTuple()
+        {
+            Parser parser = new Parser("{}.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(TupleExpression));
+
+            TupleExpression tupleexpression = (TupleExpression)expression;
+            Assert.IsNotNull(tupleexpression.Expressions);
+            Assert.AreEqual(0, tupleexpression.Expressions.Count);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseUnaryTuple()
+        {
+            Parser parser = new Parser("{1}.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(TupleExpression));
+
+            TupleExpression tupleexpression = (TupleExpression)expression;
+            Assert.IsNotNull(tupleexpression.Expressions);
+            Assert.AreEqual(1, tupleexpression.Expressions.Count);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ThrowIfUnexpectedComma()
+        {
+            Parser parser = new Parser(",");
+
+            try
+            {
+                parser.ParseExpression();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Unexpected ','", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void ThrowIfNoPoint()
+        {
+            Parser parser = new Parser("1");
+
+            try
+            {
+                parser.ParseExpression();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Expected '.'", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void ThrowIfTupleIsNotClosed()
+        {
+            Parser parser = new Parser("{1,2");
+
+            try
+            {
+                parser.ParseExpression();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Expected '}'", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void ThrowIfTupleHasUnexpectedPoint()
+        {
+            Parser parser = new Parser("{1,2,.");
+
+            try
+            {
+                parser.ParseExpression();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Unexpected '.'", ex.Message);
+            }
+        }
     }
 }

@@ -26,24 +26,23 @@
         {
             IExpression expression = this.ParseSimpleExpression();
 
-            if (expression == null)
-                return null;
-
             Token token = this.NextToken();
 
-            if (token == null)
-                return expression;
+            if (expression == null && token == null)
+                return null;
 
-            if (token.Type == TokenType.Operator && token.Value == "=")
+            if (token != null && token.Type == TokenType.Operator && token.Value == "=")
             {
                 expression = new MatchExpression(expression, this.ParseSimpleExpression());
                 this.ParsePoint();
                 return expression;
             }
-            else if (token.Type == TokenType.Separator && token.Value == ".")
-                return expression;
+            else
+                this.PushToken(token);
 
-            throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+            this.ParsePoint();
+
+            return expression;
         }
 
         private IExpression ParseSimpleExpression()
@@ -110,7 +109,10 @@
         {
             Token token = this.NextToken();
 
-            if (token == null || token.Type != type || token.Value != value)
+            if (token == null)
+                throw new ParserException(string.Format("Expected '{0}'", value));
+
+            if (token.Type != type || token.Value != value)
                 throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
         }
 
@@ -118,7 +120,10 @@
         {
             Token token = this.NextToken();
 
-            if (token == null || token.Type != TokenType.Separator || token.Value != ".")
+            if (token == null)
+                throw new ParserException("Expected '.'");
+
+            if (token.Type != TokenType.Separator || token.Value != ".")
                 throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
         }
     }
