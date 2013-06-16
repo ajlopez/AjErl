@@ -44,6 +44,7 @@
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
     <Compile Include="Expressions\AtomExpressionTests.cs" />
     <Compile Include="Expressions\MatchExpressionTests.cs" />
+    <Compile Include="Expressions\TupleExpressionTests.cs" />
     <Compile Include="Expressions\VariableExpressionTests.cs" />
     <Compile Include="Language\AtomTests.cs" />
     <Compile Include="Language\ListTests.cs" />

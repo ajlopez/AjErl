@@ -135,9 +135,6 @@
     <milliseconds>586</milliseconds>
     <violations />
   </sourcecode>
-  <project key="2025632572">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -163,6 +160,18 @@
     </settings>
     <timestamp>04/22/2013 07:33:24</timestamp>
     <milliseconds>959</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="2025632572">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="TupleExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>06/16/2013 16:16:23</timestamp>
+    <milliseconds>454</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>

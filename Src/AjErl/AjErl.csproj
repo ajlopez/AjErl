@@ -55,6 +55,7 @@
     <Compile Include="Expressions\AtomExpression.cs" />
     <Compile Include="Expressions\MatchExpression.cs" />
     <Compile Include="Expressions\IExpression.cs" />
+    <Compile Include="Expressions\TupleExpression.cs" />
     <Compile Include="Expressions\VariableExpression.cs" />
     <Compile Include="Language\Atom.cs" />
     <Compile Include="Language\IElement.cs" />
