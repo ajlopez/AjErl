@@ -67,7 +67,7 @@
 
             if (this.head is IElement)
             {
-                result = (Variable)this.head;
+                result = ((IElement)this.head).FirstVariable();
                 if (result != null)
                     return result;
             }

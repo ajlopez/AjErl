@@ -161,6 +161,16 @@
         }
 
         [TestMethod]
+        public void FirstVariableInTail()
+        {
+            List list = new List(new Tuple(new object[] { new Atom("h") }), new Variable("T"));
+            var result = list.FirstVariable();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("T", result.Name);
+        }
+
+        [TestMethod]
         public void NoVariable()
         {
             List list = new List(1, 2);

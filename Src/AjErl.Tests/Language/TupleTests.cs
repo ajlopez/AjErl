@@ -116,6 +116,16 @@
         }
 
         [TestMethod]
+        public void FirstVariableWithNestedTuple()
+        {
+            Tuple tuple = new Tuple(new object[] { new Tuple(new object[] { 1, 2, 3}), new Variable("X"), 3 });
+            var result = tuple.FirstVariable();
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("X", result.Name);
+        }
+
+        [TestMethod]
         public void NoVariable()
         {
             Tuple tuple = new Tuple(new object[] { 1, 2, 3 });
