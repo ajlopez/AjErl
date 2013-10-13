@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjErl", "AjErl\AjErl.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BBC01B57-6B47-4D75-A606-387CFB6B0D66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AjErl.Console", "AjErl.Console\AjErl.Console.csproj", "{B49CFE4A-4A38-48F6-9E6B-E71C43D349FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0B3A5C01-8095-4333-A397-0BFA89CDFFC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B3A5C01-8095-4333-A397-0BFA89CDFFC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B3A5C01-8095-4333-A397-0BFA89CDFFC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B49CFE4A-4A38-48F6-9E6B-E71C43D349FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49CFE4A-4A38-48F6-9E6B-E71C43D349FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49CFE4A-4A38-48F6-9E6B-E71C43D349FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49CFE4A-4A38-48F6-9E6B-E71C43D349FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

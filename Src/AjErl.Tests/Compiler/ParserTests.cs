@@ -169,6 +169,25 @@
         }
 
         [TestMethod]
+        public void ParseMatchVariableWithInteger()
+        {
+            Parser parser = new Parser("X=1.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(MatchExpression));
+
+            MatchExpression matchexpression = (MatchExpression)expression;
+            Assert.IsNotNull(matchexpression.LeftExpression);
+            Assert.IsInstanceOfType(matchexpression.LeftExpression, typeof(VariableExpression));
+            Assert.IsNotNull(matchexpression.RightExpression);
+            Assert.IsInstanceOfType(matchexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
         public void ThrowIfUnexpectedComma()
         {
             Parser parser = new Parser(",");
