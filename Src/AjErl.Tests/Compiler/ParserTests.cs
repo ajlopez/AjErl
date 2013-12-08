@@ -273,5 +273,88 @@
             Assert.AreEqual(10, ((ConstantExpression)addexpression.LeftExpression).Value);
             Assert.AreEqual(20, ((ConstantExpression)addexpression.RightExpression).Value);
         }
+
+        [TestMethod]
+        public void ParseSimpleSubtract()
+        {
+            Parser parser = new Parser("10-20.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(SubtractExpression));
+
+            SubtractExpression subtractexpression = (SubtractExpression)expression;
+
+            Assert.IsInstanceOfType(subtractexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.IsInstanceOfType(subtractexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.AreEqual(10, ((ConstantExpression)subtractexpression.LeftExpression).Value);
+            Assert.AreEqual(20, ((ConstantExpression)subtractexpression.RightExpression).Value);
+        }
+
+        [TestMethod]
+        public void ParseSimpleMultiply()
+        {
+            Parser parser = new Parser("10*20.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(MultiplyExpression));
+
+            MultiplyExpression multiplyexpression = (MultiplyExpression)expression;
+
+            Assert.IsInstanceOfType(multiplyexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.IsInstanceOfType(multiplyexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.AreEqual(10, ((ConstantExpression)multiplyexpression.LeftExpression).Value);
+            Assert.AreEqual(20, ((ConstantExpression)multiplyexpression.RightExpression).Value);
+        }
+
+        [TestMethod]
+        public void ParseSimpleDivide()
+        {
+            Parser parser = new Parser("10/20.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(DivideExpression));
+
+            DivideExpression divideexpression = (DivideExpression)expression;
+
+            Assert.IsInstanceOfType(divideexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.IsInstanceOfType(divideexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.AreEqual(10, ((ConstantExpression)divideexpression.LeftExpression).Value);
+            Assert.AreEqual(20, ((ConstantExpression)divideexpression.RightExpression).Value);
+        }
+
+        [TestMethod]
+        public void ParseAddMultiply()
+        {
+            Parser parser = new Parser("2+3*4.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(AddExpression));
+
+            AddExpression addexpression = (AddExpression)expression;
+
+            Assert.IsInstanceOfType(addexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.AreEqual(2, ((ConstantExpression)addexpression.LeftExpression).Value);
+
+            Assert.IsInstanceOfType(addexpression.RightExpression, typeof(MultiplyExpression));
+
+            MultiplyExpression multiplyexpression = (MultiplyExpression)addexpression.RightExpression;
+
+            Assert.IsInstanceOfType(multiplyexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.IsInstanceOfType(multiplyexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.AreEqual(3, ((ConstantExpression)multiplyexpression.LeftExpression).Value);
+            Assert.AreEqual(4, ((ConstantExpression)multiplyexpression.RightExpression).Value);
+        }
     }
 }
