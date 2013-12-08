@@ -24,7 +24,7 @@
 
         public IExpression ParseExpression()
         {
-            IExpression expression = this.ParseSimpleExpression();
+            IExpression expression = this.ParseBinaryExpression();
 
             Token token = this.NextToken();
 
@@ -33,7 +33,7 @@
 
             if (token != null && token.Type == TokenType.Operator && token.Value == "=")
             {
-                expression = new MatchExpression(expression, this.ParseSimpleExpression());
+                expression = new MatchExpression(expression, this.ParseBinaryExpression());
                 this.ParsePoint();
                 return expression;
             }
@@ -41,6 +41,23 @@
                 this.PushToken(token);
 
             this.ParsePoint();
+
+            return expression;
+        }
+
+        private IExpression ParseBinaryExpression()
+        {
+            IExpression expression = this.ParseSimpleExpression();
+
+            if (expression == null)
+                return null;
+
+            Token token;
+
+            for (token = this.NextToken(); token != null && token.Type == TokenType.Operator && token.Value == "+"; token = this.NextToken())
+                expression = new AddExpression(expression, this.ParseSimpleExpression());
+
+            this.PushToken(token);
 
             return expression;
         }

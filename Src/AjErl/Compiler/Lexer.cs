@@ -8,7 +8,7 @@
 
     public class Lexer
     {
-        private static string operators = "=";
+        private static string operators = "=+";
         private static string separators = ".,{}[]";
         private TextReader reader;
         private Stack<int> chars = new Stack<int>();

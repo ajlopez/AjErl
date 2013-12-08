@@ -254,5 +254,24 @@
                 Assert.AreEqual("Unexpected '.'", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void ParseSimpleAdd()
+        {
+            Parser parser = new Parser("10+20.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(AddExpression));
+
+            AddExpression addexpression = (AddExpression)expression;
+
+            Assert.IsInstanceOfType(addexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.IsInstanceOfType(addexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.AreEqual(10, ((ConstantExpression)addexpression.LeftExpression).Value);
+            Assert.AreEqual(20, ((ConstantExpression)addexpression.RightExpression).Value);
+        }
     }
 }

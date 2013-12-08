@@ -137,6 +137,20 @@
         }
 
         [TestMethod]
+        public void GetPlusAsOperator()
+        {
+            Lexer lexer = new Lexer("+");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+            Assert.AreEqual("+", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetPointAsOperator()
         {
             Lexer lexer = new Lexer(".");
