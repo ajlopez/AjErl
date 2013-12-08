@@ -16,6 +16,7 @@
             AddExpression expr = new AddExpression(new ConstantExpression(1), new ConstantExpression(2));
 
             Assert.AreEqual(3, expr.Evaluate(null));
+            Assert.IsFalse(expr.HasVariable());
         }
 
         [TestMethod]

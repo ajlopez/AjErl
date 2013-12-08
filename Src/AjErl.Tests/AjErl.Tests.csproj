@@ -66,8 +66,11 @@
     <Compile Include="Expressions\AddExpressionTests.cs" />
     <Compile Include="Expressions\ConstantExpressionTests.cs" />
     <Compile Include="Expressions\AtomExpressionTests.cs" />
+    <Compile Include="Expressions\DivideExpressionTests.cs" />
     <Compile Include="Expressions\ListExpressionTests.cs" />
     <Compile Include="Expressions\MatchExpressionTests.cs" />
+    <Compile Include="Expressions\MultiplyExpressionTests.cs" />
+    <Compile Include="Expressions\SubtractExpressionTests.cs" />
     <Compile Include="Expressions\TupleExpressionTests.cs" />
     <Compile Include="Expressions\VariableExpressionTests.cs" />
     <Compile Include="Language\AtomTests.cs" />
