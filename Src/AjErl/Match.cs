@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using AjErl.Expressions;
     using AjErl.Language;
 
     public class Match
@@ -15,6 +16,12 @@
                     return true;
                 else
                     return false;
+
+            if (obj1 is Variable)
+                obj1 = (new VariableExpression((Variable)obj1)).Evaluate(context, true);
+
+            if (obj2 is Variable)
+                obj2 = (new VariableExpression((Variable)obj2)).Evaluate(context, true);
 
             if (obj1.Equals(obj2))
                 return true;

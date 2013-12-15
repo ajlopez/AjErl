@@ -57,6 +57,25 @@
         }
 
         [TestMethod]
+        public void RaiseIfMatchBoundVariableWithInteger()
+        {
+            Context context = new Context();
+            Variable variable = new Variable("X");
+            context.SetValue("X", 1);
+            MatchExpression expr = new MatchExpression(new VariableExpression(variable), new ConstantExpression(123));
+
+            try {
+                expr.Evaluate(context);
+                Assert.Fail();
+            }
+            catch (Exception ex) 
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                Assert.AreEqual("invalid match", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void HasVariablesWithVariable()
         {
             Variable variable = new Variable("X");
@@ -83,6 +102,26 @@
             Assert.AreEqual(1, result1);
             Assert.IsNotNull(result2);
             Assert.AreEqual(2, result2);
+        }
+
+        [TestMethod]
+        public void RaiseIfMatchVariableInTupleWithTwoDifferentValues()
+        {
+            Context context = new Context();
+            Variable x = new Variable("X");
+
+            MatchExpression expr = new MatchExpression(new TupleExpression(new IExpression[] { new VariableExpression(x), new VariableExpression(x) }), new TupleExpression(new IExpression[] { new ConstantExpression(1), new ConstantExpression(2) }));
+
+            try
+            {
+                expr.Evaluate(context);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
+                Assert.AreEqual("invalid match", ex.Message);
+            }
         }
 
         [TestMethod]
