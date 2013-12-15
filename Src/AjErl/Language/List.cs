@@ -10,14 +10,6 @@
         private object head;
         private object tail;
 
-        public static List MakeList(IList<object> elements) 
-        {
-            if (elements.Count == 0)
-                return null;
-
-            return new List(elements[0], MakeList(elements.Skip(1).ToList()));
-        }
-
         public List(object head, object tail)
         {
             this.head = head;
@@ -27,6 +19,14 @@
         public object Head { get { return this.head; } }
 
         public object Tail { get { return this.tail; } }
+
+        public static List MakeList(IList<object> elements)
+        {
+            if (elements.Count == 0)
+                return null;
+
+            return new List(elements[0], MakeList(elements.Skip(1).ToList()));
+        }
 
         public bool Match(List list, Context context)
         {

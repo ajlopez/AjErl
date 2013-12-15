@@ -32,7 +32,7 @@
         {
             Context context = new Context();
             context.SetValue("X", 2);
-            var expr = new TupleExpression(new IExpression[] { new ConstantExpression(1), new VariableExpression(new Variable("X")), new AtomExpression(new Atom("y"))});
+            var expr = new TupleExpression(new IExpression[] { new ConstantExpression(1), new VariableExpression(new Variable("X")), new AtomExpression(new Atom("y")) });
 
             Assert.IsTrue(expr.HasVariable());
 
@@ -71,7 +71,7 @@
         public void RaiseIfTupleHasTupleWithVariable()
         {
             Context context = new Context();
-            var expr = new TupleExpression(new IExpression[] { new ConstantExpression(1), new TupleExpression( new IExpression[] { new VariableExpression(new Variable("X")) }), new AtomExpression(new Atom("y")) });
+            var expr = new TupleExpression(new IExpression[] { new ConstantExpression(1), new TupleExpression(new IExpression[] { new VariableExpression(new Variable("X")) }), new AtomExpression(new Atom("y")) });
 
             try
             {

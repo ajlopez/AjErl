@@ -64,7 +64,8 @@
             context.SetValue("X", 1);
             MatchExpression expr = new MatchExpression(new VariableExpression(variable), new ConstantExpression(123));
 
-            try {
+            try 
+            {
                 expr.Evaluate(context);
                 Assert.Fail();
             }

@@ -5,8 +5,8 @@
     using System.Linq;
     using System.Text;
     using AjErl.Expressions;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using AjErl.Language;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class ListExpressionTests
@@ -15,7 +15,7 @@
         public void CreateSimpleListWithVariable()
         {
             Context context = new Context();
-            var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new VariableExpression(new Variable("X")), new AtomExpression(new Atom("y"))});
+            var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new VariableExpression(new Variable("X")), new AtomExpression(new Atom("y")) });
 
             Assert.IsTrue(expr.HasVariable());
 
