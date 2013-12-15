@@ -66,6 +66,26 @@
         }
 
         [TestMethod]
+        public void MatchVariablesInTupleWithConcreteTuple()
+        {
+            Context context = new Context();
+            Variable x = new Variable("X");
+            Variable y = new Variable("Y");
+
+            MatchExpression expr = new MatchExpression(new TupleExpression(new IExpression[] { new VariableExpression(x), new VariableExpression(y) }), new TupleExpression(new IExpression[] { new ConstantExpression(1), new ConstantExpression(2) }));
+
+            expr.Evaluate(context);
+
+            var result1 = context.GetValue("X");
+            var result2 = context.GetValue("Y");
+
+            Assert.IsNotNull(result1);
+            Assert.AreEqual(1, result1);
+            Assert.IsNotNull(result2);
+            Assert.AreEqual(2, result2);
+        }
+
+        [TestMethod]
         public void MatchTwoVariablesWithList()
         {
             Context context = new Context();

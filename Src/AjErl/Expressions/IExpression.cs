@@ -7,7 +7,7 @@
 
     public interface IExpression
     {
-        object Evaluate(Context context);
+        object Evaluate(Context context, bool withvars = false);
 
         bool HasVariable();
     }

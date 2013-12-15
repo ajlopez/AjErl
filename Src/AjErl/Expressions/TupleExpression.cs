@@ -17,15 +17,15 @@
 
         public IList<IExpression> Expressions { get { return this.expressions; } }
 
-        public object Evaluate(Context context)
+        public object Evaluate(Context context, bool withvars = false)
         {
             IList<object> elements = new List<object>();
 
             foreach (var expr in this.expressions)
             {
-                var value = expr.Evaluate(context);
+                var value = expr.Evaluate(context, withvars);
 
-                if (value is Variable)
+                if (!withvars && value is Variable)
                     throw new Exception(string.Format("variable '{0}' is unbound", ((Variable)value).Name));
 
                 elements.Add(value);

@@ -20,10 +20,10 @@
 
         public IExpression RightExpression { get { return this.right; } }
 
-        public object Evaluate(Context context)
+        public object Evaluate(Context context, bool withvars = false)
         {
-            var lvalue = this.left.Evaluate(context);
-            var rvalue = this.right.Evaluate(context);
+            var lvalue = this.left.Evaluate(context, withvars);
+            var rvalue = this.right.Evaluate(context, withvars);
 
             return this.Apply(lvalue, rvalue);
         }

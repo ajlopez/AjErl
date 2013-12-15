@@ -17,7 +17,7 @@
 
         public Atom Atom { get { return this.atom; } }
 
-        public object Evaluate(Context context)
+        public object Evaluate(Context context, bool withvars = false)
         {
             return this.atom;
         }

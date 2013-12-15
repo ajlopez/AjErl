@@ -38,7 +38,25 @@
             Context context = new Context();
             VariableExpression expression = new VariableExpression(variable);
 
-            Assert.AreEqual(variable, expression.Evaluate(context));
+            Assert.AreEqual(variable, expression.Evaluate(context, true));
+        }
+
+        [TestMethod]
+        public void RaiseIfEvaluateUndefinedVariableExpression()
+        {
+            Variable variable = new Variable("X");
+            Context context = new Context();
+            VariableExpression expression = new VariableExpression(variable);
+
+            try
+            {
+                expression.Evaluate(context, false);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("variable 'X' is unbound", ex.Message);
+            }
         }
     }
 }

@@ -17,10 +17,13 @@ using AjErl.Language;
 
         public Variable Variable { get { return this.variable; } }
 
-        public object Evaluate(Context context)
+        public object Evaluate(Context context, bool withvars = false)
         {
             if (!context.HasValue(this.variable.Name))
-                return this.variable;
+                if (!withvars)
+                    throw new Exception(string.Format("variable '{0}' is unbound", this.variable.Name));
+                else
+                    return this.variable;
 
             return context.GetValue(this.variable.Name);
         }

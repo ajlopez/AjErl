@@ -17,12 +17,12 @@
 
         public IList<IExpression> Expressions { get { return this.expressions; } }
 
-        public object Evaluate(Context context)
+        public object Evaluate(Context context, bool withvars = false)
         {
             IList<object> elements = new List<object>();
 
             foreach (var expr in this.expressions)
-                elements.Add(expr.Evaluate(context));
+                elements.Add(expr.Evaluate(context, withvars));
 
             return List.MakeList(elements);
         }

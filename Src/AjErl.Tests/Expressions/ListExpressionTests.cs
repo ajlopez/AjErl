@@ -12,14 +12,14 @@
     public class ListExpressionTests
     {
         [TestMethod]
-        public void CreateSimpleList()
+        public void CreateSimpleListWithVariable()
         {
             Context context = new Context();
             var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new VariableExpression(new Variable("X")), new AtomExpression(new Atom("y"))});
 
             Assert.IsTrue(expr.HasVariable());
 
-            var result = expr.Evaluate(context);
+            var result = expr.Evaluate(context, true);
 
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(List));

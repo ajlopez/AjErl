@@ -21,10 +21,10 @@
 
         public IExpression RightExpression { get { return this.rightexpr; } }
 
-        public object Evaluate(Context context)
+        public object Evaluate(Context context, bool withvars = false)
         {
-            object left = this.leftexpr.Evaluate(context);
-            object right = this.rightexpr.Evaluate(context);
+            object left = this.leftexpr.Evaluate(context, true);
+            object right = this.rightexpr.Evaluate(context, false);
 
             if (!Match.MatchObjects(left, right, context))
                 throw new InvalidOperationException("invalid match");
