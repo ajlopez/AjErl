@@ -19,27 +19,43 @@
         }
 
         [TestMethod]
-        public void DivideIntegerByDouble()
+        public void DivideTwoIntegersWithTruncation()
         {
-            DivExpression expr = new DivExpression(new ConstantExpression(2), new ConstantExpression(2.5));
+            DivExpression expr = new DivExpression(new ConstantExpression(5), new ConstantExpression(2));
 
-            Assert.AreEqual(2 / 2.5, expr.Evaluate(null));
+            Assert.AreEqual(2, expr.Evaluate(null));
         }
 
         [TestMethod]
-        public void DivideDoubleByInteger()
+        public void RaiseIfDivideIntegerByReal()
         {
-            DivExpression expr = new DivExpression(new ConstantExpression(2.5), new ConstantExpression(3));
+            DivExpression expr = new DivExpression(new ConstantExpression(6), new ConstantExpression(2.5));
 
-            Assert.AreEqual(2.5 / 3, expr.Evaluate(null));
+            try
+            {
+                expr.Evaluate(null);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidCastException));
+            }
         }
 
         [TestMethod]
-        public void DivideTwoDoubles()
+        public void RaiseIfDivideRealByInteger()
         {
-            DivExpression expr = new DivExpression(new ConstantExpression(2.5), new ConstantExpression(3.7));
+            DivExpression expr = new DivExpression(new ConstantExpression(6.5), new ConstantExpression(2));
 
-            Assert.AreEqual(2.5 / 3.7, expr.Evaluate(null));
+            try
+            {
+                expr.Evaluate(null);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(InvalidCastException));
+            }
         }
     }
 }
