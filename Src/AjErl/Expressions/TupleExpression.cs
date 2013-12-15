@@ -22,7 +22,14 @@
             IList<object> elements = new List<object>();
 
             foreach (var expr in this.expressions)
-                elements.Add(expr.Evaluate(context));
+            {
+                var value = expr.Evaluate(context);
+
+                if (value is Variable)
+                    throw new Exception(string.Format("variable '{0}' is unbound", ((Variable)value).Name));
+
+                elements.Add(value);
+            }
 
             return new Tuple(elements);
         }
