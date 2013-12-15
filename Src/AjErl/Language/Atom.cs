@@ -20,5 +20,10 @@
         {
             return this.name;
         }
+
+        public bool Match(Atom atom)
+        {
+            return atom != null && this.name == atom.Name;
+        }
     }
 }

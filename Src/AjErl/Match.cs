@@ -33,6 +33,12 @@
                 return true;
             }
 
+            if (obj1 is Atom)
+                if (obj2 is Atom)
+                    return ((Atom)obj1).Match((Atom)obj2);
+                else
+                    return false;
+
             if (obj1 is List)
                 if (obj2 is List)
                     return ((List)obj1).Match((List)obj2, context);
