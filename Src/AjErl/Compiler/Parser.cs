@@ -10,7 +10,7 @@
 
     public class Parser
     {
-        private static string[][] binaryoperators = new string[][] { new string[] { "+", "-" }, new string[] { "*", "/" } };
+        private static string[][] binaryoperators = new string[][] { new string[] { "+", "-" }, new string[] { "*", "/", "div" } };
 
         private Lexer lexer;
 
@@ -74,6 +74,8 @@
                     expr = new MultiplyExpression(expr, this.ParseBinaryExpression(level + 1));
                 if (token.Value == "/")
                     expr = new DivideExpression(expr, this.ParseBinaryExpression(level + 1));
+                if (token.Value == "div")
+                    expr = new DivExpression(expr, this.ParseBinaryExpression(level + 1));
             }
 
             if (token != null)
@@ -179,7 +181,7 @@
 
         private bool IsBinaryOperator(int level, Token token)
         {
-            return token.Type == TokenType.Operator && binaryoperators[level].Contains(token.Value);
+            return (token.Type == TokenType.Operator || token.Type == TokenType.Atom) && binaryoperators[level].Contains(token.Value);
         }
     }
 }

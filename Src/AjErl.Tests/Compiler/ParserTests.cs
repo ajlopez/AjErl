@@ -349,6 +349,25 @@
         }
 
         [TestMethod]
+        public void ParseSimpleDiv()
+        {
+            Parser parser = new Parser("10 div 20.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(DivExpression));
+
+            DivExpression divexpression = (DivExpression)expression;
+
+            Assert.IsInstanceOfType(divexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.IsInstanceOfType(divexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.AreEqual(10, ((ConstantExpression)divexpression.LeftExpression).Value);
+            Assert.AreEqual(20, ((ConstantExpression)divexpression.RightExpression).Value);
+        }
+
+        [TestMethod]
         public void ParseAddMultiply()
         {
             Parser parser = new Parser("2+3*4.");
