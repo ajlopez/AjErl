@@ -76,6 +76,7 @@
     <Compile Include="Expressions\BinaryExpression.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\AtomExpression.cs" />
+    <Compile Include="Expressions\RemExpression.cs" />
     <Compile Include="Expressions\DivExpression.cs" />
     <Compile Include="Expressions\DivideExpression.cs" />
     <Compile Include="Expressions\ListExpression.cs" />
