@@ -16,7 +16,7 @@
         {
             MatchExpression expr = new MatchExpression(new ConstantExpression(123), new ConstantExpression(123));
 
-            Assert.IsNull(expr.Evaluate(null));
+            Assert.AreEqual(123, expr.Evaluate(null));
         }
 
         [TestMethod]
@@ -51,7 +51,7 @@
             Variable variable = new Variable("X");
             MatchExpression expr = new MatchExpression(new VariableExpression(variable), new ConstantExpression(123));
 
-            Assert.IsNull(expr.Evaluate(context));
+            Assert.AreEqual(123, expr.Evaluate(context));
 
             Assert.AreEqual(123, context.GetValue("X"));
         }

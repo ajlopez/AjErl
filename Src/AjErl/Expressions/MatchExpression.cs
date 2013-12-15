@@ -29,7 +29,7 @@
             if (!Match.MatchObjects(left, right, context))
                 throw new InvalidOperationException("invalid match");
 
-            return null;
+            return right;
         }
 
         public bool HasVariable()
