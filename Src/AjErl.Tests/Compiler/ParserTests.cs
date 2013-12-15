@@ -356,5 +356,31 @@
             Assert.AreEqual(3, ((ConstantExpression)multiplyexpression.LeftExpression).Value);
             Assert.AreEqual(4, ((ConstantExpression)multiplyexpression.RightExpression).Value);
         }
+
+        [TestMethod]
+        public void ParseAddMultiplyWithParens()
+        {
+            Parser parser = new Parser("(2+3)*4.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(MultiplyExpression));
+
+            MultiplyExpression multexpression = (MultiplyExpression)expression;
+
+            Assert.IsInstanceOfType(multexpression.RightExpression, typeof(ConstantExpression));
+            Assert.AreEqual(4, ((ConstantExpression)multexpression.RightExpression).Value);
+
+            Assert.IsInstanceOfType(multexpression.LeftExpression, typeof(AddExpression));
+
+            AddExpression addexpression = (AddExpression)multexpression.LeftExpression;
+
+            Assert.IsInstanceOfType(addexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.IsInstanceOfType(addexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.AreEqual(2, ((ConstantExpression)addexpression.LeftExpression).Value);
+            Assert.AreEqual(3, ((ConstantExpression)addexpression.RightExpression).Value);
+        }
     }
 }

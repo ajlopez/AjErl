@@ -26,7 +26,7 @@
 
         public IExpression ParseExpression()
         {
-            IExpression expression = this.ParseBinaryExpression(0);
+            IExpression expression = this.ParseSimpleExpression();
 
             Token token = this.NextToken();
 
@@ -47,11 +47,15 @@
             return expression;
         }
 
+        private IExpression ParseSimpleExpression()
+        {
+            return this.ParseBinaryExpression(0);
+        }
 
         private IExpression ParseBinaryExpression(int level)
         {
             if (level >= binaryoperators.Length)
-                return this.ParseSimpleExpression();
+                return this.ParseTerm();
 
             IExpression expr = this.ParseBinaryExpression(level + 1);
 
@@ -78,7 +82,7 @@
             return expr;
         }
 
-        private IExpression ParseSimpleExpression()
+        private IExpression ParseTerm()
         {
             Token token = this.NextToken();
             IExpression expression = null;
@@ -94,6 +98,11 @@
                 expression = new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
             else if (token.Type == TokenType.String)
                 expression = new ConstantExpression(token.Value);
+            else if (token.Type == TokenType.Separator && token.Value == "(")
+            {
+                expression = this.ParseSimpleExpression();
+                this.ParseToken(TokenType.Separator, ")");
+            }
             else if (token.Type == TokenType.Separator && token.Value == "{")
             {
                 var expressions = this.ParseExpressionList();
@@ -116,7 +125,7 @@
         {
             List<IExpression> expressions = new List<IExpression>();
 
-            for (IExpression expr = this.ParseSimpleExpression(); expr != null; expr = this.ParseSimpleExpression())
+            for (IExpression expr = this.ParseTerm(); expr != null; expr = this.ParseTerm())
             {
                 expressions.Add(expr);
 
