@@ -78,6 +78,23 @@
         }
 
         [TestMethod]
+        public void ParseReal()
+        {
+            Parser parser = new Parser("123.45.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(ConstantExpression));
+
+            ConstantExpression consexpression = (ConstantExpression)expression;
+            Assert.IsNotNull(consexpression.Value);
+            Assert.AreEqual(123.45, consexpression.Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
         public void ParseString()
         {
             Parser parser = new Parser("\"foo\".");
