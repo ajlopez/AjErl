@@ -368,6 +368,25 @@
         }
 
         [TestMethod]
+        public void ParseSimpleRem()
+        {
+            Parser parser = new Parser("10 rem 20.");
+
+            IExpression expression = parser.ParseExpression();
+
+            Assert.IsNotNull(expression);
+            Assert.IsInstanceOfType(expression, typeof(RemExpression));
+
+            RemExpression remexpression = (RemExpression)expression;
+
+            Assert.IsInstanceOfType(remexpression.LeftExpression, typeof(ConstantExpression));
+            Assert.IsInstanceOfType(remexpression.RightExpression, typeof(ConstantExpression));
+
+            Assert.AreEqual(10, ((ConstantExpression)remexpression.LeftExpression).Value);
+            Assert.AreEqual(20, ((ConstantExpression)remexpression.RightExpression).Value);
+        }
+
+        [TestMethod]
         public void ParseAddMultiply()
         {
             Parser parser = new Parser("2+3*4.");
