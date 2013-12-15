@@ -5,9 +5,9 @@
     using System.Linq;
     using System.Text;
 
-    public class DivideExpression : BinaryExpression
+    public class DivExpression : BinaryExpression
     {
-        public DivideExpression(IExpression left, IExpression right)
+        public DivExpression(IExpression left, IExpression right)
             : base(left, right)
         {
         }
@@ -16,7 +16,7 @@
         {
             if (leftvalue is int)
                 if (rightvalue is int)
-                    return (double)((int)leftvalue) / (int)rightvalue;
+                    return (int)leftvalue / (int)rightvalue;
                 else
                     return (int)leftvalue / (double)rightvalue;
             else if (rightvalue is int)

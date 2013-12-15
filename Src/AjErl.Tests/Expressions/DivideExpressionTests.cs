@@ -15,7 +15,15 @@
         {
             DivideExpression expr = new DivideExpression(new ConstantExpression(6), new ConstantExpression(2));
 
-            Assert.AreEqual(3, expr.Evaluate(null));
+            Assert.AreEqual(3.0, expr.Evaluate(null));
+        }
+
+        [TestMethod]
+        public void DivideTwoIntegersToReal()
+        {
+            DivideExpression expr = new DivideExpression(new ConstantExpression(5), new ConstantExpression(2));
+
+            Assert.AreEqual(2.5, expr.Evaluate(null));
         }
 
         [TestMethod]
