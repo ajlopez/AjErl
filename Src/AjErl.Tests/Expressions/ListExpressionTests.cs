@@ -31,5 +31,46 @@
 
             Assert.AreEqual("[1, X, y]", list.ToString());
         }
+
+        [TestMethod]
+        public void CreateSimpleListWithBoundVariable()
+        {
+            Context context = new Context();
+            context.SetValue("X", 2);
+            var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new VariableExpression(new Variable("X")), new AtomExpression(new Atom("y")) });
+
+            Assert.IsTrue(expr.HasVariable());
+
+            var result = expr.Evaluate(context, true);
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List));
+
+            var list = (List)result;
+
+            Assert.IsNotNull(list.Head);
+            Assert.IsNotNull(list.Tail);
+
+            Assert.AreEqual("[1, 2, y]", list.ToString());
+        }
+
+        [TestMethod]
+        public void RaiseWhenUnboundVariable()
+        {
+            Context context = new Context();
+            var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new VariableExpression(new Variable("X")), new AtomExpression(new Atom("y")) });
+
+            Assert.IsTrue(expr.HasVariable());
+
+            try
+            {
+                expr.Evaluate(context, false);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("variable 'X' is unbound", ex.Message);
+            }
+        }
     }
 }
