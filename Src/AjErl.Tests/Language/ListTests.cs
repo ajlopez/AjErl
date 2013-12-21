@@ -104,7 +104,7 @@
         {
             List list = new List(1, new List(2, null));
 
-            Assert.AreEqual("[1, 2]", list.ToString());
+            Assert.AreEqual("[1,2]", list.ToString());
         }
 
         [TestMethod]
@@ -112,7 +112,7 @@
         {
             List list = new List(1, new List(2, 3));
 
-            Assert.AreEqual("[1, 2|3]", list.ToString());
+            Assert.AreEqual("[1,2|3]", list.ToString());
         }
 
         [TestMethod]
@@ -184,7 +184,7 @@
             List list = List.MakeList(new object[] { 1, 2, 3 });
 
             Assert.IsNotNull(list);
-            Assert.AreEqual("[1, 2, 3]", list.ToString());
+            Assert.AreEqual("[1,2,3]", list.ToString());
         }
 
         [TestMethod]
@@ -193,7 +193,7 @@
             List list = List.MakeList(new object[] { 1, 2, 3 }, List.MakeList(new object[] { 4, 5 }));
 
             Assert.IsNotNull(list);
-            Assert.AreEqual("[1, 2, 3, 4, 5]", list.ToString());
+            Assert.AreEqual("[1,2,3,4,5]", list.ToString());
         }
     }
 }

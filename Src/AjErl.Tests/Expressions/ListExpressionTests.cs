@@ -29,7 +29,7 @@
             Assert.IsNotNull(list.Head);
             Assert.IsNotNull(list.Tail);
 
-            Assert.AreEqual("[1, X, y]", list.ToString());
+            Assert.AreEqual("[1,X,y]", list.ToString());
         }
 
         [TestMethod]
@@ -51,7 +51,7 @@
             Assert.IsNotNull(list.Head);
             Assert.IsNotNull(list.Tail);
 
-            Assert.AreEqual("[1, 2, y]", list.ToString());
+            Assert.AreEqual("[1,2,y]", list.ToString());
         }
 
         [TestMethod]

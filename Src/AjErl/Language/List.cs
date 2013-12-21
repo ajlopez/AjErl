@@ -52,7 +52,7 @@
 
             while (rest is List)
             {
-                builder.Append(", ");
+                builder.Append(",");
                 List list = (List)rest;
                 builder.Append(list.Head);
                 rest = list.tail;

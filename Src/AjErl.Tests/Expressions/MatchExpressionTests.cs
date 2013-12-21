@@ -166,7 +166,7 @@
             Assert.AreEqual(1, result1);
             Assert.IsNotNull(result2);
             Assert.IsInstanceOfType(result2, typeof(List));
-            Assert.AreEqual("[2, 3]", result2.ToString());
+            Assert.AreEqual("[2,3]", result2.ToString());
         }
     }
 }
