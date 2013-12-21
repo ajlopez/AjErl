@@ -93,7 +93,7 @@
         {
             Tuple tuple = new Tuple(new object[] { 1, 2, 3 });
 
-            Assert.AreEqual("{1, 2, 3}", tuple.ToString());
+            Assert.AreEqual("{1,2,3}", tuple.ToString());
         }
 
         [TestMethod]
@@ -101,7 +101,7 @@
         {
             Tuple tuple = new Tuple(new object[] { 1, new Variable("X"), 3 });
 
-            Assert.AreEqual("{1, X, 3}", tuple.ToString());
+            Assert.AreEqual("{1,X,3}", tuple.ToString());
         }
 
         [TestMethod]
@@ -138,7 +138,7 @@
         {
             Tuple tuple = new Tuple(new object[] { 1, new Atom("atom"), 3 });
 
-            Assert.AreEqual("{1, atom, 3}", tuple.ToString());
+            Assert.AreEqual("{1,atom,3}", tuple.ToString());
         }
     }
 }

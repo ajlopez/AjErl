@@ -45,7 +45,7 @@
             for (int k = 0; k < this.elements.Count; k++) 
             {
                 if (k > 0)
-                    builder.Append(", ");
+                    builder.Append(",");
 
                 builder.Append(this.elements[k].ToString());
             }
