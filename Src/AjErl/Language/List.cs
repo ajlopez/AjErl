@@ -20,12 +20,12 @@
 
         public object Tail { get { return this.tail; } }
 
-        public static List MakeList(IList<object> elements)
+        public static List MakeList(IList<object> elements, List tail = null)
         {
             if (elements.Count == 0)
-                return null;
+                return tail;
 
-            return new List(elements[0], MakeList(elements.Skip(1).ToList()));
+            return new List(elements[0], MakeList(elements.Skip(1).ToList(), tail));
         }
 
         public bool Match(List list, Context context)
