@@ -9,10 +9,12 @@
     public class ListExpression : IExpression
     {
         private IList<IExpression> expressions;
+        private IExpression tailexpression;
 
-        public ListExpression(IEnumerable<IExpression> expressions)
+        public ListExpression(IEnumerable<IExpression> expressions, IExpression tailexpression = null)
         {
             this.expressions = new System.Collections.Generic.List<IExpression>(expressions);
+            this.tailexpression = tailexpression;
         }
 
         public IList<IExpression> Expressions { get { return this.expressions; } }
@@ -31,7 +33,12 @@
                 elements.Add(value);
             }
 
-            return List.MakeList(elements);
+            List tail = null;
+
+            if (this.tailexpression != null)
+                tail = (List)this.tailexpression.Evaluate(context, withvars);
+
+            return List.MakeList(elements, tail);
         }
 
         public bool HasVariable()

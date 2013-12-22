@@ -72,5 +72,20 @@
                 Assert.AreEqual("variable 'X' is unbound", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void CreateListWithTail()
+        {
+            Context context = new Context();
+            var list = List.MakeList(new object[] { 3, 4 });
+            context.SetValue("Tail", list);
+            var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new ConstantExpression(2) }, new VariableExpression(new Variable("Tail")));
+
+            var result = expr.Evaluate(context);
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List));
+            Assert.AreEqual("[1,2,3,4]", result.ToString());
+        }
     }
 }
