@@ -458,5 +458,36 @@
             Assert.IsInstanceOfType(fdef.Body, typeof(ConstantExpression));
             Assert.AreEqual(1, ((ConstantExpression)fdef.Body).Value);
         }
+
+        [TestMethod]
+        public void ParseFunctionDefinitionWithArgumentsAndExpressionBody()
+        {
+            Parser parser = new Parser("add(X,Y) -> X+Y.");
+
+            var result = parser.ParseForm();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(FunctionDefinition));
+
+            var fdef = (FunctionDefinition)result;
+
+            Assert.AreEqual("add", fdef.Name);
+            Assert.IsNotNull(fdef.Arguments);
+
+            Assert.AreEqual(2, fdef.Arguments.Count);
+            Assert.IsInstanceOfType(fdef.Arguments[0], typeof(VariableExpression));
+            Assert.IsInstanceOfType(fdef.Arguments[1], typeof(VariableExpression));
+            Assert.AreEqual("X", ((VariableExpression)fdef.Arguments[0]).Variable.Name);
+            Assert.AreEqual("Y", ((VariableExpression)fdef.Arguments[1]).Variable.Name);
+
+            Assert.IsNotNull(fdef.Body);
+            Assert.IsInstanceOfType(fdef.Body, typeof(AddExpression));
+
+            var addexpr = (AddExpression)fdef.Body;
+            Assert.IsInstanceOfType(addexpr.LeftExpression, typeof(VariableExpression));
+            Assert.IsInstanceOfType(addexpr.RightExpression, typeof(VariableExpression));
+            Assert.AreEqual("X", ((VariableExpression)addexpr.LeftExpression).Variable.Name);
+            Assert.AreEqual("Y", ((VariableExpression)addexpr.RightExpression).Variable.Name);
+        }
     }
 }
