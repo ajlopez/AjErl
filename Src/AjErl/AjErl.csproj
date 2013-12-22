@@ -86,6 +86,8 @@
     <Compile Include="Expressions\SubtractExpression.cs" />
     <Compile Include="Expressions\TupleExpression.cs" />
     <Compile Include="Expressions\VariableExpression.cs" />
+    <Compile Include="Forms\FunctionDefinition.cs" />
+    <Compile Include="Forms\IForm.cs" />
     <Compile Include="Language\Atom.cs" />
     <Compile Include="Language\EmptyList.cs" />
     <Compile Include="Language\IElement.cs" />

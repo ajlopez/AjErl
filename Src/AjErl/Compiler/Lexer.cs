@@ -9,6 +9,7 @@
     public class Lexer
     {
         private static string operators = "=+-*/";
+        private static string[] operators2 = new string[] { "->" };
         private static string separators = ".,{}[]()|";
         private TextReader reader;
         private Stack<int> chars = new Stack<int>();
@@ -35,6 +36,21 @@
                 return null;
 
             char ch = (char)ich;
+
+            if (operators2.Any(op => op[0] == ch))
+            {
+                int ich2 = this.NextChar();
+
+                if (ich2 >= 0)
+                {
+                    string op2 = ch.ToString() + ((char)ich2).ToString();
+
+                    if (operators2.Contains(op2))
+                        return new Token(op2, TokenType.Operator);
+
+                    this.PushChar(ich2);
+                }
+            }
 
             if (operators.Contains(ch))
                 return new Token(ch.ToString(), TokenType.Operator);

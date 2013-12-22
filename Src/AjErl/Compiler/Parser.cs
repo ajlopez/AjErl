@@ -7,6 +7,7 @@
     using System.Text;
     using AjErl.Expressions;
     using AjErl.Language;
+    using AjErl.Forms;
 
     public class Parser
     {
@@ -45,6 +46,26 @@
             this.ParsePoint();
 
             return expression;
+        }
+
+        public IForm ParseForm()
+        {
+            Token token = this.NextToken();
+
+            if (token == null)
+                return null;
+
+            if (token.Type != TokenType.Atom)
+                throw new ParserException(string.Format("unexpected '{0}'", token.Value));
+
+            string name = token.Value;
+            this.ParseToken(TokenType.Separator, "(");
+            var arguments = this.ParseExpressionList();
+            this.ParseToken(TokenType.Separator, ")");
+            this.ParseToken(TokenType.Operator, "->");
+            var body = this.ParseSimpleExpression();
+
+            return new FunctionDefinition(name, arguments, body);
         }
 
         private IExpression ParseSimpleExpression()

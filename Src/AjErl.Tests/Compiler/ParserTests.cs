@@ -6,6 +6,7 @@
     using System.Text;
     using AjErl.Compiler;
     using AjErl.Expressions;
+    using AjErl.Forms;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -436,6 +437,26 @@
 
             Assert.AreEqual(2, ((ConstantExpression)addexpression.LeftExpression).Value);
             Assert.AreEqual(3, ((ConstantExpression)addexpression.RightExpression).Value);
+        }
+
+        [TestMethod]
+        public void ParseSimpleFunctionDefinition()
+        {
+            Parser parser = new Parser("one() -> 1.");
+
+            var result = parser.ParseForm();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(FunctionDefinition));
+
+            var fdef = (FunctionDefinition)result;
+
+            Assert.AreEqual("one", fdef.Name);
+            Assert.IsNotNull(fdef.Arguments);
+            Assert.AreEqual(0, fdef.Arguments.Count);
+            Assert.IsNotNull(fdef.Body);
+            Assert.IsInstanceOfType(fdef.Body, typeof(ConstantExpression));
+            Assert.AreEqual(1, ((ConstantExpression)fdef.Body).Value);
         }
     }
 }
