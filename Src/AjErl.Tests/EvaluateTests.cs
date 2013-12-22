@@ -99,6 +99,30 @@
             Assert.AreEqual("[{apples,10},{pears,6},{milk,3}]", this.context.GetValue("ThingsToBuy").ToString());
         }
 
+        [TestMethod]
+        public void EvaluateUnboundVariable()
+        {
+            this.EvaluateWithError("X.", "variable 'X' is unbound");
+        }
+
+        [TestMethod]
+        public void EvaluateNoMatch()
+        {
+            this.EvaluateWithError("{X,Y,X} = {{abc,12},42,true}.", "no match of right hand side value {{abc,12},42,true}");
+        }
+
+        private void EvaluateWithError(string text, string message)
+        {
+            try
+            {
+                this.Evaluate(text);
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual(message, ex.Message);
+            }
+        }
+
         private object Evaluate(string text)
         {
             Parser parser = new Parser(text);

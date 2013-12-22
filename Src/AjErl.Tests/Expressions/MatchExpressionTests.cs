@@ -40,7 +40,7 @@
             catch (Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
-                Assert.AreEqual("invalid match", ex.Message);
+                Assert.AreEqual("no match of right hand side value foo", ex.Message);
             }
         }
 
@@ -72,7 +72,7 @@
             catch (Exception ex) 
             {
                 Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
-                Assert.AreEqual("invalid match", ex.Message);
+                Assert.AreEqual("no match of right hand side value 123", ex.Message);
             }
         }
 
@@ -121,7 +121,7 @@
             catch (Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
-                Assert.AreEqual("invalid match", ex.Message);
+                Assert.AreEqual("no match of right hand side value {1,2}", ex.Message);
             }
         }
 
