@@ -195,6 +195,15 @@
             Assert.IsNotNull(list);
             Assert.AreEqual("[1,2,3,4,5]", list.ToString());
         }
+
+        [TestMethod]
+        public void MakeSimpleListWithVariableAsTail()
+        {
+            List list = List.MakeList(new object[] { 1, 2, 3 }, new Variable("X"));
+
+            Assert.IsNotNull(list);
+            Assert.AreEqual("[1,2,3|X]", list.ToString());
+        }
     }
 }
 

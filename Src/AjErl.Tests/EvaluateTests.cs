@@ -49,6 +49,16 @@
             Assert.AreEqual("[1,2,3]", result.ToString());
         }
 
+        [TestMethod]
+        public void EvaluateListWithTail()
+        {
+            var result = this.Evaluate("[1,2|[3,4]].");
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List));
+            Assert.AreEqual("[1,2,3,4]", result.ToString());
+        }
+
         private object Evaluate(string text)
         {
             Parser parser = new Parser(text);

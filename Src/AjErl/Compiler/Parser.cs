@@ -118,8 +118,13 @@
             else if (token.Type == TokenType.Separator && token.Value == "[")
             {
                 var expressions = this.ParseExpressionList();
+                IExpression tailexpression = null;
+
+                if (this.TryParseToken(TokenType.Separator, "|"))
+                    tailexpression = this.ParseSimpleExpression();
+
                 this.ParseToken(TokenType.Separator, "]");
-                expression = new ListExpression(expressions);
+                expression = new ListExpression(expressions, tailexpression);
             }
             else
                 this.PushToken(token);
@@ -157,6 +162,21 @@
         private void PushToken(Token token)
         {
             this.lexer.PushToken(token);
+        }
+
+        private bool TryParseToken(TokenType type, string value)
+        {
+            Token token = this.NextToken();
+
+            if (token == null)
+                return false;
+
+            if (token.Type == type && token.Value == value)
+                return true;
+
+            this.PushToken(token);
+
+            return false;
         }
 
         private void ParseToken(TokenType type, string value)

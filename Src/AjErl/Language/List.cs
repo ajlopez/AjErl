@@ -28,6 +28,14 @@
             return new List(elements[0], MakeList(elements.Skip(1).ToList(), tail));
         }
 
+        public static List MakeList(IList<object> elements, Variable tail)
+        {
+            if (elements.Count == 1)
+                return new List(elements[0], tail);
+
+            return new List(elements[0], MakeList(elements.Skip(1).ToList(), tail));
+        }
+
         public bool Match(List list, Context context)
         {
             if (list == null)
