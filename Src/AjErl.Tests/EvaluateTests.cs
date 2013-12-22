@@ -80,6 +80,25 @@
             Assert.AreEqual("[{oranges,4},{newspaper,1},{apples,10},{pears,6},{milk,3}]", result.ToString());
         }
 
+        [TestMethod]
+        public void EvaluateMathHeadTailToList()
+        {
+            this.Evaluate("[Buy|ThingsToBuy] = [{oranges,4},{newspaper,1},{apples,10},{pears,6},{milk,3}].");
+
+            Assert.AreEqual("{oranges,4}", this.context.GetValue("Buy").ToString());
+            Assert.AreEqual("[{newspaper,1},{apples,10},{pears,6},{milk,3}]", this.context.GetValue("ThingsToBuy").ToString());
+        }
+
+        [TestMethod]
+        public void EvaluateMathHeadMemberTailToList()
+        {
+            this.Evaluate("[Buy1,Buy2|ThingsToBuy] = [{oranges,4},{newspaper,1},{apples,10},{pears,6},{milk,3}].");
+
+            Assert.AreEqual("{oranges,4}", this.context.GetValue("Buy1").ToString());
+            Assert.AreEqual("{newspaper,1}", this.context.GetValue("Buy2").ToString());
+            Assert.AreEqual("[{apples,10},{pears,6},{milk,3}]", this.context.GetValue("ThingsToBuy").ToString());
+        }
+
         private object Evaluate(string text)
         {
             Parser parser = new Parser(text);
