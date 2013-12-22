@@ -36,7 +36,17 @@
             List tail = null;
 
             if (this.tailexpression != null)
-                tail = (List)this.tailexpression.Evaluate(context, withvars);
+            {
+                object tailvalue = this.tailexpression.Evaluate(context, withvars);
+
+                if (tailvalue is Variable)
+                    if (withvars)
+                        return List.MakeList(elements, (Variable)tailvalue);
+                    else
+                        throw new Exception(string.Format("variable '{0}' is unbound", ((Variable)tailvalue).Name));
+
+                tail = (List)tailvalue;
+            }
 
             return List.MakeList(elements, tail);
         }

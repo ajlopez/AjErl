@@ -87,5 +87,35 @@
             Assert.IsInstanceOfType(result, typeof(List));
             Assert.AreEqual("[1,2,3,4]", result.ToString());
         }
+
+        [TestMethod]
+        public void CreateListWithVariableAsTail()
+        {
+            Context context = new Context();
+            var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new ConstantExpression(2) }, new VariableExpression(new Variable("Tail")));
+
+            var result = expr.Evaluate(context, true);
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List));
+            Assert.AreEqual("[1,2|Tail]", result.ToString());
+        }
+
+        [TestMethod]
+        public void RaiseIfUnboundVariableAsTail()
+        {
+            Context context = new Context();
+            var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new ConstantExpression(2) }, new VariableExpression(new Variable("Tail")));
+
+            try
+            {
+                expr.Evaluate(context, false);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("variable 'Tail' is unbound", ex.Message);
+            }
+        }
     }
 }
