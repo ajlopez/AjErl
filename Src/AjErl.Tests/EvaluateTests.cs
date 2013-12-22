@@ -109,6 +109,17 @@
         public void EvaluateNoMatch()
         {
             this.EvaluateWithError("{X,Y,X} = {{abc,12},42,true}.", "no match of right hand side value {{abc,12},42,true}");
+            this.EvaluateWithError("X.", "variable 'X' is unboud");
+            this.EvaluateWithError("Y.", "variable 'Y' is unboud");
+        }
+
+        [TestMethod]
+        public void EvaluateMatch()
+        {
+            this.EvaluateTo("{X,Y,Z} = {{abc,12},42,true}.", "{{abc,12},42,true}");
+            this.EvaluateTo("X.", "{abc,12}");
+            this.EvaluateTo("Y.", "42");
+            this.EvaluateTo("Z.", "true");
         }
 
         private void EvaluateWithError(string text, string message)
@@ -121,6 +132,14 @@
             {
                 Assert.AreEqual(message, ex.Message);
             }
+        }
+
+        private void EvaluateTo(string text, string value)
+        {
+            var result = this.Evaluate(text);
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(value, result.ToString());
         }
 
         private object Evaluate(string text)
