@@ -122,6 +122,12 @@
             this.EvaluateTo("Z.", "true");
         }
 
+        [TestMethod]
+        public void EvaluateEmptyList()
+        {
+            this.EvaluateTo("[].", "[]");
+        }
+
         private void EvaluateWithError(string text, string message)
         {
             try

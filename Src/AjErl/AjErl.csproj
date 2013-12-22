@@ -87,6 +87,7 @@
     <Compile Include="Expressions\TupleExpression.cs" />
     <Compile Include="Expressions\VariableExpression.cs" />
     <Compile Include="Language\Atom.cs" />
+    <Compile Include="Language\EmptyList.cs" />
     <Compile Include="Language\IElement.cs" />
     <Compile Include="Language\List.cs" />
     <Compile Include="Language\Tuple.cs" />

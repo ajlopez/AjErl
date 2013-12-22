@@ -246,4 +246,13 @@
   <project key="2025632572">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <sourcecode name="EmptyList.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/22/2013 18:07:12</timestamp>
+    <milliseconds>602</milliseconds>
+    <violations />
+  </sourcecode>
 </stylecopresultscache>

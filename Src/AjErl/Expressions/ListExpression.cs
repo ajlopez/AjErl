@@ -48,6 +48,9 @@
                 tail = (List)tailvalue;
             }
 
+            if (elements.Count == 0 && tail == null)
+                return EmptyList.Instance;
+
             return List.MakeList(elements, tail);
         }
 
