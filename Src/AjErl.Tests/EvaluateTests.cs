@@ -59,6 +59,27 @@
             Assert.AreEqual("[1,2,3,4]", result.ToString());
         }
 
+        [TestMethod]
+        public void EvaluateListWithExpressions()
+        {
+            var result = this.Evaluate("[1+7,hello,2-2,{cost, apple, 30-20},3].");
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List));
+            Assert.AreEqual("[8,hello,0,{cost,apple,10},3]", result.ToString());
+        }
+
+        [TestMethod]
+        public void EvaluateListWithBoundVariableAsTail()
+        {
+            this.Evaluate("ThingsToBuy = [{apples,10},{pears,6},{milk,3}].");
+            var result = this.Evaluate("ThingsToBuy1 = [{oranges,4},{newspaper,1}|ThingsToBuy].");
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List));
+            Assert.AreEqual("[{oranges,4},{newspaper,1},{apples,10},{pears,6},{milk,3}]", result.ToString());
+        }
+
         private object Evaluate(string text)
         {
             Parser parser = new Parser(text);
