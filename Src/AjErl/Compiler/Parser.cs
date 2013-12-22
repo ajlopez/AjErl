@@ -131,7 +131,7 @@
         {
             List<IExpression> expressions = new List<IExpression>();
 
-            for (IExpression expr = this.ParseTerm(); expr != null; expr = this.ParseTerm())
+            for (IExpression expr = this.ParseSimpleExpression(); expr != null; expr = this.ParseSimpleExpression())
             {
                 expressions.Add(expr);
 

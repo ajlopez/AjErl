@@ -7,6 +7,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using AjErl.Compiler;
     using AjErl.Expressions;
+    using AjErl.Language;
 
     [TestClass]
     public class EvaluateTests
@@ -36,6 +37,16 @@
         {
             Assert.AreEqual(3, this.Evaluate("X=1+2."));
             Assert.AreEqual(3, this.context.GetValue("X"));
+        }
+
+        [TestMethod]
+        public void EvaluateList()
+        {
+            var result = this.Evaluate("[1,2,1+2].");
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List));
+            Assert.AreEqual("[1,2,3]", result.ToString());
         }
 
         private object Evaluate(string text)
