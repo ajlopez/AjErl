@@ -7,5 +7,6 @@
 
     public interface IForm
     {
+        object Evaluate(Context context);
     }
 }
