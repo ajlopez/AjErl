@@ -24,14 +24,7 @@
             IList<object> elements = new List<object>();
 
             foreach (var expr in this.expressions)
-            {
-                var value = expr.Evaluate(context, withvars);
-
-                if (!withvars && value is Variable)
-                    throw new Exception(string.Format("variable '{0}' is unbound", ((Variable)value).Name));
-
-                elements.Add(value);
-            }
+                elements.Add(expr.Evaluate(context, withvars));
 
             List tail = null;
 
@@ -40,10 +33,7 @@
                 object tailvalue = this.tailexpression.Evaluate(context, withvars);
 
                 if (tailvalue is Variable)
-                    if (withvars)
-                        return List.MakeList(elements, (Variable)tailvalue);
-                    else
-                        throw new Exception(string.Format("variable '{0}' is unbound", ((Variable)tailvalue).Name));
+                    return List.MakeList(elements, (Variable)tailvalue);
 
                 tail = (List)tailvalue;
             }
