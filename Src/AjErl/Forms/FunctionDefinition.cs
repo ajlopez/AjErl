@@ -34,7 +34,7 @@
             foreach (var pexpr in this.parameterexpressions)
                 parameters.Add(pexpr.Evaluate(newcontext, true));
 
-            var func = new Function(context, parameters, body);
+            var func = new Function(context, parameters, this.body);
 
             context.SetValue(this.name, func);
 
