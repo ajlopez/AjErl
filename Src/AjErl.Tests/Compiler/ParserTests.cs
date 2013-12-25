@@ -452,8 +452,8 @@
             var fdef = (FunctionDefinition)result;
 
             Assert.AreEqual("one", fdef.Name);
-            Assert.IsNotNull(fdef.Arguments);
-            Assert.AreEqual(0, fdef.Arguments.Count);
+            Assert.IsNotNull(fdef.ParameterExpressions);
+            Assert.AreEqual(0, fdef.ParameterExpressions.Count);
             Assert.IsNotNull(fdef.Body);
             Assert.IsInstanceOfType(fdef.Body, typeof(ConstantExpression));
             Assert.AreEqual(1, ((ConstantExpression)fdef.Body).Value);
@@ -472,13 +472,13 @@
             var fdef = (FunctionDefinition)result;
 
             Assert.AreEqual("add", fdef.Name);
-            Assert.IsNotNull(fdef.Arguments);
+            Assert.IsNotNull(fdef.ParameterExpressions);
 
-            Assert.AreEqual(2, fdef.Arguments.Count);
-            Assert.IsInstanceOfType(fdef.Arguments[0], typeof(VariableExpression));
-            Assert.IsInstanceOfType(fdef.Arguments[1], typeof(VariableExpression));
-            Assert.AreEqual("X", ((VariableExpression)fdef.Arguments[0]).Variable.Name);
-            Assert.AreEqual("Y", ((VariableExpression)fdef.Arguments[1]).Variable.Name);
+            Assert.AreEqual(2, fdef.ParameterExpressions.Count);
+            Assert.IsInstanceOfType(fdef.ParameterExpressions[0], typeof(VariableExpression));
+            Assert.IsInstanceOfType(fdef.ParameterExpressions[1], typeof(VariableExpression));
+            Assert.AreEqual("X", ((VariableExpression)fdef.ParameterExpressions[0]).Variable.Name);
+            Assert.AreEqual("Y", ((VariableExpression)fdef.ParameterExpressions[1]).Variable.Name);
 
             Assert.IsNotNull(fdef.Body);
             Assert.IsInstanceOfType(fdef.Body, typeof(AddExpression));
