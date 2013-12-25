@@ -8,11 +8,13 @@
 
     public class Function
     {
+        private Context context;
         private IList<object> parameters;
         private IExpression body;
 
-        public Function(IList<object> parameters, IExpression body)
+        public Function(Context context, IList<object> parameters, IExpression body)
         {
+            this.context = context;
             this.parameters = parameters;
             this.body = body;
         }
@@ -27,6 +29,8 @@
             for (int k = 0; k < this.parameters.Count; k++)
                 if (!Match.MatchObjects(this.parameters[k], arguments[k], context))
                     return null;
+
+            context.SetParent(this.context);
 
             return context;
         }

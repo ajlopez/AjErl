@@ -19,6 +19,11 @@
             this.parent = parent;
         }
 
+        public void SetParent(Context parent)
+        {
+            this.parent = parent;
+        }
+
         public void SetValue(string name, object value)
         {
             this.values[name] = value;

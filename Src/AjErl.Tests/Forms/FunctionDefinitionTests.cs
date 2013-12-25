@@ -33,6 +33,8 @@
             Assert.AreEqual(1, newcontext.GetValue("X"));
             Assert.AreEqual(2, newcontext.GetValue("Y"));
 
+            Assert.AreSame(func, newcontext.GetValue("add"));
+
             Assert.AreEqual(3, func.Evaluate(newcontext));
         }
     }
