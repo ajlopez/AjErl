@@ -133,6 +133,23 @@
         }
 
         [TestMethod]
+        public void ThrowIfListIsNotClosed()
+        {
+            Parser parser = new Parser("[1,2");
+
+            try
+            {
+                parser.ParseExpression();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Expected ']'", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void ParseTuple()
         {
             Parser parser = new Parser("{1,2,3}.");
@@ -465,6 +482,23 @@
             Parser parser = new Parser(string.Empty);
 
             Assert.IsNull(parser.ParseForm());
+        }
+
+        [TestMethod]
+        public void RaiseWhenUnexpectedIntegerParsingForm()
+        {
+            Parser parser = new Parser("123");
+
+            try
+            {
+                parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("unexpected '123'", ex.Message);
+            }
         }
 
         [TestMethod]

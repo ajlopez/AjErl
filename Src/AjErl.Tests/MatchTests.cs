@@ -29,5 +29,39 @@
 
             Assert.AreEqual(1, context.GetValue("X"));
         }
+
+        [TestMethod]
+        public void MatchVariableInverse()
+        {
+            Context context = new Context();
+
+            Assert.IsTrue(Match.MatchObjects(1, new Variable("X"), context));
+
+            Assert.AreEqual(1, context.GetValue("X"));
+        }
+
+        [TestMethod]
+        public void MatchAtoms()
+        {
+            Context context = new Context();
+
+            Assert.IsTrue(Match.MatchObjects(new Atom("a"), new Atom("a"), context));
+        }
+
+        [TestMethod]
+        public void NoMatchAtoms()
+        {
+            Context context = new Context();
+
+            Assert.IsFalse(Match.MatchObjects(new Atom("a"), new Atom("b"), context));
+        }
+
+        [TestMethod]
+        public void NoMatchAtomInteger()
+        {
+            Context context = new Context();
+
+            Assert.IsFalse(Match.MatchObjects(new Atom("a"), 123, context));
+        }
     }
 }

@@ -12,6 +12,27 @@
     public class ListExpressionTests
     {
         [TestMethod]
+        public void CreateSimpleList()
+        {
+            Context context = new Context();
+            var expr = new ListExpression(new IExpression[] { new ConstantExpression(1), new AtomExpression(new Atom("x")), new AtomExpression(new Atom("y")) });
+
+            Assert.IsFalse(expr.HasVariable());
+
+            var result = expr.Evaluate(context, true);
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(List));
+
+            var list = (List)result;
+
+            Assert.IsNotNull(list.Head);
+            Assert.IsNotNull(list.Tail);
+
+            Assert.AreEqual("[1,x,y]", list.ToString());
+        }
+
+        [TestMethod]
         public void CreateSimpleListWithVariable()
         {
             Context context = new Context();
