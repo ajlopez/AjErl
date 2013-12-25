@@ -74,6 +74,7 @@
     <Compile Include="Context.cs" />
     <Compile Include="Expressions\AddExpression.cs" />
     <Compile Include="Expressions\BinaryExpression.cs" />
+    <Compile Include="Expressions\CallExpression.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\AtomExpression.cs" />
     <Compile Include="Expressions\RemExpression.cs" />
