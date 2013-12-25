@@ -460,6 +460,14 @@
         }
 
         [TestMethod]
+        public void ParseEmptyStringAsNullForm()
+        {
+            Parser parser = new Parser(string.Empty);
+
+            Assert.IsNull(parser.ParseForm());
+        }
+
+        [TestMethod]
         public void ParseFunctionDefinitionWithArgumentsAndExpressionBody()
         {
             Parser parser = new Parser("add(X,Y) -> X+Y.");
