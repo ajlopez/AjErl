@@ -96,6 +96,7 @@
     <Compile Include="Language\List.cs" />
     <Compile Include="Language\Tuple.cs" />
     <Compile Include="Language\Variable.cs" />
+    <Compile Include="Machine.cs" />
     <Compile Include="Match.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

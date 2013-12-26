@@ -83,6 +83,7 @@
     <Compile Include="Language\ListTests.cs" />
     <Compile Include="Language\TupleTests.cs" />
     <Compile Include="Language\VariableTests.cs" />
+    <Compile Include="MachineTests.cs" />
     <Compile Include="MatchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
