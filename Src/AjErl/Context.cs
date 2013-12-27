@@ -19,6 +19,8 @@
             this.parent = parent;
         }
 
+        public Context Parent { get { return this.parent; } }
+
         public void SetParent(Context parent)
         {
             this.parent = parent;
