@@ -24,7 +24,6 @@
         public object Evaluate(Context context, bool withvars = false)
         {
             object namevalue = this.nameexpression.Evaluate(context, withvars);
-            string name = null;
 
             IList<object> arguments = new List<object>();
 

@@ -135,24 +135,6 @@
     <milliseconds>201</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="EvaluateTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:40:52</timestamp>
-      <milliseconds>643</milliseconds>
-    </settings>
-    <timestamp>12/25/2013 07:44:11</timestamp>
-    <milliseconds>883</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ParserTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:40:52</timestamp>
-      <milliseconds>643</milliseconds>
-    </settings>
-    <timestamp>12/25/2013 07:57:57</timestamp>
-    <milliseconds>471</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="MatchExpressionTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:40:52</timestamp>
@@ -207,31 +189,70 @@
     <milliseconds>587</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="MatchTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="EvaluateTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:40:52</timestamp>
       <milliseconds>643</milliseconds>
     </settings>
-    <timestamp>12/25/2013 08:06:53</timestamp>
-    <milliseconds>132</milliseconds>
+    <timestamp>12/28/2013 20:04:03</timestamp>
+    <milliseconds>597</milliseconds>
     <violations />
   </sourcecode>
-  <project key="251411062">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
+  <sourcecode name="FunctionFormTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:40:52</timestamp>
+      <milliseconds>643</milliseconds>
+    </settings>
+    <timestamp>12/28/2013 20:04:38</timestamp>
+    <milliseconds>257</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ParserTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:40:52</timestamp>
+      <milliseconds>643</milliseconds>
+    </settings>
+    <timestamp>12/28/2013 19:51:02</timestamp>
+    <milliseconds>210</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ModuleTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:40:52</timestamp>
+      <milliseconds>643</milliseconds>
+    </settings>
+    <timestamp>12/28/2013 07:59:14</timestamp>
+    <milliseconds>929</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="MachineTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:40:52</timestamp>
       <milliseconds>643</milliseconds>
     </settings>
-    <timestamp>12/28/2013 18:55:31</timestamp>
-    <milliseconds>580</milliseconds>
-    <violations>
-      <violation namespace="Microsoft.StyleCop.CSharp.OrderingRules" rule="UsingDirectivesMustBeOrderedAlphabeticallyByNamespace" ruleCheckId="SA1210">
-        <context>Using directives must be sorted alphabetically by the namespaces.</context>
-        <line>4</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
+    <timestamp>12/28/2013 20:03:55</timestamp>
+    <milliseconds>456</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MatchTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:40:52</timestamp>
+      <milliseconds>643</milliseconds>
+    </settings>
+    <timestamp>12/28/2013 18:54:21</timestamp>
+    <milliseconds>715</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="251411062">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="CallExpressionTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:40:52</timestamp>
+      <milliseconds>643</milliseconds>
+    </settings>
+    <timestamp>12/28/2013 20:12:34</timestamp>
+    <milliseconds>700</milliseconds>
+    <violations />
   </sourcecode>
 </stylecopresultscache>

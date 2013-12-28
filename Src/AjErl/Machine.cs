@@ -2,11 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
-    using AjErl.Language;
-    using System.IO;
     using AjErl.Compiler;
+    using AjErl.Language;
 
     public class Machine
     {
