@@ -135,7 +135,7 @@
             var result = this.EvaluateForm("add(X,Y) -> X+Y.");
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(Function));
-            Assert.AreSame(result, this.context.GetValue("add"));
+            Assert.AreSame(result, this.context.GetValue("add/2"));
         }
 
         [TestMethod]

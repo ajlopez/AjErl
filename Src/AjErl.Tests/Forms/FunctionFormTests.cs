@@ -25,7 +25,7 @@
 
             var func = (Function)result;
 
-            Assert.AreSame(func, context.GetValue("add"));
+            Assert.AreSame(func, context.GetValue("add/2"));
 
             var newcontext = func.MakeContext(new object[] { 1, 2 });
 
@@ -33,7 +33,7 @@
             Assert.AreEqual(1, newcontext.GetValue("X"));
             Assert.AreEqual(2, newcontext.GetValue("Y"));
 
-            Assert.AreSame(func, newcontext.GetValue("add"));
+            Assert.AreSame(func, newcontext.GetValue("add/2"));
 
             Assert.AreEqual(3, func.Evaluate(newcontext));
         }

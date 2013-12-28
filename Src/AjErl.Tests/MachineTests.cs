@@ -29,17 +29,17 @@
             Assert.IsNotNull(module);
             Assert.IsNotNull(module.Context);
 
-            Assert.IsNotNull(module.Context.GetValue("add"));
-            Assert.IsInstanceOfType(module.Context.GetValue("add"), typeof(Function));
+            Assert.IsNotNull(module.Context.GetValue("add/2"));
+            Assert.IsInstanceOfType(module.Context.GetValue("add/2"), typeof(Function));
 
-            Assert.IsNotNull(module.Context.GetValue("subtract"));
-            Assert.IsInstanceOfType(module.Context.GetValue("subtract"), typeof(Function));
+            Assert.IsNotNull(module.Context.GetValue("subtract/2"));
+            Assert.IsInstanceOfType(module.Context.GetValue("subtract/2"), typeof(Function));
 
-            Assert.IsNotNull(module.Context.GetValue("multiply"));
-            Assert.IsInstanceOfType(module.Context.GetValue("multiply"), typeof(Function));
+            Assert.IsNotNull(module.Context.GetValue("multiply/2"));
+            Assert.IsInstanceOfType(module.Context.GetValue("multiply/2"), typeof(Function));
 
-            Assert.IsNotNull(module.Context.GetValue("divide"));
-            Assert.IsInstanceOfType(module.Context.GetValue("divide"), typeof(Function));
+            Assert.IsNotNull(module.Context.GetValue("divide/2"));
+            Assert.IsInstanceOfType(module.Context.GetValue("divide/2"), typeof(Function));
         }
     }
 }

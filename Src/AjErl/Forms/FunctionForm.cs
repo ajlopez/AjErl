@@ -36,7 +36,7 @@
 
             var func = new Function(context, parameters, this.body);
 
-            context.SetValue(this.name, func);
+            context.SetValue(string.Format("{0}/{1}", this.name, parameters.Count), func);
 
             return func;
         }
