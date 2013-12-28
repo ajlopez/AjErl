@@ -32,7 +32,7 @@
                 arguments.Add(argexpr.Evaluate(context, withvars));
 
             if (namevalue is Atom)
-                namevalue = context.GetValue(((Atom)namevalue).Name);
+                namevalue = context.GetValue(string.Format("{0}/{1}", ((Atom)namevalue).Name, this.argumentexpressions.Count));
 
             Function func = (Function)namevalue;
 
