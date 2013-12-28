@@ -61,6 +61,9 @@
             if (token == null)
                 return null;
 
+            if (token.Type == TokenType.Operator && token.Value == "-")
+                return this.ParseModuleForm();
+
             if (token.Type != TokenType.Atom)
                 throw new ParserException(string.Format("unexpected '{0}'", token.Value));
 
@@ -74,6 +77,17 @@
             this.ParsePoint();
 
             return new FunctionForm(name, arguments, body);
+        }
+
+        private IForm ParseModuleForm()
+        {
+            this.ParseToken(TokenType.Atom, "module");
+            this.ParseToken(TokenType.Separator, "(");
+            string name = this.ParseAtom();
+            this.ParseToken(TokenType.Separator, ")");
+            this.ParsePoint();
+
+            return new ModuleForm(name);
         }
 
         private IExpression ParseSimpleExpression()
@@ -228,6 +242,16 @@
 
             if (token.Type != TokenType.Separator || token.Value != ".")
                 throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+        }
+
+        private string ParseAtom()
+        {
+            Token token = this.NextToken();
+
+            if (token == null || token.Type != TokenType.Atom)
+                throw new ParserException("Expected atom");
+
+            return token.Value;
         }
 
         private bool IsBinaryOperator(int level, Token token)

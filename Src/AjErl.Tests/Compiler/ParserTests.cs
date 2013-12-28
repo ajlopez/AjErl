@@ -531,5 +531,37 @@
             Assert.AreEqual("X", ((VariableExpression)addexpr.LeftExpression).Variable.Name);
             Assert.AreEqual("Y", ((VariableExpression)addexpr.RightExpression).Variable.Name);
         }
+
+        [TestMethod]
+        public void ParseSimpleModuleForm()
+        {
+            Parser parser = new Parser("-module(mymodule).");
+
+            var result = parser.ParseForm();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ModuleForm));
+
+            var mform = (ModuleForm)result;
+
+            Assert.AreEqual("mymodule", mform.Name);
+        }
+
+        [TestMethod]
+        public void RaiseIfNoNameInModuleForm()
+        {
+            Parser parser = new Parser("-module().");
+
+            try
+            {
+                parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Expected atom", ex.Message);
+            }
+        }
     }
 }
