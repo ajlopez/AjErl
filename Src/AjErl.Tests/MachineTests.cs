@@ -28,6 +28,7 @@
 
             Assert.IsNotNull(module);
             Assert.IsNotNull(module.Context);
+            Assert.AreEqual("arith", module.Name);
 
             Assert.IsNotNull(module.Context.GetValue("add/2"));
             Assert.IsInstanceOfType(module.Context.GetValue("add/2"), typeof(Function));
