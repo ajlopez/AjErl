@@ -11,7 +11,7 @@
 
         public Module(Context parent) 
         {
-            this.context = new Context(parent);
+            this.context = new Context(parent, this);
         }
 
         public Context Context { get { return this.context; } }

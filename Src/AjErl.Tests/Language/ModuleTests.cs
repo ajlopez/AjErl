@@ -14,6 +14,7 @@
 
             Assert.IsNotNull(module.Context);
             Assert.IsNull(module.Context.Parent);
+            Assert.AreSame(module, module.Context.Module);
         }
 
         [TestMethod]
