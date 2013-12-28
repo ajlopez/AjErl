@@ -10,12 +10,12 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class FunctionDefinitionTests
+    public class FunctionFormTests
     {
         [TestMethod]
         public void DefineAndEvaluateFunction()
         {
-            FunctionDefinition form = new FunctionDefinition("add", new IExpression[] { new VariableExpression(new Variable("X")), new VariableExpression(new Variable("Y")) }, new AddExpression(new VariableExpression(new Variable("X")), new VariableExpression(new Variable("Y"))));
+            FunctionForm form = new FunctionForm("add", new IExpression[] { new VariableExpression(new Variable("X")), new VariableExpression(new Variable("Y")) }, new AddExpression(new VariableExpression(new Variable("X")), new VariableExpression(new Variable("Y"))));
             Context context = new Context();
 
             var result = form.Evaluate(context);

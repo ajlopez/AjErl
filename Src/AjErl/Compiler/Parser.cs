@@ -73,7 +73,7 @@
 
             this.ParsePoint();
 
-            return new FunctionDefinition(name, arguments, body);
+            return new FunctionForm(name, arguments, body);
         }
 
         private IExpression ParseSimpleExpression()

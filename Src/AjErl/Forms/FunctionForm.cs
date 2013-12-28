@@ -7,13 +7,13 @@
     using AjErl.Expressions;
     using AjErl.Language;
 
-    public class FunctionDefinition : IForm
+    public class FunctionForm : IForm
     {
         private string name;
         private IList<IExpression> parameterexpressions;
         private IExpression body;
 
-        public FunctionDefinition(string name, IList<IExpression> parameterexpressions, IExpression body)
+        public FunctionForm(string name, IList<IExpression> parameterexpressions, IExpression body)
         {
             this.name = name;
             this.parameterexpressions = parameterexpressions;

@@ -457,16 +457,16 @@
         }
 
         [TestMethod]
-        public void ParseSimpleFunctionDefinition()
+        public void ParseSimpleFunctionForm()
         {
             Parser parser = new Parser("one() -> 1.");
 
             var result = parser.ParseForm();
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(FunctionDefinition));
+            Assert.IsInstanceOfType(result, typeof(FunctionForm));
 
-            var fdef = (FunctionDefinition)result;
+            var fdef = (FunctionForm)result;
 
             Assert.AreEqual("one", fdef.Name);
             Assert.IsNotNull(fdef.ParameterExpressions);
@@ -502,16 +502,16 @@
         }
 
         [TestMethod]
-        public void ParseFunctionDefinitionWithArgumentsAndExpressionBody()
+        public void ParseFunctionFormWithArgumentsAndExpressionBody()
         {
             Parser parser = new Parser("add(X,Y) -> X+Y.");
 
             var result = parser.ParseForm();
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(FunctionDefinition));
+            Assert.IsInstanceOfType(result, typeof(FunctionForm));
 
-            var fdef = (FunctionDefinition)result;
+            var fdef = (FunctionForm)result;
 
             Assert.AreEqual("add", fdef.Name);
             Assert.IsNotNull(fdef.ParameterExpressions);
