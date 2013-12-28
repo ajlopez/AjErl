@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using AjErl.Expressions;
@@ -17,6 +18,11 @@
 
         public Parser(string text)
             : this(new Lexer(text))
+        {
+        }
+
+        public Parser(TextReader reader)
+            : this(new Lexer(reader))
         {
         }
 
@@ -64,6 +70,8 @@
             this.ParseToken(TokenType.Separator, ")");
             this.ParseToken(TokenType.Operator, "->");
             var body = this.ParseSimpleExpression();
+
+            this.ParsePoint();
 
             return new FunctionDefinition(name, arguments, body);
         }
