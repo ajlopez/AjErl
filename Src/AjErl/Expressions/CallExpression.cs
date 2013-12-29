@@ -33,11 +33,9 @@
             if (namevalue is Atom)
                 namevalue = context.GetValue(string.Format("{0}/{1}", ((Atom)namevalue).Name, this.argumentexpressions.Count));
 
-            Function func = (Function)namevalue;
+            IFunction func = (IFunction)namevalue;
 
-            var newcontext = func.MakeContext(arguments);
-
-            return func.Evaluate(newcontext);
+            return func.Apply(arguments);
         }
 
         public bool HasVariable()

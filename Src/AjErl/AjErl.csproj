@@ -94,6 +94,7 @@
     <Compile Include="Language\EmptyList.cs" />
     <Compile Include="Language\Function.cs" />
     <Compile Include="Language\IElement.cs" />
+    <Compile Include="Language\IFunction.cs" />
     <Compile Include="Language\List.cs" />
     <Compile Include="Language\Module.cs" />
     <Compile Include="Language\Tuple.cs" />

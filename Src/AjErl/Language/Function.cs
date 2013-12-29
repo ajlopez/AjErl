@@ -6,7 +6,7 @@
     using System.Text;
     using AjErl.Expressions;
 
-    public class Function
+    public class Function : IFunction
     {
         private Context context;
         private IList<object> parameters;
@@ -38,6 +38,11 @@
         public object Evaluate(Context context)
         {
             return this.body.Evaluate(context);
+        }
+
+        public object Apply(IList<object> arguments)
+        {
+            return this.body.Evaluate(this.MakeContext(arguments));
         }
     }
 }
