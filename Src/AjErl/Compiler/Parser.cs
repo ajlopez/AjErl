@@ -140,7 +140,16 @@
             if (token.Type == TokenType.Variable)
                 expression = new VariableExpression(new Variable(token.Value));
             else if (token.Type == TokenType.Atom)
+            {
                 expression = new AtomExpression(new Atom(token.Value));
+
+                if (this.TryParseToken(TokenType.Separator, "("))
+                {
+                    var list = this.ParseExpressionList();
+                    this.ParseToken(TokenType.Separator, ")");
+                    expression = new CallExpression(expression, list);
+                }
+            }
             else if (token.Type == TokenType.Integer)
                 expression = new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));
             else if (token.Type == TokenType.Real)

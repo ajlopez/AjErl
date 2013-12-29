@@ -454,6 +454,37 @@
 
             Assert.AreEqual(2, ((ConstantExpression)addexpression.LeftExpression).Value);
             Assert.AreEqual(3, ((ConstantExpression)addexpression.RightExpression).Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseSimpleCallExpression()
+        {
+            Parser parser = new Parser("add(1, 2).");
+
+            var result = parser.ParseExpression();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(CallExpression));
+
+            var expr = (CallExpression)result;
+
+            Assert.IsInstanceOfType(expr.NameExpression, typeof(AtomExpression));
+            Assert.AreEqual(((AtomExpression)expr.NameExpression).Atom.Name, "add");
+
+            Assert.IsNotNull(expr.ArgumentExpressions);
+            Assert.AreEqual(2, expr.ArgumentExpressions.Count);
+            Assert.IsInstanceOfType(expr.ArgumentExpressions[0], typeof(ConstantExpression));
+            Assert.IsInstanceOfType(expr.ArgumentExpressions[1], typeof(ConstantExpression));
+
+            var cexpr = (ConstantExpression)expr.ArgumentExpressions[0];
+            Assert.AreEqual(1, cexpr.Value);
+
+            cexpr = (ConstantExpression)expr.ArgumentExpressions[1];
+            Assert.AreEqual(2, cexpr.Value);
+
+            Assert.IsNull(parser.ParseExpression());
         }
 
         [TestMethod]
