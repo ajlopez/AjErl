@@ -18,8 +18,8 @@
         public object Apply(IList<object> arguments)
         {
             Atom atom = (Atom)arguments[0];
-            this.machine.LoadModule(atom.Name);
-            Tuple tuple = new Tuple(new object[] { new Atom("ok"), atom });
+            Module module = this.machine.LoadModule(atom.Name);
+            Tuple tuple = new Tuple(new object[] { new Atom("ok"), new Atom(module.Name) });
             return tuple;
         }
     }
