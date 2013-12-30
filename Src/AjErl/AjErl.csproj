@@ -90,6 +90,7 @@
     <Compile Include="Forms\FunctionForm.cs" />
     <Compile Include="Forms\IForm.cs" />
     <Compile Include="Forms\ModuleForm.cs" />
+    <Compile Include="Functions\CompileModuleFunction.cs" />
     <Compile Include="Language\Atom.cs" />
     <Compile Include="Language\EmptyList.cs" />
     <Compile Include="Language\Function.cs" />

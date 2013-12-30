@@ -63,6 +63,7 @@
     <Compile Include="Expressions\CallExpressionTests.cs" />
     <Compile Include="Forms\FunctionFormTests.cs" />
     <Compile Include="Forms\ModuleFormTests.cs" />
+    <Compile Include="Functions\CompileModuleFunctionTests.cs" />
     <Compile Include="Language\FunctionTests.cs" />
     <Compile Include="Compiler\LexerTests.cs" />
     <Compile Include="Compiler\ParserTests.cs" />
