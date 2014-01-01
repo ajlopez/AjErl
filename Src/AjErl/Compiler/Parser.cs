@@ -149,6 +149,14 @@
                     this.ParseToken(TokenType.Separator, ")");
                     expression = new CallExpression(expression, list);
                 }
+                else if (this.TryParseToken(TokenType.Separator, ":"))
+                {
+                    var nexpression = new AtomExpression(new Atom(this.ParseAtom()));
+                    this.ParseToken(TokenType.Separator, "(");
+                    var list = this.ParseExpressionList();
+                    this.ParseToken(TokenType.Separator, ")");
+                    expression = new QualifiedCallExpression(expression, nexpression, list);
+                }
             }
             else if (token.Type == TokenType.Integer)
                 expression = new ConstantExpression(int.Parse(token.Value, CultureInfo.InvariantCulture));

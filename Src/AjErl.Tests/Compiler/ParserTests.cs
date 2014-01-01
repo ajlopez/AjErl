@@ -488,6 +488,38 @@
         }
 
         [TestMethod]
+        public void ParseSimpleQualifiedCallExpression()
+        {
+            Parser parser = new Parser("mod:add(1, 2).");
+
+            var result = parser.ParseExpression();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(QualifiedCallExpression));
+
+            var expr = (QualifiedCallExpression)result;
+
+            Assert.IsInstanceOfType(expr.ModuleExpression, typeof(AtomExpression));
+            Assert.AreEqual(((AtomExpression)expr.ModuleExpression).Atom.Name, "mod");
+
+            Assert.IsInstanceOfType(expr.NameExpression, typeof(AtomExpression));
+            Assert.AreEqual(((AtomExpression)expr.NameExpression).Atom.Name, "add");
+
+            Assert.IsNotNull(expr.ArgumentExpressions);
+            Assert.AreEqual(2, expr.ArgumentExpressions.Count);
+            Assert.IsInstanceOfType(expr.ArgumentExpressions[0], typeof(ConstantExpression));
+            Assert.IsInstanceOfType(expr.ArgumentExpressions[1], typeof(ConstantExpression));
+
+            var cexpr = (ConstantExpression)expr.ArgumentExpressions[0];
+            Assert.AreEqual(1, cexpr.Value);
+
+            cexpr = (ConstantExpression)expr.ArgumentExpressions[1];
+            Assert.AreEqual(2, cexpr.Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
         public void ParseSimpleFunctionForm()
         {
             Parser parser = new Parser("one() -> 1.");
