@@ -17,3 +17,6 @@ Work in Progress.
 - [Defining erlang functions in the shell](http://stackoverflow.com/questions/2065990/defining-erlang-functions-in-the-shell).
 - [Interoperability Tutorial User's Guide](http://www.erlang.org/doc/tutorial/users_guide.html)
 - [Native Implemented Functions](http://www.erlang.org/doc/tutorial/nif.html)
+- [Modules](http://www.erlang.org/doc/reference_manual/modules.html)
+- [What are modules](http://learnyousomeerlang.com/modules)
+- [Learning Erlang: A Coding Tutorial](http://www.claystuart.com/)
