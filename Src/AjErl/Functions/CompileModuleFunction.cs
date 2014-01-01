@@ -15,10 +15,11 @@
             this.machine = machine;
         }
 
-        public object Apply(IList<object> arguments)
+        public object Apply(Context context, IList<object> arguments)
         {
             Atom atom = (Atom)arguments[0];
             Module module = this.machine.LoadModule(atom.Name);
+            context.SetValue(module.Name, module);
             Tuple tuple = new Tuple(new object[] { new Atom("ok"), new Atom(module.Name) });
             return tuple;
         }

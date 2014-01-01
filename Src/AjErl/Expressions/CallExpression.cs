@@ -35,7 +35,7 @@
 
             IFunction func = (IFunction)namevalue;
 
-            return func.Apply(arguments);
+            return func.Apply(context, arguments);
         }
 
         public bool HasVariable()

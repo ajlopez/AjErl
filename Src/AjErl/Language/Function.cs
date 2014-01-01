@@ -40,7 +40,7 @@
             return this.body.Evaluate(context);
         }
 
-        public object Apply(IList<object> arguments)
+        public object Apply(Context context, IList<object> arguments)
         {
             return this.body.Evaluate(this.MakeContext(arguments));
         }

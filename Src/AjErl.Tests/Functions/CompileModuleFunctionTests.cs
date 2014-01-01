@@ -17,7 +17,7 @@
             Machine machine = new Machine();
             CompileModuleFunction func = new CompileModuleFunction(machine);
 
-            var result = func.Apply(new object[] { new Atom("arith") });
+            var result = func.Apply(machine.RootContext, new object[] { new Atom("arith") });
 
             Assert.IsNotNull(result);
             Assert.IsInstanceOfType(result, typeof(Tuple));
@@ -37,6 +37,11 @@
             Assert.IsNotNull(elem2);
             Assert.IsInstanceOfType(elem2, typeof(Atom));
             Assert.AreEqual("arith", ((Atom)elem2).Name);
+
+            var result2 = machine.RootContext.GetValue("arith");
+            Assert.IsNotNull(result2);
+            Assert.IsInstanceOfType(result2, typeof(Module));
+            Assert.AreEqual("arith", ((Module)result2).Name);
         }
     }
 }

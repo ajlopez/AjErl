@@ -7,6 +7,6 @@
 
     public interface IFunction
     {
-        object Apply(IList<object> arguments);
+        object Apply(Context context, IList<object> arguments);
     }
 }
