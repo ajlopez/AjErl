@@ -7,6 +7,7 @@
     using System.Text;
     using AjErl.Compiler;
     using AjErl.Language;
+    using AjErl.Functions;
 
     public class Machine
     {
@@ -15,6 +16,7 @@
         public Machine()
         {
             this.rootcontext = new Context();
+            this.rootcontext.SetValue("c/1", new CompileModuleFunction(this));
         }
 
         public Context RootContext { get { return this.rootcontext; } }
@@ -22,10 +24,13 @@
         public Module LoadModule(string modname)
         {
             Module module = new Module(this.rootcontext);
-            Parser parser = new Parser(File.OpenText(modname + ".erl"));
+            StreamReader reader = File.OpenText(modname + ".erl");
+            Parser parser = new Parser(reader);
 
             for (var form = parser.ParseForm(); form != null; form = parser.ParseForm())
                 form.Evaluate(module.Context);
+
+            reader.Close();
 
             return module;
         }

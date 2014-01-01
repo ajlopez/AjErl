@@ -15,12 +15,12 @@
 
             Lexer lexer = new Lexer(Console.In);
             Parser parser = new Parser(lexer);
-            Context context = new Context();
+            Machine machine = new Machine();
 
             while (true)
                 try 
                 {
-                    ProcessExpression(parser, context);
+                    ProcessExpression(parser, machine.RootContext);
                 }
                 catch (Exception ex) 
                 {

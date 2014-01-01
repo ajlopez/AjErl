@@ -16,6 +16,7 @@
             Machine machine = new Machine();
 
             Assert.IsNotNull(machine.RootContext);
+            Assert.IsNotNull(machine.RootContext.GetValue("c/1"));
         }
 
         [TestMethod]
