@@ -77,6 +77,7 @@
     <Compile Include="Expressions\CallExpression.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\AtomExpression.cs" />
+    <Compile Include="Expressions\QualifiedCallExpression.cs" />
     <Compile Include="Expressions\RemExpression.cs" />
     <Compile Include="Expressions\DivExpression.cs" />
     <Compile Include="Expressions\DivideExpression.cs" />
