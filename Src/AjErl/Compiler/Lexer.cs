@@ -10,7 +10,7 @@
     {
         private static string operators = "=+-*/";
         private static string[] operators2 = new string[] { "->" };
-        private static string separators = ".,{}[]()|";
+        private static string separators = ".,{}[]()|:";
         private TextReader reader;
         private Stack<int> chars = new Stack<int>();
         private Stack<Token> tokens = new Stack<Token>();

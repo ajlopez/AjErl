@@ -211,6 +211,20 @@
         }
 
         [TestMethod]
+        public void GetColonAsSeparator()
+        {
+            Lexer lexer = new Lexer(":");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Separator, token.Type);
+            Assert.AreEqual(":", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetRightArrowAsOperator()
         {
             Lexer lexer = new Lexer("->");
