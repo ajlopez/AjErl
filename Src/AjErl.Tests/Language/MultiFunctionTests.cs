@@ -17,6 +17,9 @@
             Function func = MakeFunction("f(0) -> 1.");
             MultiFunction mfunc = new MultiFunction(new Function[] { func });
 
+            Assert.IsNotNull(mfunc.Functions);
+            Assert.AreEqual(1, mfunc.Functions.Count);
+
             Assert.AreEqual(1, mfunc.Apply(null, new object[] { 0 }));
         }
 

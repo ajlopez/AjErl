@@ -15,6 +15,8 @@
             this.functions = functions;
         }
 
+        public IList<Function> Functions { get { return this.functions; } }
+
         public object Apply(Context context, IList<object> arguments)
         {
             foreach (var function in this.functions)

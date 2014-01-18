@@ -88,6 +88,7 @@
     <Compile Include="Expressions\SubtractExpression.cs" />
     <Compile Include="Expressions\TupleExpression.cs" />
     <Compile Include="Expressions\VariableExpression.cs" />
+    <Compile Include="Forms\MultiFunctionForm.cs" />
     <Compile Include="Forms\FunctionForm.cs" />
     <Compile Include="Forms\IForm.cs" />
     <Compile Include="Forms\ModuleForm.cs" />
