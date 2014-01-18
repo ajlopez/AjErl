@@ -540,6 +540,27 @@
         }
 
         [TestMethod]
+        public void ParseSimpleFunctionFormWithVariableParameter()
+        {
+            Parser parser = new Parser("inc(X) -> X+1.");
+
+            var result = parser.ParseForm();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(FunctionForm));
+
+            var fdef = (FunctionForm)result;
+
+            Assert.AreEqual("inc", fdef.Name);
+            Assert.IsNotNull(fdef.ParameterExpressions);
+            Assert.AreEqual(1, fdef.ParameterExpressions.Count);
+            Assert.IsInstanceOfType(fdef.ParameterExpressions[0], typeof(VariableExpression));
+            Assert.AreEqual("X", ((VariableExpression)fdef.ParameterExpressions[0]).Variable.Name);
+            Assert.IsNotNull(fdef.Body);
+            Assert.IsInstanceOfType(fdef.Body, typeof(AddExpression));
+        }
+
+        [TestMethod]
         public void ParseEmptyStringAsNullForm()
         {
             Parser parser = new Parser(string.Empty);

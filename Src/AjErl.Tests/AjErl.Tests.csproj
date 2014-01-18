@@ -85,6 +85,7 @@
     <Compile Include="Language\AtomTests.cs" />
     <Compile Include="Language\ListTests.cs" />
     <Compile Include="Language\ModuleTests.cs" />
+    <Compile Include="Language\MultiFunctionTests.cs" />
     <Compile Include="Language\TupleTests.cs" />
     <Compile Include="Language\VariableTests.cs" />
     <Compile Include="MachineTests.cs" />
