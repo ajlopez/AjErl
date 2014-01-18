@@ -617,6 +617,22 @@
         }
 
         [TestMethod]
+        public void ParseMultiFunctionForm()
+        {
+            Parser parser = new Parser("f(0) -> 1; f(1) -> 2; f(X) -> f(X-1) + f(X-2).");
+
+            var result = parser.ParseForm();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(MultiFunctionForm));
+
+            var fdef = (MultiFunctionForm)result;
+
+            Assert.IsNotNull(fdef.Forms);
+            Assert.AreEqual(3, fdef.Forms.Count);
+        }
+
+        [TestMethod]
         public void ParseSimpleModuleForm()
         {
             Parser parser = new Parser("-module(mymodule).");

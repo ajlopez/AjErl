@@ -64,6 +64,30 @@
             if (token.Type == TokenType.Operator && token.Value == "-")
                 return this.ParseModuleForm();
 
+            this.PushToken(token);
+
+            var fform = this.ParseFunctionForm();
+            var fforms = new List<FunctionForm>();
+            fforms.Add(fform);
+
+            while (this.TryParseToken(TokenType.Separator, ";"))
+                fforms.Add(this.ParseFunctionForm());
+
+            this.ParsePoint();
+
+            if (fforms.Count == 1)
+                return fform;
+
+            return new MultiFunctionForm(fforms);
+        }
+
+        private FunctionForm ParseFunctionForm()
+        {
+            Token token = this.NextToken();
+
+            if (token == null)
+                throw new ParserException("expected atom");
+
             if (token.Type != TokenType.Atom)
                 throw new ParserException(string.Format("unexpected '{0}'", token.Value));
 
@@ -73,8 +97,6 @@
             this.ParseToken(TokenType.Separator, ")");
             this.ParseToken(TokenType.Operator, "->");
             var body = this.ParseSimpleExpression();
-
-            this.ParsePoint();
 
             return new FunctionForm(name, arguments, body);
         }
