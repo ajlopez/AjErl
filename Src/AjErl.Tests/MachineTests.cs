@@ -68,5 +68,30 @@
             Assert.AreEqual(3, ffunc.Apply(null, new object[] { 3 }));
             Assert.AreEqual(5, ffunc.Apply(null, new object[] { 4 }));
         }
+
+        [TestMethod]
+        [DeploymentItem("Modules\\Tail.erl")]
+        public void LoadAndUseTailModuleWithTailRecursion()
+        {
+            Machine machine = new Machine();
+
+            var module = machine.LoadModule("tail");
+
+            Assert.IsNotNull(module);
+            Assert.IsNotNull(module.Context);
+            Assert.AreEqual("tail", module.Name);
+
+            Assert.IsNotNull(module.Context.GetValue("tail/2"));
+            Assert.IsInstanceOfType(module.Context.GetValue("tail/2"), typeof(MultiFunction));
+
+            var ffunc = (MultiFunction)module.Context.GetValue("tail/2");
+
+            var result = ffunc.Apply(null, new object[] { 2, 1 });
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(DelayedCall));
+
+            Assert.AreEqual(3, Machine.ExpandDelayedCall(result));
+        }
     }
 }

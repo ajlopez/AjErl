@@ -131,6 +131,9 @@
     <None Include="Modules\arith.erl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Modules\tail.erl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Modules\fibo.erl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
