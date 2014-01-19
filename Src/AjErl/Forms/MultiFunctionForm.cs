@@ -23,7 +23,7 @@
             string name = this.forms[0].Name;
             int arity = this.forms[0].ParameterExpressions.Count;
 
-            if (!forms.Skip(1).All(f => f.Name == name && f.ParameterExpressions.Count == arity))
+            if (!this.forms.Skip(1).All(f => f.Name == name && f.ParameterExpressions.Count == arity))
                 throw new Exception("head mismatch");
 
             IList<Function> functions = new List<Function>();

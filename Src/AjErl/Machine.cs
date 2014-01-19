@@ -6,8 +6,8 @@
     using System.Linq;
     using System.Text;
     using AjErl.Compiler;
-    using AjErl.Language;
     using AjErl.Functions;
+    using AjErl.Language;
 
     public class Machine
     {

@@ -1,13 +1,13 @@
 ﻿namespace AjErl.Tests.Forms
 {
     using System;
-    using System.Text;
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using AjErl.Forms;
+    using System.Text;
     using AjErl.Compiler;
+    using AjErl.Forms;
     using AjErl.Language;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class MultiFunctionFormTests
@@ -16,7 +16,7 @@
         public void EvaluateWithOneForm()
         {
             Context context = new Context();
-            FunctionForm form = MakeForm("f(0) -> 1.");
+            FunctionForm form = this.MakeForm("f(0) -> 1.");
             MultiFunctionForm mform = new MultiFunctionForm(new FunctionForm[] { form });
 
             var result = mform.Evaluate(context);
@@ -40,9 +40,9 @@
         public void EvaluateWithThreeForm()
         {
             Context context = new Context();
-            FunctionForm form1 = MakeForm("f(0) -> 1.");
-            FunctionForm form2 = MakeForm("f(1) -> 1.");
-            FunctionForm form3 = MakeForm("f(X) -> f(X-1) + f(X-2).");
+            FunctionForm form1 = this.MakeForm("f(0) -> 1.");
+            FunctionForm form2 = this.MakeForm("f(1) -> 1.");
+            FunctionForm form3 = this.MakeForm("f(X) -> f(X-1) + f(X-2).");
             MultiFunctionForm mform = new MultiFunctionForm(new FunctionForm[] { form1, form2, form3 });
 
             var result = mform.Evaluate(context);
@@ -66,9 +66,9 @@
         public void RaiseIfArityIsWrong()
         {
             Context context = new Context();
-            FunctionForm form1 = MakeForm("f(0) -> 1.");
-            FunctionForm form2 = MakeForm("f(1) -> 1.");
-            FunctionForm form3 = MakeForm("f(X, Y) -> f(X-1) + f(X-2).");
+            FunctionForm form1 = this.MakeForm("f(0) -> 1.");
+            FunctionForm form2 = this.MakeForm("f(1) -> 1.");
+            FunctionForm form3 = this.MakeForm("f(X, Y) -> f(X-1) + f(X-2).");
             MultiFunctionForm mform = new MultiFunctionForm(new FunctionForm[] { form1, form2, form3 });
 
             try
@@ -86,9 +86,9 @@
         public void RaiseIfNameIsWrong()
         {
             Context context = new Context();
-            FunctionForm form1 = MakeForm("f(0) -> 1.");
-            FunctionForm form2 = MakeForm("g(1) -> 1.");
-            FunctionForm form3 = MakeForm("f(X) -> f(X-1) + f(X-2).");
+            FunctionForm form1 = this.MakeForm("f(0) -> 1.");
+            FunctionForm form2 = this.MakeForm("g(1) -> 1.");
+            FunctionForm form3 = this.MakeForm("f(X) -> f(X-1) + f(X-2).");
             MultiFunctionForm mform = new MultiFunctionForm(new FunctionForm[] { form1, form2, form3 });
 
             try
