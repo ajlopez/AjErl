@@ -68,6 +68,7 @@
     <Compile Include="Forms\MultiFunctionFormTests.cs" />
     <Compile Include="Functions\CompileModuleFunctionTests.cs" />
     <Compile Include="Functions\SpawnFunctionTests.cs" />
+    <Compile Include="Language\DelayedCallTests.cs" />
     <Compile Include="Language\FunctionTests.cs" />
     <Compile Include="Compiler\LexerTests.cs" />
     <Compile Include="Compiler\ParserTests.cs" />
