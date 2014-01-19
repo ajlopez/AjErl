@@ -106,6 +106,7 @@
     <Compile Include="Language\Variable.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="MatchUtilities.cs" />
+    <Compile Include="Process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
