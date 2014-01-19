@@ -33,21 +33,10 @@
 
         public IExpression ParseExpression()
         {
-            IExpression expression = this.ParseSimpleExpression();
+            IExpression expression = this.ParseMatchExpression();
 
-            Token token = this.NextToken();
-
-            if (expression == null && token == null)
+            if (expression == null)
                 return null;
-
-            if (token != null && token.Type == TokenType.Operator && token.Value == "=")
-            {
-                expression = new MatchExpression(expression, this.ParseBinaryExpression(0));
-                this.ParsePoint();
-                return expression;
-            }
-            else
-                this.PushToken(token);
 
             this.ParsePoint();
 
@@ -110,6 +99,29 @@
             this.ParsePoint();
 
             return new ModuleForm(name);
+        }
+
+        private IExpression ParseMatchExpression()
+        {
+            IExpression expression = this.ParseSimpleExpression();
+
+            Token token = this.NextToken();
+
+            if (expression == null)
+                if (token == null)
+                    return null;
+                else
+                    throw new ParserException(string.Format("Unexpected '{0}'", token.Value));
+
+            if (token != null && token.Type == TokenType.Operator && token.Value == "=")
+            {
+                expression = new MatchExpression(expression, this.ParseBinaryExpression(0));
+                return expression;
+            }
+            else
+                this.PushToken(token);
+
+            return expression;
         }
 
         private IExpression ParseSimpleExpression()
