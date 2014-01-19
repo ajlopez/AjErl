@@ -32,7 +32,7 @@
         private static void ProcessExpression(Parser parser, Context context) 
         {
             IExpression expression = parser.ParseExpression();
-            object result = expression.Evaluate(context);
+            object result = Machine.ExpandDelayedCall(expression.Evaluate(context));
 
             if (result == null)
                 return;
