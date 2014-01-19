@@ -663,5 +663,49 @@
                 Assert.AreEqual("Expected atom", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void ParseCompositeExpressionWithTwoConstants()
+        {
+            Parser parser = new Parser("1,2.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(CompositeExpression));
+
+            var cexpr = (CompositeExpression)expr;
+
+            Assert.IsNotNull(cexpr.Expressions);
+            Assert.AreEqual(2, cexpr.Expressions.Count);
+            Assert.IsInstanceOfType(cexpr.Expressions[0], typeof(ConstantExpression));
+            Assert.IsInstanceOfType(cexpr.Expressions[1], typeof(ConstantExpression));
+            Assert.AreEqual(1, ((ConstantExpression)cexpr.Expressions[0]).Value);
+            Assert.AreEqual(2, ((ConstantExpression)cexpr.Expressions[1]).Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseCompositeExpressionWithTwoVariables()
+        {
+            Parser parser = new Parser("X,Y.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(CompositeExpression));
+
+            var cexpr = (CompositeExpression)expr;
+
+            Assert.IsNotNull(cexpr.Expressions);
+            Assert.AreEqual(2, cexpr.Expressions.Count);
+            Assert.IsInstanceOfType(cexpr.Expressions[0], typeof(VariableExpression));
+            Assert.IsInstanceOfType(cexpr.Expressions[1], typeof(VariableExpression));
+            Assert.AreEqual("X", ((VariableExpression)cexpr.Expressions[0]).Variable.Name);
+            Assert.AreEqual("Y", ((VariableExpression)cexpr.Expressions[1]).Variable.Name);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
     }
 }

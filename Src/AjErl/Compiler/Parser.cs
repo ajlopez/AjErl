@@ -38,9 +38,19 @@
             if (expression == null)
                 return null;
 
+            IList<IExpression> expressions = new List<IExpression>();
+
+            expressions.Add(expression);
+
+            while (this.TryParseToken(TokenType.Separator, ","))
+                expressions.Add(this.ParseMatchExpression());
+
             this.ParsePoint();
 
-            return expression;
+            if (expressions.Count == 1)
+                return expression;
+
+            return new CompositeExpression(expressions);
         }
 
         public IForm ParseForm()
