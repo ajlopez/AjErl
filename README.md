@@ -21,3 +21,4 @@ Work in Progress.
 - [What are modules](http://learnyousomeerlang.com/modules)
 - [Learning Erlang: A Coding Tutorial](http://www.claystuart.com/)
 - [Can someone explain the structure of a Pid in Erlang?](http://stackoverflow.com/questions/243363/can-someone-explain-the-structure-of-a-pid-in-erlang)
+- [Concurrent Programming](http://www.erlang.org/doc/getting_started/conc_prog.html)

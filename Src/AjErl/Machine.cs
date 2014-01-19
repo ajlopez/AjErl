@@ -17,6 +17,7 @@
         {
             this.rootcontext = new Context();
             this.rootcontext.SetValue("c/1", new CompileModuleFunction(this));
+            this.rootcontext.SetValue("spawn/1", new SpawnFunction());
         }
 
         public Context RootContext { get { return this.rootcontext; } }

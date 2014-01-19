@@ -17,6 +17,7 @@
 
             Assert.IsNotNull(machine.RootContext);
             Assert.IsNotNull(machine.RootContext.GetValue("c/1"));
+            Assert.IsNotNull(machine.RootContext.GetValue("spawn/1"));
         }
 
         [TestMethod]
