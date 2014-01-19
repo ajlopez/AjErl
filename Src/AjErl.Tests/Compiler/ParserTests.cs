@@ -707,5 +707,40 @@
 
             Assert.IsNull(parser.ParseExpression());
         }
+
+        [TestMethod]
+        public void ParseFunctionWithDelayedCall()
+        {
+            Parser parser = new Parser("f(X,Y) -> f(X-1, Y+1).");
+
+            var form = parser.ParseForm();
+
+            Assert.IsNotNull(form);
+            Assert.IsInstanceOfType(form, typeof(FunctionForm));
+
+            var fform = (FunctionForm)form;
+
+            Assert.IsInstanceOfType(fform.Body, typeof(DelayedCallExpression));
+        }
+
+        [TestMethod]
+        public void ParseFunctionWithCompositeBodyAndDelayedCall()
+        {
+            Parser parser = new Parser("f(X,Y) -> Z=X-1, W=Y+1, f(Z, W).");
+
+            var form = parser.ParseForm();
+
+            Assert.IsNotNull(form);
+            Assert.IsInstanceOfType(form, typeof(FunctionForm));
+
+            var fform = (FunctionForm)form;
+
+            Assert.IsInstanceOfType(fform.Body, typeof(CompositeExpression));
+
+            var cexpr = (CompositeExpression)fform.Body;
+
+            Assert.AreEqual(3, cexpr.Expressions.Count);
+            Assert.IsInstanceOfType(cexpr.Expressions[2], typeof(DelayedCallExpression));
+        }
     }
 }

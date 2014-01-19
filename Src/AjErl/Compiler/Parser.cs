@@ -33,24 +33,14 @@
 
         public IExpression ParseExpression()
         {
-            IExpression expression = this.ParseMatchExpression();
+            IExpression expression = this.ParseCompositeExpression();
 
             if (expression == null)
                 return null;
 
-            IList<IExpression> expressions = new List<IExpression>();
-
-            expressions.Add(expression);
-
-            while (this.TryParseToken(TokenType.Separator, ","))
-                expressions.Add(this.ParseMatchExpression());
-
             this.ParsePoint();
 
-            if (expressions.Count == 1)
-                return expression;
-
-            return new CompositeExpression(expressions);
+            return expression;
         }
 
         public IForm ParseForm()
@@ -95,7 +85,7 @@
             var arguments = this.ParseExpressionList();
             this.ParseToken(TokenType.Separator, ")");
             this.ParseToken(TokenType.Operator, "->");
-            var body = this.ParseSimpleExpression();
+            var body = this.ParseCompositeExpression();
 
             return new FunctionForm(name, arguments, body);
         }
@@ -109,6 +99,26 @@
             this.ParsePoint();
 
             return new ModuleForm(name);
+        }
+
+        private IExpression ParseCompositeExpression()
+        {
+            IExpression expression = this.ParseMatchExpression();
+
+            if (expression == null)
+                return null;
+
+            IList<IExpression> expressions = new List<IExpression>();
+
+            expressions.Add(expression);
+
+            while (this.TryParseToken(TokenType.Separator, ","))
+                expressions.Add(this.ParseMatchExpression());
+
+            if (expressions.Count == 1)
+                return expression;
+
+            return new CompositeExpression(expressions);
         }
 
         private IExpression ParseMatchExpression()

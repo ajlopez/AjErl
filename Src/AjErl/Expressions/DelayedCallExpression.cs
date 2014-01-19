@@ -6,12 +6,12 @@
     using System.Text;
     using AjErl.Language;
 
-    public class CallExpression : IExpression
+    public class DelayedCallExpression : IExpression
     {
         private IExpression nameexpression;
         private IList<IExpression> argumentexpressions;
 
-        public CallExpression(IExpression nameexpression, IList<IExpression> argumentexpressions)
+        public DelayedCallExpression(IExpression nameexpression, IList<IExpression> argumentexpressions)
         {
             this.nameexpression = nameexpression;
             this.argumentexpressions = argumentexpressions;
@@ -28,14 +28,14 @@
             IList<object> arguments = new List<object>();
 
             foreach (var argexpr in this.argumentexpressions)
-                arguments.Add(Machine.ExpandDelayedCall(argexpr.Evaluate(context, withvars)));
+                arguments.Add(argexpr.Evaluate(context, withvars));
 
             if (namevalue is Atom)
                 namevalue = context.GetValue(string.Format("{0}/{1}", ((Atom)namevalue).Name, this.argumentexpressions.Count));
 
             IFunction func = (IFunction)namevalue;
 
-            return func.Apply(context, arguments);
+            return new DelayedCall(func, context, arguments);
         }
 
         public bool HasVariable()
@@ -48,11 +48,6 @@
                     return true;
 
             return false;
-        }
-
-        public DelayedCallExpression ToDelayedCallExpression()
-        {
-            return new DelayedCallExpression(this.nameexpression, this.argumentexpressions);
         }
     }
 }

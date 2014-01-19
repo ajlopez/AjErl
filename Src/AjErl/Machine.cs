@@ -22,6 +22,14 @@
 
         public Context RootContext { get { return this.rootcontext; } }
 
+        public static object ExpandDelayedCall(object value)
+        {
+            while (value is DelayedCall)
+                value = ((DelayedCall)value).Evaluate();
+
+            return value;
+        }
+
         public Module LoadModule(string modname)
         {
             Module module = new Module(this.rootcontext);

@@ -22,8 +22,8 @@
 
         public object Evaluate(Context context, bool withvars = false)
         {
-            var lvalue = this.left.Evaluate(context, withvars);
-            var rvalue = this.right.Evaluate(context, withvars);
+            var lvalue = Machine.ExpandDelayedCall(this.left.Evaluate(context, withvars));
+            var rvalue = Machine.ExpandDelayedCall(this.right.Evaluate(context, withvars));
 
             return this.Apply(lvalue, rvalue);
         }
