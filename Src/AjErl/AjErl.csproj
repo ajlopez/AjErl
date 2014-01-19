@@ -94,6 +94,7 @@
     <Compile Include="Forms\ModuleForm.cs" />
     <Compile Include="Functions\CompileModuleFunction.cs" />
     <Compile Include="Language\Atom.cs" />
+    <Compile Include="Language\Match.cs" />
     <Compile Include="Language\MultiFunction.cs" />
     <Compile Include="Language\EmptyList.cs" />
     <Compile Include="Language\Function.cs" />
@@ -104,7 +105,7 @@
     <Compile Include="Language\Tuple.cs" />
     <Compile Include="Language\Variable.cs" />
     <Compile Include="Machine.cs" />
-    <Compile Include="Match.cs" />
+    <Compile Include="MatchUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

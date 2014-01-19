@@ -30,7 +30,7 @@
                 return false;
 
             for (int k = 0; k < this.elements.Count && context != null; k++)
-                if (!AjErl.Match.MatchObjects(this.elements[k], tuple.ElementAt(k), context))
+                if (!AjErl.MatchUtilities.MatchObjects(this.elements[k], tuple.ElementAt(k), context))
                     return false;
 
             return true;

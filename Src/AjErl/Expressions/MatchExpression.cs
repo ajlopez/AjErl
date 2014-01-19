@@ -26,7 +26,7 @@
             object left = this.leftexpr.Evaluate(context, true);
             object right = this.rightexpr.Evaluate(context, false);
 
-            if (!Match.MatchObjects(left, right, context))
+            if (!MatchUtilities.MatchObjects(left, right, context))
                 throw new InvalidOperationException(string.Format("no match of right hand side value {0}", right.ToString()));
 
             return right;

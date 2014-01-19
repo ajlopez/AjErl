@@ -41,12 +41,12 @@
             if (list == null)
                 return false;
 
-            var result = AjErl.Match.MatchObjects(this.head, list.Head, context);
+            var result = AjErl.MatchUtilities.MatchObjects(this.head, list.Head, context);
 
             if (!result)
                 return false;
 
-            return AjErl.Match.MatchObjects(this.tail, list.Tail, context);
+            return AjErl.MatchUtilities.MatchObjects(this.tail, list.Tail, context);
         }
 
         public override string ToString()

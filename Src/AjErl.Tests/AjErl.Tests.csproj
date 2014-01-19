@@ -85,12 +85,13 @@
     <Compile Include="Expressions\VariableExpressionTests.cs" />
     <Compile Include="Language\AtomTests.cs" />
     <Compile Include="Language\ListTests.cs" />
+    <Compile Include="Language\MatchTests.cs" />
     <Compile Include="Language\ModuleTests.cs" />
     <Compile Include="Language\MultiFunctionTests.cs" />
     <Compile Include="Language\TupleTests.cs" />
     <Compile Include="Language\VariableTests.cs" />
     <Compile Include="MachineTests.cs" />
-    <Compile Include="MatchTests.cs" />
+    <Compile Include="MatchUtilitiesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Modules\arith.erl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Modules\fibo.erl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -27,7 +27,7 @@
             Context context = new Context();
 
             for (int k = 0; k < this.parameters.Count; k++)
-                if (!Match.MatchObjects(this.parameters[k], arguments[k], context))
+                if (!MatchUtilities.MatchObjects(this.parameters[k], arguments[k], context))
                     return null;
 
             context.SetParent(this.context);
