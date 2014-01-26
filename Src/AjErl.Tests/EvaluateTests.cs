@@ -208,6 +208,13 @@
         public void EvaluateListsMap()
         {
             this.EvaluateTo("lists:map(fun(X) -> X*2 end, [1,2,3]).", "[2,4,6]");
+            this.EvaluateTo("lists:map(fun(X) -> (X rem 2) =:= 0 end, [1,2,3]).", "[false,true,false]");
+        }
+
+        [TestMethod]
+        public void EvaluateListsFilter()
+        {
+            this.EvaluateTo("lists:filter(fun(X) -> (X rem 2) =:= 0 end, [1,2,3,4,5]).", "[2,4]");
         }
 
         private void EvaluateWithError(string text, string message)
