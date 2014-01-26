@@ -169,6 +169,16 @@
             Assert.AreEqual("{c,100}", result.ToString());
         }
 
+        [TestMethod]
+        public void EvaluateStrictEqual()
+        {
+            Assert.AreEqual(true, this.EvaluateExpression("1 =:= 1."));
+            Assert.AreEqual(true, this.EvaluateExpression("\"foo\" =:= \"foo\"."));
+            Assert.AreEqual(false, this.EvaluateExpression("1 =:= 2."));
+            Assert.AreEqual(false, this.EvaluateExpression("\"foo\" =:= \"bar\"."));
+            Assert.AreEqual(false, this.EvaluateExpression("1 =:= 1.0."));
+        }
+
         private void EvaluateWithError(string text, string message)
         {
             try
