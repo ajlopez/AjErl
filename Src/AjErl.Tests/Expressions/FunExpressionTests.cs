@@ -17,6 +17,7 @@
             FunExpression expr = new FunExpression(new IExpression[] { new VariableExpression(new Variable("X")), new VariableExpression(new Variable("Y")) }, new AddExpression(new VariableExpression(new Variable("X")), new VariableExpression(new Variable("Y"))));
             Context context = new Context();
 
+            Assert.IsFalse(expr.HasVariable());
             var result = expr.Evaluate(context);
 
             Assert.IsNotNull(result);

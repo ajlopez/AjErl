@@ -195,6 +195,9 @@
                 expression = new VariableExpression(new Variable(token.Value));
             else if (token.Type == TokenType.Atom)
             {
+                if (token.Value == "fun")
+                    return this.ParseFunExpression();
+
                 expression = new AtomExpression(new Atom(token.Value));
 
                 if (this.TryParseToken(TokenType.Separator, "("))
@@ -244,6 +247,18 @@
                 this.PushToken(token);
 
             return expression;
+        }
+
+        private FunExpression ParseFunExpression()
+        {
+            this.ParseToken(TokenType.Separator, "(");
+            var exprs = this.ParseExpressionList();
+            this.ParseToken(TokenType.Separator, ")");
+            this.ParseToken(TokenType.Operator, "->");
+            var body = this.ParseCompositeExpression();
+            this.ParseToken(TokenType.Atom, "end");
+
+            return new FunExpression(exprs, body);
         }
 
         private IList<IExpression> ParseExpressionList()

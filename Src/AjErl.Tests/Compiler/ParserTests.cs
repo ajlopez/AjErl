@@ -709,6 +709,65 @@
         }
 
         [TestMethod]
+        public void ParseFun()
+        {
+            Parser parser = new Parser("fun(X,Y) -> X+Y end.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(FunExpression));
+
+            var fexpr = (FunExpression)expr;
+
+            Assert.AreEqual(2, fexpr.ParameterExpressions.Count);
+            Assert.IsInstanceOfType(fexpr.ParameterExpressions[0], typeof(VariableExpression));
+            Assert.AreEqual("X", ((VariableExpression)fexpr.ParameterExpressions[0]).Variable.Name);
+            Assert.IsInstanceOfType(fexpr.ParameterExpressions[1], typeof(VariableExpression));
+            Assert.AreEqual("Y", ((VariableExpression)fexpr.ParameterExpressions[1]).Variable.Name);
+
+            Assert.IsNotNull(fexpr.Body);
+            Assert.IsInstanceOfType(fexpr.Body, typeof(AddExpression));
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseFunWithDelayedCall()
+        {
+            Parser parser = new Parser("fun(X,Y) -> f(X-1, Y+1) end.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(FunExpression));
+
+            var fexpr = (FunExpression)expr;
+
+            Assert.IsInstanceOfType(fexpr.Body, typeof(DelayedCallExpression));
+        }
+
+        [TestMethod]
+        public void ParseFunWithCompositeBodyAndDelayedCall()
+        {
+            Parser parser = new Parser("fun(X,Y) -> Z=X-1, W=Y+1, f(Z, W) end.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(FunExpression));
+
+            var fexpr = (FunExpression)expr;
+
+            Assert.IsInstanceOfType(fexpr.Body, typeof(CompositeExpression));
+
+            var cexpr = (CompositeExpression)fexpr.Body;
+
+            Assert.AreEqual(3, cexpr.Expressions.Count);
+            Assert.IsInstanceOfType(cexpr.Expressions[2], typeof(DelayedCallExpression));
+        }
+
+        [TestMethod]
         public void ParseFunctionWithDelayedCall()
         {
             Parser parser = new Parser("f(X,Y) -> f(X-1, Y+1).");
