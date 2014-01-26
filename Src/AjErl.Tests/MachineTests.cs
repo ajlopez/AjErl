@@ -21,6 +21,16 @@
         }
 
         [TestMethod]
+        public void CreateMachineWithInitialModules()
+        {
+            Machine machine = new Machine();
+
+            Assert.IsNotNull(machine.RootContext);
+            Assert.IsNotNull(machine.RootContext.GetValue("lists"));
+            Assert.IsInstanceOfType(machine.RootContext.GetValue("lists"), typeof(Module));
+        }
+
+        [TestMethod]
         [DeploymentItem("Modules\\arith.erl")]
         public void LoadArithModule()
         {

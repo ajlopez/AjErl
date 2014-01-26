@@ -18,7 +18,8 @@
         [TestInitialize]
         public void Setup()
         {
-            this.context = new Context();
+            Machine machine = new Machine();
+            this.context = machine.RootContext;
         }
 
         [TestMethod]
@@ -201,6 +202,12 @@
         {
             Assert.AreEqual(false, this.EvaluateExpression("false."));
             Assert.AreEqual(true, this.EvaluateExpression("true."));
+        }
+
+        [TestMethod]
+        public void EvaluateListsMap()
+        {
+            this.EvaluateTo("lists:map(fun(X) -> X*2 end, [1,2,3]).", "[2,4,6]");
         }
 
         private void EvaluateWithError(string text, string message)

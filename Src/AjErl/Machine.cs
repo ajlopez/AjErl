@@ -8,6 +8,7 @@
     using AjErl.Compiler;
     using AjErl.Functions;
     using AjErl.Language;
+    using AjErl.Modules;
 
     public class Machine
     {
@@ -18,6 +19,9 @@
             this.rootcontext = new Context();
             this.rootcontext.SetValue("c/1", new CompileModuleFunction(this));
             this.rootcontext.SetValue("spawn/1", new SpawnFunction());
+
+            Module lists = new ListsModule(this.rootcontext);
+            this.rootcontext.SetValue(lists.Name, lists);
         }
 
         public Context RootContext { get { return this.rootcontext; } }

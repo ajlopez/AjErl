@@ -103,6 +103,7 @@
     <Compile Include="Functions\SpawnFunction.cs" />
     <Compile Include="Language\Atom.cs" />
     <Compile Include="Language\DelayedCall.cs" />
+    <Compile Include="Language\FuncFunction.cs" />
     <Compile Include="Language\Match.cs" />
     <Compile Include="Language\MultiFunction.cs" />
     <Compile Include="Language\EmptyList.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Machine.cs" />
     <Compile Include="Mailbox.cs" />
     <Compile Include="MatchUtilities.cs" />
+    <Compile Include="Modules\ListsModule.cs" />
     <Compile Include="Process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
