@@ -123,7 +123,7 @@
         }
 
         [TestMethod]
-        public void GetEqualAsOperator()
+        public void GetMatchAsOperator()
         {
             Lexer lexer = new Lexer("=");
 
@@ -234,6 +234,34 @@
             Assert.IsNotNull(token);
             Assert.AreEqual(TokenType.Separator, token.Type);
             Assert.AreEqual(";", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetStrictEqualAsOperator()
+        {
+            Lexer lexer = new Lexer("=:=");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+            Assert.AreEqual("=:=", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
+        public void GetEqualAsOperator()
+        {
+            Lexer lexer = new Lexer("==");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+            Assert.AreEqual("==", token.Value);
 
             Assert.IsNull(lexer.NextToken());
         }
