@@ -244,6 +244,22 @@
         }
 
         [TestMethod]
+        public void EvaluateListsAll()
+        {
+            this.EvaluateTo("lists:all(fun (X) -> (X rem 2) =:= 0 end, [1,2,3,4]).", "false");
+            this.EvaluateTo("lists:all(fun (X) -> (X rem 2) =:= 0 end, [2,4]).", "true");
+            this.EvaluateTo("lists:all(fun (X) -> (X rem 2) =:= 0 end, []).", "true");
+        }
+
+        [TestMethod]
+        public void EvaluateListsAny()
+        {
+            this.EvaluateTo("lists:any(fun (X) -> (X rem 2) =:= 0 end, [1,2,3,4]).", "true");
+            this.EvaluateTo("lists:any(fun (X) -> (X rem 2) =:= 0 end, [1,3]).", "false");
+            this.EvaluateTo("lists:any(fun (X) -> (X rem 2) =:= 0 end, []).", "false");
+        }
+
+        [TestMethod]
         public void EvaluateListConstruct()
         {
             this.EvaluateTo("[1|[2,3]].", "[1,2,3]");
