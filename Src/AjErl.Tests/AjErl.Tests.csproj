@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Expressions\CallExpressionTests.cs" />
     <Compile Include="Expressions\CompositeExpressionTests.cs" />
+    <Compile Include="Expressions\EqualExpressionTests.cs" />
     <Compile Include="Expressions\DelayedCallExpressionTests.cs" />
     <Compile Include="Expressions\FunExpressionTests.cs" />
     <Compile Include="Expressions\MultiFunExpressionTests.cs" />

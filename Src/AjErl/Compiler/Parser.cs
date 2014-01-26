@@ -12,7 +12,7 @@
 
     public class Parser
     {
-        private static string[][] binaryoperators = new string[][] { new string[] { "=:=" }, new string[] { "+", "-" }, new string[] { "*", "/", "div", "rem" } };
+        private static string[][] binaryoperators = new string[][] { new string[] { "=:=", "==" }, new string[] { "+", "-" }, new string[] { "*", "/", "div", "rem" } };
 
         private Lexer lexer;
 
@@ -165,6 +165,8 @@
             {
                 if (token.Value == "=:=")
                     expr = new StrictEqualExpression(expr, this.ParseBinaryExpression(level + 1));
+                else if (token.Value == "==")
+                    expr = new EqualExpression(expr, this.ParseBinaryExpression(level + 1));
                 else if (token.Value == "+")
                     expr = new AddExpression(expr, this.ParseBinaryExpression(level + 1));
                 else if (token.Value == "-")
