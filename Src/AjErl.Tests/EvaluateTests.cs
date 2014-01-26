@@ -144,6 +144,31 @@
             this.EvaluateAndCallForm("add(X,Y) -> X+Y.", new object[] { 1, 2 }, 3);
         }
 
+        [TestMethod]
+        public void EvaluateAndCallSimpleFun()
+        {
+            this.EvaluateExpression("Add = fun(X,Y) -> X+Y end.");
+            var result = this.EvaluateExpression("Add(1,2).");
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(3, result);
+        }
+
+        [TestMethod]
+        public void EvaluateAndCallMultiFun()
+        {
+            this.EvaluateExpression("TempConvert = fun({c,C}) -> {f, 32 + C*9/5}; ({f,F}) -> {c, (F-32)*5/9} end.");
+            var result = this.EvaluateExpression("TempConvert({c, 100}).");
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("{f,212}", result.ToString());
+
+            result = this.EvaluateExpression("TempConvert({f, 212}).");
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("{c,100}", result.ToString());
+        }
+
         private void EvaluateWithError(string text, string message)
         {
             try
