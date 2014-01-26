@@ -249,14 +249,31 @@
             return expression;
         }
 
-        private FunExpression ParseFunExpression()
+        private IExpression ParseFunExpression()
+        {
+            var fexpr = this.ParseSimpleFunExpression();
+            var fexprs = new List<FunExpression>();
+
+            fexprs.Add(fexpr);
+
+            while (this.TryParseToken(TokenType.Separator, ";"))
+                fexprs.Add(this.ParseSimpleFunExpression());
+
+            this.ParseToken(TokenType.Atom, "end");
+
+            if (fexprs.Count == 1)
+                return fexpr;
+
+            return new MultiFunExpression(fexprs);
+        }
+
+        private FunExpression ParseSimpleFunExpression()
         {
             this.ParseToken(TokenType.Separator, "(");
             var exprs = this.ParseExpressionList();
             this.ParseToken(TokenType.Separator, ")");
             this.ParseToken(TokenType.Operator, "->");
             var body = this.ParseCompositeExpression();
-            this.ParseToken(TokenType.Atom, "end");
 
             return new FunExpression(exprs, body);
         }

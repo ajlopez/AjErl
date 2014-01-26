@@ -709,7 +709,7 @@
         }
 
         [TestMethod]
-        public void ParseFun()
+        public void ParseFunExpression()
         {
             Parser parser = new Parser("fun(X,Y) -> X+Y end.");
 
@@ -728,6 +728,23 @@
 
             Assert.IsNotNull(fexpr.Body);
             Assert.IsInstanceOfType(fexpr.Body, typeof(AddExpression));
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseMultiFunExpression()
+        {
+            Parser parser = new Parser("fun({c,C}) -> {f, 32 + C*9/5}; ({f,F}) -> {c, (F-32)*5/9} end.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(MultiFunExpression));
+
+            var mfexpr = (MultiFunExpression)expr;
+
+            Assert.AreEqual(2, mfexpr.Expressions.Count);
 
             Assert.IsNull(parser.ParseExpression());
         }
