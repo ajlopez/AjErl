@@ -95,6 +95,7 @@
     <Compile Include="Language\TupleTests.cs" />
     <Compile Include="Language\VariableTests.cs" />
     <Compile Include="MachineTests.cs" />
+    <Compile Include="MailboxTests.cs" />
     <Compile Include="MatchUtilitiesTests.cs" />
     <Compile Include="ProcessTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

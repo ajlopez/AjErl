@@ -25,6 +25,23 @@
 
             Assert.AreEqual("one", atom.ToString());
         }
+
+        [TestMethod]
+        public void MatchWithNull()
+        {
+            Atom atom = new Atom("one");
+
+            Assert.IsFalse(atom.Match(null));
+        }
+
+        [TestMethod]
+        public void MatchWithAnotherAtom()
+        {
+            Atom atom = new Atom("one");
+            Atom atom2 = new Atom("two");
+
+            Assert.IsFalse(atom.Match(atom2));
+        }
     }
 }
 

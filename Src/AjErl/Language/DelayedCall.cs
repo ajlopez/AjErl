@@ -26,7 +26,7 @@
 
         public object Evaluate()
         {
-            return this.function.Apply(context, arguments);
+            return this.function.Apply(this.context, this.arguments);
         }
     }
 }

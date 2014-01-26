@@ -6,6 +6,8 @@ Work in Progress.
 
 ## References
 
+### Erlang
+
 - [Programming Erlang: Software for a Concurrent World](http://pragprog.com/book/jaerlang/programming-erlang)
 - [Erlang Programming Language](http://www.erlang.org/)
 - [Erlang Documentation](http://www.erlang.org/doc.html)
@@ -23,3 +25,9 @@ Work in Progress.
 - [Can someone explain the structure of a Pid in Erlang?](http://stackoverflow.com/questions/243363/can-someone-explain-the-structure-of-a-pid-in-erlang)
 - [Concurrent Programming](http://www.erlang.org/doc/getting_started/conc_prog.html)
 - [Errors and Processes](http://learnyousomeerlang.com/errors-and-processes)
+
+### .NET
+
+- [Blocking Collection and the Producer-Consumer Problem](http://blogs.msdn.com/b/csharpfaq/archive/2010/08/12/blocking-collection-and-the-producer-consumer-problem.aspx)
+- [Fast and Best Producer/consumer queue technique BlockingCollection vs concurrent Queue](http://stackoverflow.com/questions/5001003/fast-and-best-producer-consumer-queue-technique-blockingcollection-vs-concurrent)
+
