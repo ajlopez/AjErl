@@ -818,5 +818,25 @@
             Assert.AreEqual(3, cexpr.Expressions.Count);
             Assert.IsInstanceOfType(cexpr.Expressions[2], typeof(DelayedCallExpression));
         }
+
+        [TestMethod]
+        public void ParseStrictEqualExpression()
+        {
+            Parser parser = new Parser("1 =:= 0.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(StrictEqualExpression));
+
+            var seqexpr = (StrictEqualExpression)expr;
+
+            Assert.IsInstanceOfType(seqexpr.LeftExpression, typeof(ConstantExpression));
+            Assert.AreEqual(1, ((ConstantExpression)seqexpr.LeftExpression).Value);
+            Assert.IsInstanceOfType(seqexpr.RightExpression, typeof(ConstantExpression));
+            Assert.AreEqual(0, ((ConstantExpression)seqexpr.RightExpression).Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
     }
 }

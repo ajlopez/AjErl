@@ -12,7 +12,7 @@
 
     public class Parser
     {
-        private static string[][] binaryoperators = new string[][] { new string[] { "+", "-" }, new string[] { "*", "/", "div", "rem" } };
+        private static string[][] binaryoperators = new string[][] { new string[] { "=:=" }, new string[] { "+", "-" }, new string[] { "*", "/", "div", "rem" } };
 
         private Lexer lexer;
 
@@ -163,17 +163,19 @@
 
             for (token = this.lexer.NextToken(); token != null && this.IsBinaryOperator(level, token); token = this.lexer.NextToken())
             {
-                if (token.Value == "+")
+                if (token.Value == "=:=")
+                    expr = new StrictEqualExpression(expr, this.ParseBinaryExpression(level + 1));
+                else if (token.Value == "+")
                     expr = new AddExpression(expr, this.ParseBinaryExpression(level + 1));
-                if (token.Value == "-")
+                else if (token.Value == "-")
                     expr = new SubtractExpression(expr, this.ParseBinaryExpression(level + 1));
-                if (token.Value == "*")
+                else if (token.Value == "*")
                     expr = new MultiplyExpression(expr, this.ParseBinaryExpression(level + 1));
-                if (token.Value == "/")
+                else if (token.Value == "/")
                     expr = new DivideExpression(expr, this.ParseBinaryExpression(level + 1));
-                if (token.Value == "div")
+                else if (token.Value == "div")
                     expr = new DivExpression(expr, this.ParseBinaryExpression(level + 1));
-                if (token.Value == "rem")
+                else if (token.Value == "rem")
                     expr = new RemExpression(expr, this.ParseBinaryExpression(level + 1));
             }
 
