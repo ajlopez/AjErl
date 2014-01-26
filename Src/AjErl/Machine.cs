@@ -43,5 +43,17 @@
 
             return module;
         }
+
+        public static string ToString(object value)
+        {
+            if (value.Equals(false))
+                return "false";
+            if (value.Equals(true))
+                return "true";
+            if (value == null)
+                return "null";
+
+            return value.ToString();
+        }
     }
 }

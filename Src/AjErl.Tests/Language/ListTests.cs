@@ -188,6 +188,15 @@
         }
 
         [TestMethod]
+        public void MakeSimpleListWithBooleans()
+        {
+            List list = List.MakeList(new object[] { false, true, false });
+
+            Assert.IsNotNull(list);
+            Assert.AreEqual("[false,true,false]", list.ToString());
+        }
+
+        [TestMethod]
         public void MakeSimpleListWithTail()
         {
             List list = List.MakeList(new object[] { 1, 2, 3 }, List.MakeList(new object[] { 4, 5 }));

@@ -54,7 +54,7 @@
             StringBuilder builder = new StringBuilder();
             builder.Append("[");
 
-            builder.Append(this.head.ToString());
+            builder.Append(Machine.ToString(this.head));
 
             object rest = this.tail;
 
@@ -62,14 +62,14 @@
             {
                 builder.Append(",");
                 List list = (List)rest;
-                builder.Append(list.Head);
+                builder.Append(Machine.ToString(list.Head));
                 rest = list.tail;
             }
 
             if (rest != null)
             {
                 builder.Append("|");
-                builder.Append(rest.ToString());
+                builder.Append(Machine.ToString(rest));
             }
 
             builder.Append("]");

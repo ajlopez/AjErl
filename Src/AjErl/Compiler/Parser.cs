@@ -208,6 +208,11 @@
             }
             else if (token.Type == TokenType.Atom)
             {
+                if (token.Value == "false")
+                    return new ConstantExpression(false);
+                if (token.Value == "true")
+                    return new ConstantExpression(true);
+
                 if (token.Value == "fun")
                     return this.ParseFunExpression();
 

@@ -47,7 +47,7 @@
                 if (k > 0)
                     builder.Append(",");
 
-                builder.Append(this.elements[k].ToString());
+                builder.Append(Machine.ToString(this.elements[k]));
             }
 
             builder.Append("}");

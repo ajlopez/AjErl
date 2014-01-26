@@ -196,6 +196,13 @@
             Assert.AreEqual(1, this.EvaluateExpression("5 rem 2."));
         }
 
+        [TestMethod]
+        public void EvaluateBooleans()
+        {
+            Assert.AreEqual(false, this.EvaluateExpression("false."));
+            Assert.AreEqual(true, this.EvaluateExpression("true."));
+        }
+
         private void EvaluateWithError(string text, string message)
         {
             try
@@ -213,7 +220,7 @@
             var result = this.EvaluateExpression(text);
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(value, result.ToString());
+            Assert.AreEqual(value, Machine.ToString(result));
         }
 
         private void EvaluateAndCallForm(string text, IList<object> arguments, object expected)
