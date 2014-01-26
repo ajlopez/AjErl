@@ -66,6 +66,7 @@
     <Compile Include="Expressions\FunExpressionTests.cs" />
     <Compile Include="Expressions\MultiFunExpressionTests.cs" />
     <Compile Include="Expressions\QualifiedCallExpressionTests.cs" />
+    <Compile Include="Expressions\StrictEqualExpressionTests.cs" />
     <Compile Include="Forms\FunctionFormTests.cs" />
     <Compile Include="Forms\ModuleFormTests.cs" />
     <Compile Include="Forms\MultiFunctionFormTests.cs" />
