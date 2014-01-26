@@ -228,6 +228,15 @@
             this.EvaluateTo("lists:filter(fun(X) -> (X rem 2) =:= 0 end, [1,2,3,4,5]).", "[2,4]");
         }
 
+        [TestMethod]
+        public void EvaluateListConstruct()
+        {
+            this.EvaluateTo("[1|[2,3]].", "[1,2,3]");
+            this.EvaluateExpression("X=1.");
+            this.EvaluateExpression("Y=[2,3,4].");
+            this.EvaluateTo("[X|Y].", "[1,2,3,4]");
+        }
+
         private void EvaluateWithError(string text, string message)
         {
             try
