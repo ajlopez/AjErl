@@ -189,6 +189,13 @@
             Assert.AreEqual(true, this.EvaluateExpression("1 == 1.0."));
         }
 
+        [TestMethod]
+        public void EvaluateRem()
+        {
+            Assert.AreEqual(0, this.EvaluateExpression("4 rem 2."));
+            Assert.AreEqual(1, this.EvaluateExpression("5 rem 2."));
+        }
+
         private void EvaluateWithError(string text, string message)
         {
             try
