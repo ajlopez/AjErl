@@ -156,6 +156,17 @@
         }
 
         [TestMethod]
+        public void EvaluateAndCallTimes()
+        {
+            this.EvaluateExpression("Mult = fun(Times) -> (fun(X) -> X * Times end) end.");
+            this.EvaluateExpression("Triple = Mult(3).");
+            var result = this.EvaluateExpression("Triple(4).");
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(12, result);
+        }
+
+        [TestMethod]
         public void EvaluateAndCallMultiFun()
         {
             this.EvaluateExpression("TempConvert = fun({c,C}) -> {f, 32 + C*9/5}; ({f,F}) -> {c, (F-32)*5/9} end.");
