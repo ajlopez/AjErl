@@ -93,5 +93,57 @@
 
             return result;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            if (!(obj is List))
+                return false;
+
+            var list0 = this;
+            var list = (List)obj;
+
+            while (list0 != null)
+            {
+                if (list == null)
+                    return false;
+
+                if (!Machine.AreEqual(list0.Head, list.Head))
+                    return false;
+
+                if (!(list0.Tail is List))
+                    return Machine.AreEqual(list0.Tail, list.Tail);
+
+                list0 = (List)list0.Tail;
+                list = (List)list.Tail;
+            }
+
+            return list == null;
+        }
+
+        public override int GetHashCode()
+        {
+            int result = 0;
+            var list = this;
+
+            while (list != null) 
+            {
+                result *= 17;
+                result += Machine.GetHashCode(list.Head);
+
+                if (!(list.Tail is List))
+                {
+                    result *= 17;
+                    result += Machine.GetHashCode(list.Tail);
+                    break;
+                }
+
+                list = (List)list.Tail;
+            }
+
+            return result;
+        }
     }
 }

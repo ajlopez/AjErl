@@ -213,6 +213,34 @@
             Assert.IsNotNull(list);
             Assert.AreEqual("[1,2,3|X]", list.ToString());
         }
+
+        [TestMethod]
+        public void Equals()
+        {
+            List list1 = List.MakeList(new object[] { 1, 2, 3 });
+            List list1b = List.MakeList(new object[] { 1, 2, 3 }, new Variable("X"));
+            List list2 = List.MakeList(new object[] { 1, 2, 4 });
+            List list3 = List.MakeList(new object[] { 1, 2 });
+            List list4 = List.MakeList(new object[] { 1, 2, 3 });
+            List list4b = List.MakeList(new object[] { 1, 2, 3 }, new Variable("X"));
+
+            Assert.AreEqual(list1, list4);
+            Assert.AreEqual(list4, list1);
+            Assert.AreEqual(list1b, list4b);
+            Assert.AreEqual(list4b, list1b);
+
+            Assert.AreEqual(list1.GetHashCode(), list4.GetHashCode());
+            Assert.AreEqual(list1b.GetHashCode(), list4b.GetHashCode());
+
+            Assert.AreNotEqual(list1, null);
+            Assert.AreNotEqual(list1, 1);
+            Assert.AreNotEqual(list1, "foo");
+
+            Assert.AreNotEqual(list1, list2);
+            Assert.AreNotEqual(list2, list1);
+            Assert.AreNotEqual(list1, list3);
+            Assert.AreNotEqual(list3, list1);
+        }
     }
 }
 

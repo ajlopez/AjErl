@@ -146,6 +146,13 @@
         }
 
         [TestMethod]
+        public void EvaluateAndCallForMultiForm()
+        {
+            var twice = this.EvaluateExpression("fun(X) -> X*2 end.");
+            this.EvaluateAndCallForm("for(Max,Max,F) -> [F(Max)]; for(I,Max,F) -> [F(I)|for(I+1,Max,F)].", new object[] { 1, 3, twice}, List.MakeList(new object[] { 2, 4, 6 }));
+        }
+
+        [TestMethod]
         public void EvaluateAndCallSimpleFun()
         {
             this.EvaluateExpression("Add = fun(X,Y) -> X+Y end.");
@@ -262,15 +269,11 @@
             var result = this.EvaluateForm(text);
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result, typeof(Function));
+            Assert.IsInstanceOfType(result, typeof(IFunction));
 
-            var func = (Function)result;
+            var func = (IFunction)result;
 
-            var newcontext = func.MakeContext(arguments);
-
-            Assert.IsNotNull(newcontext);
-
-            Assert.AreEqual(expected, func.Evaluate(newcontext));
+            Assert.AreEqual(expected, func.Apply(null, arguments));
         }
 
         private object EvaluateExpression(string text)

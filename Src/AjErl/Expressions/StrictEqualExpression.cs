@@ -14,10 +14,7 @@
 
         public override object Apply(object leftvalue, object rightvalue)
         {
-            if (leftvalue == null)
-                return rightvalue == null;
-
-            return leftvalue.Equals(rightvalue);
+            return Machine.AreEqual(leftvalue, rightvalue);
         }
     }
 }

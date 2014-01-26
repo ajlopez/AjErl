@@ -59,5 +59,21 @@
 
             return value.ToString();
         }
+
+        public static bool AreEqual(object obj1, object obj2)
+        {
+            if (obj1 == null)
+                return obj2 == null;
+
+            return obj1.Equals(obj2);
+        }
+
+        public static int GetHashCode(object obj)
+        {
+            if (obj == null)
+                return 0;
+
+            return obj.GetHashCode();
+        }
     }
 }
