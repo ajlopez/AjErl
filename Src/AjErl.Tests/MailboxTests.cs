@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Threading;
 
     [TestClass]
     public class MailboxTests
@@ -29,6 +30,18 @@
 
             Assert.AreEqual(1, box.Take());
             Assert.AreEqual(2, box.Take());
+        }
+
+        [TestMethod]
+        public void TakeADelayedAddedMessage()
+        {
+            Mailbox box = new Mailbox();
+
+            ThreadStart ts = new ThreadStart(() => { Thread.Sleep(100); box.Add(1); });
+            Thread th = new Thread(ts);
+            th.Start();
+
+            Assert.AreEqual(1, box.Take());
         }
     }
 }
