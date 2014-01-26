@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using AjErl.Language;
+    using AjErl.Expressions;
 
     public class ListsModule : Module
     {
@@ -14,6 +15,7 @@
             this.SetName("lists");
             this.Context.SetValue("map/2", new FuncFunction(Map));
             this.Context.SetValue("filter/2", new FuncFunction(Filter));
+            this.Context.SetValue("sum/1", new FuncFunction(Sum));
         }
 
         private static object Map(Context context, IList<object> arguments)
@@ -48,6 +50,24 @@
             }
 
             return List.MakeList(elements);
+        }
+
+        private static object Sum(Context context, IList<object> arguments)
+        {
+            if (arguments[0] is EmptyList)
+                return 0;
+
+            AddExpression addexpr = new AddExpression(null, null);
+            List list = (List)arguments[0];
+            object result = 0;
+
+            while (list != null)
+            {
+                result = addexpr.Apply(result, list.Head);
+                list = (List)list.Tail;
+            }
+
+            return result;
         }
     }
 }

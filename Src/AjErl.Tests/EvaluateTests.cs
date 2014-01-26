@@ -236,6 +236,14 @@
         }
 
         [TestMethod]
+        public void EvaluateListsSum()
+        {
+            this.EvaluateTo("lists:sum([1,2,3,4]).", "10");
+            this.EvaluateTo("lists:sum([1.2,3.4]).", "4.6");
+            this.EvaluateTo("lists:sum([]).", "0");
+        }
+
+        [TestMethod]
         public void EvaluateListConstruct()
         {
             this.EvaluateTo("[1|[2,3]].", "[1,2,3]");
