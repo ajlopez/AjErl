@@ -81,6 +81,7 @@
     <Compile Include="Expressions\AtomExpression.cs" />
     <Compile Include="Expressions\DelayedCallExpression.cs" />
     <Compile Include="Expressions\FunExpression.cs" />
+    <Compile Include="Expressions\MultiFunExpression.cs" />
     <Compile Include="Expressions\QualifiedCallExpression.cs" />
     <Compile Include="Expressions\RemExpression.cs" />
     <Compile Include="Expressions\DivExpression.cs" />
