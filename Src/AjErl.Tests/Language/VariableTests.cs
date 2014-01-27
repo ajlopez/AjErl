@@ -46,9 +46,9 @@
 
             Assert.AreEqual(variable1.GetHashCode(), variable3.GetHashCode());
 
-            Assert.AreNotEqual(variable1, null);
-            Assert.AreNotEqual(variable1, 123);
-            Assert.AreNotEqual(variable1, "foo");
+            Assert.IsFalse(variable1.Equals(null));
+            Assert.IsFalse(variable1.Equals(123));
+            Assert.IsFalse(variable1.Equals("foo"));
 
             Assert.AreNotEqual(variable1, variable2);
             Assert.AreNotEqual(variable2, variable1);

@@ -20,11 +20,18 @@
             this.rootcontext.SetValue("c/1", new CompileModuleFunction(this));
             this.rootcontext.SetValue("spawn/1", new SpawnFunction());
 
+            this.TextWriter = System.Console.Out;
+
             Module lists = new ListsModule(this.rootcontext);
             this.rootcontext.SetValue(lists.Name, lists);
+
+            Module io = new IoModule(this);
+            this.rootcontext.SetValue(io.Name, io);
         }
 
         public Context RootContext { get { return this.rootcontext; } }
+
+        public TextWriter TextWriter { get; set; }
 
         public static object ExpandDelayedCall(object value)
         {

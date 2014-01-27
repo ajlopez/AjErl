@@ -105,7 +105,7 @@
             var list0 = this;
             var list = (List)obj;
 
-            while (list0 != null)
+            while (true)
             {
                 if (list == null)
                     return false;
@@ -119,8 +119,6 @@
                 list0 = (List)list0.Tail;
                 list = (List)list.Tail;
             }
-
-            return list == null;
         }
 
         public override int GetHashCode()

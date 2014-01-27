@@ -232,9 +232,9 @@
             Assert.AreEqual(list1.GetHashCode(), list4.GetHashCode());
             Assert.AreEqual(list1b.GetHashCode(), list4b.GetHashCode());
 
-            Assert.AreNotEqual(list1, null);
-            Assert.AreNotEqual(list1, 1);
-            Assert.AreNotEqual(list1, "foo");
+            Assert.IsFalse(list1.Equals(null));
+            Assert.IsFalse(list1.Equals(1));
+            Assert.IsFalse(list1.Equals("foo"));
 
             Assert.AreNotEqual(list1, list2);
             Assert.AreNotEqual(list2, list1);

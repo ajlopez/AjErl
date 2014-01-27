@@ -18,6 +18,8 @@
             Assert.IsNotNull(machine.RootContext);
             Assert.IsNotNull(machine.RootContext.GetValue("c/1"));
             Assert.IsNotNull(machine.RootContext.GetValue("spawn/1"));
+
+            Assert.IsNotNull(machine.TextWriter);
         }
 
         [TestMethod]
@@ -28,6 +30,8 @@
             Assert.IsNotNull(machine.RootContext);
             Assert.IsNotNull(machine.RootContext.GetValue("lists"));
             Assert.IsInstanceOfType(machine.RootContext.GetValue("lists"), typeof(Module));
+            Assert.IsNotNull(machine.RootContext.GetValue("io"));
+            Assert.IsInstanceOfType(machine.RootContext.GetValue("io"), typeof(Module));
         }
 
         [TestMethod]

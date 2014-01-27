@@ -117,6 +117,7 @@
     <Compile Include="Machine.cs" />
     <Compile Include="Mailbox.cs" />
     <Compile Include="MatchUtilities.cs" />
+    <Compile Include="Modules\IoModule.cs" />
     <Compile Include="Modules\ListsModule.cs" />
     <Compile Include="Process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

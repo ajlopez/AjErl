@@ -9,17 +9,19 @@
     using AjErl.Forms;
     using AjErl.Language;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.IO;
 
     [TestClass]
     public class EvaluateTests
     {
+        private Machine machine;
         private Context context;
 
         [TestInitialize]
         public void Setup()
         {
-            Machine machine = new Machine();
-            this.context = machine.RootContext;
+            this.machine = new Machine();
+            this.context = this.machine.RootContext;
         }
 
         [TestMethod]
@@ -266,6 +268,15 @@
             this.EvaluateExpression("X=1.");
             this.EvaluateExpression("Y=[2,3,4].");
             this.EvaluateTo("[X|Y].", "[1,2,3,4]");
+        }
+
+        [TestMethod]
+        public void EvaluateIoWrite()
+        {
+            StringWriter writer = new StringWriter();
+            this.machine.TextWriter = writer;
+            this.EvaluateTo("io:write(\"foo\").", "ok");
+            Assert.AreEqual("foo", writer.ToString());
         }
 
         private void EvaluateWithError(string text, string message)
