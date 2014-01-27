@@ -41,20 +41,6 @@
             return value;
         }
 
-        public Module LoadModule(string modname)
-        {
-            Module module = new Module(this.rootcontext);
-            StreamReader reader = File.OpenText(modname + ".erl");
-            Parser parser = new Parser(reader);
-
-            for (var form = parser.ParseForm(); form != null; form = parser.ParseForm())
-                form.Evaluate(module.Context);
-
-            reader.Close();
-
-            return module;
-        }
-
         public static string ToString(object value)
         {
             if (value.Equals(false))
@@ -81,6 +67,20 @@
                 return 0;
 
             return obj.GetHashCode();
+        }
+
+        public Module LoadModule(string modname)
+        {
+            Module module = new Module(this.rootcontext);
+            StreamReader reader = File.OpenText(modname + ".erl");
+            Parser parser = new Parser(reader);
+
+            for (var form = parser.ParseForm(); form != null; form = parser.ParseForm())
+                form.Evaluate(module.Context);
+
+            reader.Close();
+
+            return module;
         }
     }
 }

@@ -4,8 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using AjErl.Language;
     using AjErl.Expressions;
+    using AjErl.Language;
 
     public class ListsModule : Module
     {

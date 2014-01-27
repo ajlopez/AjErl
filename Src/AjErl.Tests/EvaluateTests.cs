@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using AjErl.Compiler;
@@ -9,7 +10,6 @@
     using AjErl.Forms;
     using AjErl.Language;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.IO;
 
     [TestClass]
     public class EvaluateTests
@@ -151,7 +151,7 @@
         public void EvaluateAndCallForMultiForm()
         {
             var twice = this.EvaluateExpression("fun(X) -> X*2 end.");
-            this.EvaluateAndCallForm("for(Max,Max,F) -> [F(Max)]; for(I,Max,F) -> [F(I)|for(I+1,Max,F)].", new object[] { 1, 3, twice}, List.MakeList(new object[] { 2, 4, 6 }));
+            this.EvaluateAndCallForm("for(Max,Max,F) -> [F(Max)]; for(I,Max,F) -> [F(I)|for(I+1,Max,F)].", new object[] { 1, 3, twice }, List.MakeList(new object[] { 2, 4, 6 }));
         }
 
         [TestMethod]
