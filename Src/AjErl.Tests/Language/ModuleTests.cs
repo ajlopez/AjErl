@@ -27,5 +27,27 @@
             Assert.IsNotNull(module.Context.Parent);
             Assert.AreSame(parent, module.Context.Parent);
         }
+
+        [TestMethod]
+        public void AddExportNames()
+        {
+            Module module = new Module(null);
+
+            Assert.IsNotNull(module.ExportNames);
+            Assert.AreEqual(0, module.ExportNames.Count);
+
+            module.AddExportNames(new string[] { "foo/1", "foo/2" });
+
+            Assert.AreEqual(2, module.ExportNames.Count);
+            Assert.IsTrue(module.ExportNames.Contains("foo/1"));
+            Assert.IsTrue(module.ExportNames.Contains("foo/2"));
+
+            module.AddExportNames(new string[] { "foo/2", "bar/1" });
+
+            Assert.AreEqual(3, module.ExportNames.Count);
+            Assert.IsTrue(module.ExportNames.Contains("foo/1"));
+            Assert.IsTrue(module.ExportNames.Contains("foo/2"));
+            Assert.IsTrue(module.ExportNames.Contains("bar/1"));
+        }
     }
 }

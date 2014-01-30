@@ -9,6 +9,7 @@
     {
         private Context context;
         private string name;
+        private IList<string> export = new List<string>();
 
         public Module(Context parent) 
         {
@@ -19,9 +20,16 @@
 
         public string Name { get { return this.name; } }
 
+        public IList<string> ExportNames { get { return this.export; } }
+
         public void SetName(string name)
         {
             this.name = name;
+        }
+
+        public void AddExportNames(IList<string> names)
+        {
+            this.export = this.export.Union(names).ToList();
         }
     }
 }

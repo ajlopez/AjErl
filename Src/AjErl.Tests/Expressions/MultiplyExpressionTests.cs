@@ -16,6 +16,7 @@
             MultiplyExpression expr = new MultiplyExpression(new ConstantExpression(3), new ConstantExpression(2));
 
             Assert.AreEqual(6, expr.Evaluate(null));
+            Assert.IsFalse(expr.HasVariable());
         }
 
         [TestMethod]
