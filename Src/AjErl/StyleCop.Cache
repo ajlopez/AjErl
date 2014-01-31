@@ -243,15 +243,6 @@
     <milliseconds>88</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Module.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/28/2013 20:37:07</timestamp>
-    <milliseconds>702</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="Match.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -378,15 +369,6 @@
     <milliseconds>135</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/26/2014 18:04:34</timestamp>
-    <milliseconds>815</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -486,9 +468,6 @@
     <milliseconds>460</milliseconds>
     <violations />
   </sourcecode>
-  <project key="2025632572">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="ListsModule.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -496,6 +475,36 @@
     </settings>
     <timestamp>01/27/2014 08:01:08</timestamp>
     <milliseconds>375</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="2025632572">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/31/2014 16:50:24</timestamp>
+    <milliseconds>609</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ExportForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/30/2014 19:28:44</timestamp>
+    <milliseconds>311</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Module.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/30/2014 19:30:11</timestamp>
+    <milliseconds>971</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>
