@@ -51,7 +51,13 @@
                 return null;
 
             if (token.Type == TokenType.Operator && token.Value == "-")
-                return this.ParseModuleForm();
+            {
+                if (this.TryParseAtom("module"))
+                    return this.ParseModuleForm();
+                if (this.TryParseAtom("export"))
+                    return this.ParseExportForm();
+                throw new ParserException("Unknown form");
+            }
 
             this.PushToken(token);
 
@@ -92,13 +98,38 @@
 
         private IForm ParseModuleForm()
         {
-            this.ParseToken(TokenType.Atom, "module");
             this.ParseToken(TokenType.Separator, "(");
             string name = this.ParseAtom();
             this.ParseToken(TokenType.Separator, ")");
             this.ParsePoint();
 
             return new ModuleForm(name);
+        }
+
+        private IForm ParseExportForm()
+        {
+            this.ParseToken(TokenType.Separator, "(");
+            this.ParseToken(TokenType.Separator, "[");
+
+            IList<string> names = new List<string>();
+
+            if (!this.TryParseToken(TokenType.Separator, "]"))
+                while (true)
+                {
+                    string name = this.ParseAtom();
+                    this.ParseToken(TokenType.Operator, "/");
+                    int arity = this.ParseInteger();
+                    names.Add(string.Format("{0}/{1}", name, arity));
+
+                    if (!this.TryParseToken(TokenType.Separator, ","))
+                        break;
+                }
+
+            this.ParseToken(TokenType.Separator, "]");
+            this.ParseToken(TokenType.Separator, ")");
+            this.ParsePoint();
+
+            return new ExportForm(names);
         }
 
         private IExpression ParseCompositeExpression()
@@ -328,6 +359,11 @@
             this.lexer.PushToken(token);
         }
 
+        private bool TryParseAtom(string value)
+        {
+            return this.TryParseToken(TokenType.Atom, value);
+        }
+
         private bool TryParseToken(TokenType type, string value)
         {
             Token token = this.NextToken();
@@ -373,6 +409,16 @@
                 throw new ParserException("Expected atom");
 
             return token.Value;
+        }
+
+        private int ParseInteger()
+        {
+            Token token = this.NextToken();
+
+            if (token == null || token.Type != TokenType.Integer)
+                throw new ParserException("Expected integer");
+
+            return int.Parse(token.Value, CultureInfo.InvariantCulture);
         }
 
         private bool IsBinaryOperator(int level, Token token)

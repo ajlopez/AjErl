@@ -648,6 +648,23 @@
         }
 
         [TestMethod]
+        public void ParseSimpleExportForm()
+        {
+            Parser parser = new Parser("-export([foo/1, bar/2]).");
+
+            var result = parser.ParseForm();
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(ExportForm));
+
+            var eform = (ExportForm)result;
+
+            Assert.AreEqual(2, eform.Names.Count);
+            Assert.IsTrue(eform.Names.Contains("foo/1"));
+            Assert.IsTrue(eform.Names.Contains("bar/2"));
+        }
+
+        [TestMethod]
         public void RaiseIfNoNameInModuleForm()
         {
             Parser parser = new Parser("-module().");
