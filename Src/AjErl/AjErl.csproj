@@ -105,6 +105,7 @@
     <Compile Include="Language\Atom.cs" />
     <Compile Include="Language\DelayedCall.cs" />
     <Compile Include="Language\FuncFunction.cs" />
+    <Compile Include="Language\Map.cs" />
     <Compile Include="Language\Match.cs" />
     <Compile Include="Language\MultiFunction.cs" />
     <Compile Include="Language\EmptyList.cs" />

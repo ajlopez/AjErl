@@ -42,6 +42,25 @@
 
             Assert.IsFalse(atom.Match(atom2));
         }
+
+        [TestMethod]
+        public void Equals()
+        {
+            Atom atom1 = new Atom("a");
+            Atom atom2 = new Atom("b");
+            Atom atom3 = new Atom("a");
+
+            Assert.IsTrue(atom1.Equals(atom3));
+            Assert.IsTrue(atom3.Equals(atom1));
+
+            Assert.AreEqual(atom1.GetHashCode(), atom3.GetHashCode());
+
+            Assert.IsFalse(atom1.Equals(null));
+            Assert.IsFalse(atom1.Equals(123));
+            Assert.IsFalse(atom1.Equals("foo"));
+            Assert.IsFalse(atom1.Equals(atom2));
+            Assert.IsFalse(atom2.Equals(atom1));
+        }
     }
 }
 

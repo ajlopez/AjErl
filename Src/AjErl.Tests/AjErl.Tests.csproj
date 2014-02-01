@@ -94,6 +94,7 @@
     <Compile Include="Expressions\VariableExpressionTests.cs" />
     <Compile Include="Language\AtomTests.cs" />
     <Compile Include="Language\ListTests.cs" />
+    <Compile Include="Language\MapTests.cs" />
     <Compile Include="Language\MatchTests.cs" />
     <Compile Include="Language\ModuleTests.cs" />
     <Compile Include="Language\MultiFunctionTests.cs" />
