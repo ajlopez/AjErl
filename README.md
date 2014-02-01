@@ -26,6 +26,7 @@ Work in Progress.
 - [Concurrent Programming](http://www.erlang.org/doc/getting_started/conc_prog.html)
 - [Errors and Processes](http://learnyousomeerlang.com/errors-and-processes)
 - [Lists](http://www.erlang.org/doc/man/lists.html)
+- [Big Changes to Erlang](http://joearms.github.io/2014/02/01/big-changes-to-erlang.html)
 
 ### .NET
 
