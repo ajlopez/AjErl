@@ -7,6 +7,7 @@
 
     public class Map
     {
+        private Map parent;
         private object[] keys;
         private object[] values;
 
@@ -14,12 +15,21 @@
         {
             this.keys = keys.ToArray();
             this.values = values.ToArray();
+            this.parent = null;
         }
 
         private Map(object[] keys, object[] values)
         {
             this.keys = keys;
             this.values = values;
+            this.parent = null;
+        }
+
+        private Map(Map parent, object[] keys, object[] values)
+        {
+            this.keys = keys;
+            this.values = values;
+            this.parent = parent;
         }
 
         public object GetValue(object key)
@@ -27,7 +37,10 @@
             int position = ((IList<object>)keys).IndexOf(key);
 
             if (position < 0)
-                throw new InvalidOperationException(string.Format("undefined key {0}", key));
+                if (this.parent != null)
+                    return this.parent.GetValue(key);
+                else
+                    throw new InvalidOperationException(string.Format("undefined key {0}", key));
 
             return values[position];
         }
@@ -49,6 +62,11 @@
             }
 
             return new Map(this.keys, newvals);
+        }
+
+        public Map SetNewKeyValues(IList<object> keys, IList<object> values)
+        {
+            return new Map(this, keys.ToArray(), values.ToArray());
         }
     }
 }
