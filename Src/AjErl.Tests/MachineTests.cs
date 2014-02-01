@@ -23,6 +23,16 @@
         }
 
         [TestMethod]
+        public void ToString()
+        {
+            Assert.AreEqual("null", Machine.ToString(null));
+            Assert.AreEqual("false", Machine.ToString(false));
+            Assert.AreEqual("true", Machine.ToString(true));
+            Assert.AreEqual("1", Machine.ToString(1));
+            Assert.AreEqual("foo", Machine.ToString("foo"));
+        }
+
+        [TestMethod]
         public void CreateMachineWithInitialModules()
         {
             Machine machine = new Machine();

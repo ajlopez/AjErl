@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using AjErl.Expressions;
+    using AjErl.Language;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -17,6 +18,28 @@
 
             Assert.AreEqual(3, expr.Evaluate(null));
             Assert.IsFalse(expr.HasVariable());
+        }
+
+        [TestMethod]
+        public void AddVariableAndInteger()
+        {
+            Context context = new Context();
+            context.SetValue("One", 1);
+            AddExpression expr = new AddExpression(new VariableExpression(new Variable("One")), new ConstantExpression(2));
+
+            Assert.AreEqual(3, expr.Evaluate(context));
+            Assert.IsTrue(expr.HasVariable());
+        }
+
+        [TestMethod]
+        public void AddIntegerAndVariable()
+        {
+            Context context = new Context();
+            context.SetValue("Two", 2);
+            AddExpression expr = new AddExpression(new ConstantExpression(1), new VariableExpression(new Variable("Two")));
+
+            Assert.AreEqual(3, expr.Evaluate(context));
+            Assert.IsTrue(expr.HasVariable());
         }
 
         [TestMethod]

@@ -18,6 +18,7 @@
             this.Context.SetValue("sum/1", new FuncFunction(Sum));
             this.Context.SetValue("all/2", new FuncFunction(All));
             this.Context.SetValue("any/2", new FuncFunction(Any));
+            this.AddExportNames(new string[] { "map/2", "filter/2", "sum/1", "all/2", "any/2" });
         }
 
         private static object Map(Context context, IList<object> arguments)

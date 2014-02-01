@@ -1,4 +1,5 @@
 ﻿-module(fibo).
+-export([fibo/1]).
 
 fibo(0) -> 1;
 fibo(1) -> 1;

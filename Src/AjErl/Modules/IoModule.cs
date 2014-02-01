@@ -18,6 +18,7 @@
             this.ok = new Atom("ok");
             this.SetName("io");
             this.Context.SetValue("write/1", new FuncFunction(this.Write));
+            this.AddExportNames(new string[] { "write/1" });
         }
 
         private object Write(Context context, IList<object> arguments)

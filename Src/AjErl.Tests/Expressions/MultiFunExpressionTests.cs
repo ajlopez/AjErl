@@ -19,6 +19,8 @@
             FunExpression expr = this.MakeExpression("fun(0) -> 1 end.");
             MultiFunExpression mexpr = new MultiFunExpression(new FunExpression[] { expr });
 
+            Assert.IsFalse(mexpr.HasVariable());
+
             var result = mexpr.Evaluate(context);
 
             Assert.IsNotNull(result);

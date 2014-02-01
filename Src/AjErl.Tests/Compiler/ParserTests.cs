@@ -665,9 +665,42 @@
         }
 
         [TestMethod]
+        public void RaiseIfNoArity()
+        {
+            Parser parser = new Parser("-export([foo/bar, bar/2]).");
+
+            try
+            {
+                parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Expected integer", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void RaiseIfNoNameInModuleForm()
         {
             Parser parser = new Parser("-module().");
+
+            try
+            {
+                parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Expected atom", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseIfUnclosedModuleForm()
+        {
+            Parser parser = new Parser("-module(");
 
             try
             {

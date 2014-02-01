@@ -38,7 +38,11 @@
             foreach (var argexpr in this.argumentexpressions)
                 arguments.Add(argexpr.Evaluate(context, withvars));
 
-            Module module = (Module)context.GetValue(modulename);
+            Module module = context.GetValue(modulename) as Module;
+
+            if (module == null || !module.ExportNames.Contains(name) || !(module.Context.GetValue(name) is IFunction))
+                throw new Exception(string.Format("undefined function {0}:{1}", modulename, name));
+
             IFunction func = (IFunction)module.Context.GetValue(name);
 
             return func.Apply(context, arguments);
@@ -46,6 +50,9 @@
 
         public bool HasVariable()
         {
+            if (this.moduleexpression.HasVariable())
+                return true;
+
             if (this.nameexpression.HasVariable())
                 return true;
 
