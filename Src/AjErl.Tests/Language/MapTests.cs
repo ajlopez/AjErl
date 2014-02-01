@@ -50,5 +50,21 @@
                 Assert.AreEqual("undefined key c", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void RaiseIfSetUndefinedKey()
+        {
+            Map map = new Map(new object[] { new Atom("a"), new Atom("b"), new Atom("c") }, new object[] { 1, 2, 3 });
+
+            try
+            {
+                map.SetKeyValues(new object[] { new Atom("d"), new Atom("a") }, new object[] { 4, 5 });
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("undefined key d", ex.Message);
+            }
+        }
     }
 }

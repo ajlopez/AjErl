@@ -41,6 +41,10 @@
             {
                 object key = keys[k];
                 int position = ((IList<object>)this.keys).IndexOf(key);
+
+                if (position < 0)
+                    throw new InvalidOperationException(string.Format("undefined key {0}", key));
+
                 newvals[position] = newvalues[k];
             }
 
