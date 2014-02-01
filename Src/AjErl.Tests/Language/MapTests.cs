@@ -18,5 +18,21 @@
             Assert.AreEqual(1, map.GetValue(new Atom("a")));
             Assert.AreEqual(2, map.GetValue(new Atom("b")));
         }
+
+        [TestMethod]
+        public void RaiseIfUndefinedKey()
+        {
+            Map map = new Map(new object[] { new Atom("a"), new Atom("b") }, new object[] { 1, 2 });
+
+            try
+            {
+                map.GetValue(new Atom("c"));
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("undefined key c", ex.Message);
+            }
+        }
     }
 }

@@ -20,6 +20,9 @@
         {
             int position = ((IList<object>)keys).IndexOf(key);
 
+            if (position < 0)
+                throw new InvalidOperationException(string.Format("undefined key {0}", key));
+
             return values[position];
         }
     }
