@@ -12,6 +12,7 @@
         private static string[] operators2 = new string[] { "->", "==" };
         private static string[] operators3 = new string[] { "=:=" };
         private static string separators = ".,{}[]()|:;";
+        private static string[] separators2 = new string[] { "#{" };
         private TextReader reader;
         private Stack<int> chars = new Stack<int>();
         private Stack<Token> tokens = new Stack<Token>();
@@ -60,6 +61,21 @@
 
                     if (operators2.Contains(op2))
                         return new Token(op2, TokenType.Operator);
+
+                    this.PushChar(ich2);
+                }
+            }
+
+            if (separators2.Any(op => op[0] == ch))
+            {
+                int ich2 = this.NextChar();
+
+                if (ich2 >= 0)
+                {
+                    string sep2 = ch.ToString() + ((char)ich2).ToString();
+
+                    if (separators2.Contains(sep2))
+                        return new Token(sep2, TokenType.Separator);
 
                     this.PushChar(ich2);
                 }
