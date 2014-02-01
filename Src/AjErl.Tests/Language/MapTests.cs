@@ -84,5 +84,21 @@
                 Assert.AreEqual("undefined key d", ex.Message);
             }
         }
+
+        [TestMethod]
+        public void RaiseIfSetAlreadyKey()
+        {
+            Map map = new Map(new object[] { new Atom("a"), new Atom("b"), new Atom("c") }, new object[] { 1, 2, 3 });
+
+            try
+            {
+                map.SetNewKeyValues(new object[] { new Atom("d"), new Atom("a") }, new object[] { 4, 5 });
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("already defined key a", ex.Message);
+            }
+        }
     }
 }

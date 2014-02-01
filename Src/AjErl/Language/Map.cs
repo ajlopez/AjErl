@@ -66,6 +66,10 @@
 
         public Map SetNewKeyValues(IList<object> keys, IList<object> values)
         {
+            foreach (var key in keys)
+                if (((IList<object>)this.keys).IndexOf(key) >= 0)
+                    throw new InvalidOperationException(string.Format("already defined key {0}", key));
+
             return new Map(this, keys.ToArray(), values.ToArray());
         }
     }
