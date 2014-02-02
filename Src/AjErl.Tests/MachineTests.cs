@@ -18,12 +18,13 @@
             Assert.IsNotNull(machine.RootContext);
             Assert.IsNotNull(machine.RootContext.GetValue("c/1"));
             Assert.IsNotNull(machine.RootContext.GetValue("spawn/1"));
+            Assert.IsNotNull(machine.RootContext.GetValue("self/0"));
 
             Assert.IsNotNull(machine.TextWriter);
         }
 
         [TestMethod]
-        public void MAchineToString()
+        public void MachineToString()
         {
             Assert.AreEqual("null", Machine.ToString(null));
             Assert.AreEqual("false", Machine.ToString(false));

@@ -19,6 +19,7 @@
             this.rootcontext = new Context();
             this.rootcontext.SetValue("c/1", new CompileModuleFunction(this));
             this.rootcontext.SetValue("spawn/1", new SpawnFunction());
+            this.rootcontext.SetValue("self/0", new SelfFunction());
 
             this.TextWriter = System.Console.Out;
 

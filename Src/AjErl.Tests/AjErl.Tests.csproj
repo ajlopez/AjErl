@@ -75,6 +75,7 @@
     <Compile Include="Forms\ModuleFormTests.cs" />
     <Compile Include="Forms\MultiFunctionFormTests.cs" />
     <Compile Include="Functions\CompileModuleFunctionTests.cs" />
+    <Compile Include="Functions\SelfFunctionTests.cs" />
     <Compile Include="Functions\SpawnFunctionTests.cs" />
     <Compile Include="Language\DelayedCallTests.cs" />
     <Compile Include="Language\FunctionTests.cs" />
