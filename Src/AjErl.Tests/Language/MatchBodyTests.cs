@@ -10,7 +10,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class MatchTests
+    public class MatchBodyTests
     {
         [TestMethod]
         public void MatchAtoms()

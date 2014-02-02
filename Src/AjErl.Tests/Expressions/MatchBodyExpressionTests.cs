@@ -12,161 +12,54 @@
     public class MatchBodyExpressionTests
     {
         [TestMethod]
-        public void MatchIntegers()
-        {
-            MatchExpression expr = new MatchExpression(new ConstantExpression(123), new ConstantExpression(123));
-
-            Assert.AreEqual(123, expr.Evaluate(null));
-        }
-
-        [TestMethod]
-        public void HasVariablesWithIntegers()
-        {
-            MatchExpression expr = new MatchExpression(new ConstantExpression(123), new ConstantExpression(123));
-
-            Assert.IsFalse(expr.HasVariable());
-        }
-
-        [TestMethod]
-        public void NoMatchWithException()
-        {
-            MatchExpression expr = new MatchExpression(new ConstantExpression(123), new ConstantExpression("foo"));
-
-            try
-            {
-                expr.Evaluate(null);
-                Assert.Fail();
-            }
-            catch (Exception ex)
-            {
-                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
-                Assert.AreEqual("no match of right hand side value foo", ex.Message);
-            }
-        }
-
-        [TestMethod]
-        public void MatchVariableWithInteger()
+        public void MatchBodyMessage()
         {
             Context context = new Context();
-            Variable variable = new Variable("X");
-            MatchExpression expr = new MatchExpression(new VariableExpression(variable), new ConstantExpression(123));
+            MatchBodyExpression expr = new MatchBodyExpression(new VariableExpression(new Variable("X")), new ConstantExpression(1));
 
-            Assert.AreEqual(123, expr.Evaluate(context));
-
-            Assert.AreEqual(123, context.GetValue("X"));
-        }
-
-        [TestMethod]
-        public void RaiseIfMatchBoundVariableWithInteger()
-        {
-            Context context = new Context();
-            Variable variable = new Variable("X");
-            context.SetValue("X", 1);
-            MatchExpression expr = new MatchExpression(new VariableExpression(variable), new ConstantExpression(123));
-
-            try 
-            {
-                expr.Evaluate(context);
-                Assert.Fail();
-            }
-            catch (Exception ex) 
-            {
-                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
-                Assert.AreEqual("no match of right hand side value 123", ex.Message);
-            }
-        }
-
-        [TestMethod]
-        public void HasVariablesWithVariable()
-        {
-            Variable variable = new Variable("X");
-            MatchExpression expr = new MatchExpression(new VariableExpression(variable), new ConstantExpression(123));
+            Assert.IsNotNull(expr.MatchExpression);
+            Assert.IsInstanceOfType(expr.MatchExpression, typeof(VariableExpression));
+            Assert.IsNotNull(expr.BodyExpression);
+            Assert.IsInstanceOfType(expr.BodyExpression, typeof(ConstantExpression));
 
             Assert.IsTrue(expr.HasVariable());
+            
+            var result = expr.Evaluate(context);
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(MatchBody));
+
+            var mbody = (MatchBody)result;
+            Assert.IsNotNull(mbody.Head);
+            Assert.IsInstanceOfType(mbody.Head, typeof(Variable));
+            Assert.IsNotNull(mbody.Body);
+            Assert.IsInstanceOfType(mbody.Body, typeof(ConstantExpression));
         }
 
         [TestMethod]
-        public void MatchVariablesInTupleWithConcreteTuple()
+        public void MatchBodyMessageToProcessWithVariableExpression()
         {
             Context context = new Context();
-            Variable x = new Variable("X");
-            Variable y = new Variable("Y");
 
-            MatchExpression expr = new MatchExpression(new TupleExpression(new IExpression[] { new VariableExpression(x), new VariableExpression(y) }), new TupleExpression(new IExpression[] { new ConstantExpression(1), new ConstantExpression(2) }));
+            MatchBodyExpression expr = new MatchBodyExpression(new AtomExpression(new Atom("a")), new VariableExpression(new Variable("X")));
 
-            expr.Evaluate(context);
+            Assert.IsNotNull(expr.MatchExpression);
+            Assert.IsInstanceOfType(expr.MatchExpression, typeof(AtomExpression));
+            Assert.IsNotNull(expr.BodyExpression);
+            Assert.IsInstanceOfType(expr.BodyExpression, typeof(VariableExpression));
 
-            var result1 = context.GetValue("X");
-            var result2 = context.GetValue("Y");
+            Assert.IsTrue(expr.HasVariable());
 
-            Assert.IsNotNull(result1);
-            Assert.AreEqual(1, result1);
-            Assert.IsNotNull(result2);
-            Assert.AreEqual(2, result2);
-        }
+            var result = expr.Evaluate(context);
 
-        [TestMethod]
-        public void RaiseIfMatchVariableInTupleWithTwoDifferentValues()
-        {
-            Context context = new Context();
-            Variable x = new Variable("X");
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(MatchBody));
 
-            MatchExpression expr = new MatchExpression(new TupleExpression(new IExpression[] { new VariableExpression(x), new VariableExpression(x) }), new TupleExpression(new IExpression[] { new ConstantExpression(1), new ConstantExpression(2) }));
-
-            try
-            {
-                expr.Evaluate(context);
-                Assert.Fail();
-            }
-            catch (Exception ex)
-            {
-                Assert.IsInstanceOfType(ex, typeof(InvalidOperationException));
-                Assert.AreEqual("no match of right hand side value {1,2}", ex.Message);
-            }
-        }
-
-        [TestMethod]
-        public void MatchOneAtomAndTwoVariablesInTupleWithConcreteTuple()
-        {
-            Context context = new Context();
-            Atom p = new Atom("point");
-            Variable x = new Variable("X");
-            Variable y = new Variable("Y");
-
-            MatchExpression expr = new MatchExpression(new TupleExpression(new IExpression[] { new AtomExpression(p), new VariableExpression(x), new VariableExpression(y) }), new TupleExpression(new IExpression[] { new AtomExpression(new Atom("point")), new ConstantExpression(1), new ConstantExpression(2) }));
-
-            expr.Evaluate(context);
-
-            var result1 = context.GetValue("X");
-            var result2 = context.GetValue("Y");
-
-            Assert.IsNotNull(result1);
-            Assert.AreEqual(1, result1);
-            Assert.IsNotNull(result2);
-            Assert.AreEqual(2, result2);
-        }
-
-        [TestMethod]
-        public void MatchTwoVariablesWithList()
-        {
-            Context context = new Context();
-            Variable headvar = new Variable("H");
-            Variable tailvar = new Variable("T");
-            var list = new List(headvar, tailvar);
-            var list2 = new List(1, new List(2, new List(3, null)));
-
-            MatchExpression expr = new MatchExpression(new ConstantExpression(list), new ConstantExpression(list2));
-
-            expr.Evaluate(context);
-
-            var result1 = context.GetValue("H");
-            var result2 = context.GetValue("T");
-
-            Assert.IsNotNull(result1);
-            Assert.AreEqual(1, result1);
-            Assert.IsNotNull(result2);
-            Assert.IsInstanceOfType(result2, typeof(List));
-            Assert.AreEqual("[2,3]", result2.ToString());
+            var mbody = (MatchBody)result;
+            Assert.IsNotNull(mbody.Head);
+            Assert.IsInstanceOfType(mbody.Head, typeof(Atom));
+            Assert.IsNotNull(mbody.Body);
+            Assert.IsInstanceOfType(mbody.Body, typeof(VariableExpression));
         }
     }
 }

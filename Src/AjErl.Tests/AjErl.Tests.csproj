@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Expressions\CallExpressionTests.cs" />
     <Compile Include="Expressions\CompositeExpressionTests.cs" />
+    <Compile Include="Expressions\MatchBodyExpressionTests.cs" />
     <Compile Include="Expressions\EqualExpressionTests.cs" />
     <Compile Include="Expressions\DelayedCallExpressionTests.cs" />
     <Compile Include="Expressions\FunExpressionTests.cs" />
@@ -96,7 +97,7 @@
     <Compile Include="Language\AtomTests.cs" />
     <Compile Include="Language\ListTests.cs" />
     <Compile Include="Language\MapTests.cs" />
-    <Compile Include="Language\MatchTests.cs" />
+    <Compile Include="Language\MatchBodyTests.cs" />
     <Compile Include="Language\ModuleTests.cs" />
     <Compile Include="Language\MultiFunctionTests.cs" />
     <Compile Include="Language\TupleTests.cs" />

@@ -19,6 +19,10 @@
             this.body = body;
         }
 
+        public object Head { get { return this.head; } }
+
+        public IExpression Body { get { return this.body; } }
+
         public Context MakeContext(object argument)
         {
             Context newcontext = new Context();

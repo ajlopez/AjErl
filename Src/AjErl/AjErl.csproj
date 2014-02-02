@@ -79,6 +79,7 @@
     <Compile Include="Expressions\CompositeExpression.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\AtomExpression.cs" />
+    <Compile Include="Expressions\MatchBodyExpression.cs" />
     <Compile Include="Expressions\SendExpression.cs" />
     <Compile Include="Expressions\EqualExpression.cs" />
     <Compile Include="Expressions\StrictEqualExpression.cs" />
@@ -107,7 +108,7 @@
     <Compile Include="Language\DelayedCall.cs" />
     <Compile Include="Language\FuncFunction.cs" />
     <Compile Include="Language\Map.cs" />
-    <Compile Include="Language\Match.cs" />
+    <Compile Include="Language\MatchBody.cs" />
     <Compile Include="Language\MultiFunction.cs" />
     <Compile Include="Language\EmptyList.cs" />
     <Compile Include="Language\Function.cs" />
