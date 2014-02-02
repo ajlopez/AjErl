@@ -1,12 +1,12 @@
 ﻿namespace AjErl.Tests.Compiler
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using AjErl.Compiler;
     using AjErl.Expressions;
     using AjErl.Forms;
+    using AjErl.Language;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -142,7 +142,7 @@
                 parser.ParseExpression();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(ParserException));
                 Assert.AreEqual("Expected ']'", ex.Message);
@@ -232,7 +232,7 @@
                 parser.ParseExpression();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(ParserException));
                 Assert.AreEqual("Unexpected ','", ex.Message);
@@ -249,7 +249,7 @@
                 parser.ParseExpression();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(ParserException));
                 Assert.AreEqual("Expected '.'", ex.Message);
@@ -266,7 +266,7 @@
                 parser.ParseExpression();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(ParserException));
                 Assert.AreEqual("Expected '}'", ex.Message);
@@ -283,7 +283,7 @@
                 parser.ParseExpression();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(ParserException));
                 Assert.AreEqual("Unexpected '.'", ex.Message);
@@ -578,7 +578,7 @@
                 parser.ParseForm();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(ParserException));
                 Assert.AreEqual("unexpected '123'", ex.Message);
@@ -674,7 +674,7 @@
                 parser.ParseForm();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.AreEqual("Expected integer", ex.Message);
             }
@@ -690,7 +690,7 @@
                 parser.ParseForm();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(ParserException));
                 Assert.AreEqual("Expected atom", ex.Message);
@@ -707,7 +707,7 @@
                 parser.ParseForm();
                 Assert.Fail();
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.IsInstanceOfType(ex, typeof(ParserException));
                 Assert.AreEqual("Expected atom", ex.Message);
@@ -925,6 +925,29 @@
             Assert.AreEqual("X", ((VariableExpression)sexpr.ProcessExpression).Variable.Name);
             Assert.IsInstanceOfType(sexpr.MessageExpression, typeof(ConstantExpression));
             Assert.AreEqual(1, ((ConstantExpression)sexpr.MessageExpression).Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
+
+        [TestMethod]
+        public void ParseReceiveExpression()
+        {
+            Parser parser = new Parser("receive {Sender, ping} -> io:write(\"ping received\"), Sender ! pong; {Sender, pong} -> io:write(\"pong received\"), Sender ! ping end.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(ReceiveExpression));
+
+            var rexpr = (ReceiveExpression)expr;
+
+            Assert.IsNotNull(rexpr.Matches);
+            Assert.AreEqual(2, rexpr.Matches.Count);
+
+            Assert.IsInstanceOfType(rexpr.Matches[0].Head, typeof(Tuple));
+            Assert.IsInstanceOfType(rexpr.Matches[1].Head, typeof(Tuple));
+            Assert.IsInstanceOfType(rexpr.Matches[0].Body, typeof(CompositeExpression));
+            Assert.IsInstanceOfType(rexpr.Matches[1].Body, typeof(CompositeExpression));
 
             Assert.IsNull(parser.ParseExpression());
         }

@@ -23,7 +23,7 @@
         }
 
         [TestMethod]
-        public void ToString()
+        public void MAchineToString()
         {
             Assert.AreEqual("null", Machine.ToString(null));
             Assert.AreEqual("false", Machine.ToString(false));

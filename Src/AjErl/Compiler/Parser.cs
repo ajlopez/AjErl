@@ -252,6 +252,9 @@
                 if (token.Value == "fun")
                     return this.ParseFunExpression();
 
+                if (token.Value == "receive")
+                    return this.ParseReceiveExpression();
+
                 expression = new AtomExpression(new Atom(token.Value));
 
                 if (this.TryParseToken(TokenType.Separator, "("))
@@ -301,6 +304,29 @@
                 this.PushToken(token);
 
             return expression;
+        }
+
+        private IExpression ParseReceiveExpression()
+        {
+            IList<MatchBody> matches = new List<MatchBody>();
+
+            while (true)
+            {
+                var expr = this.ParseSimpleExpression();
+
+                // TODO review head evaluation
+                var head = expr.Evaluate(new Context(), true);
+                this.ParseToken(TokenType.Operator, "->");
+                var body = this.ParseCompositeExpression();
+                matches.Add(new MatchBody(head, body));
+
+                if (!this.TryParseToken(TokenType.Separator, ";"))
+                    break;
+            }
+
+            this.ParseToken(TokenType.Atom, "end");
+
+            return new ReceiveExpression(matches);
         }
 
         private IExpression ParseFunExpression()

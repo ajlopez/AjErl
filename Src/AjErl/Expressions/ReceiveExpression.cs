@@ -15,6 +15,8 @@
             this.matches = matches;
         }
 
+        public IList<MatchBody> Matches { get { return this.matches; } }
+
         public object Evaluate(Context context, bool withvars = false)
         {
             object message = Process.Current.GetMessage();
