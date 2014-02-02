@@ -34,7 +34,7 @@
 
         public object GetValue(object key)
         {
-            int position = ((IList<object>)keys).IndexOf(key);
+            int position = ((IList<object>)this.keys).IndexOf(key);
 
             if (position < 0)
                 if (this.parent != null)
@@ -42,7 +42,7 @@
                 else
                     throw new InvalidOperationException(string.Format("undefined key {0}", key));
 
-            return values[position];
+            return this.values[position];
         }
 
         public Map SetKeyValues(IList<object> keys, IList<object> newvalues)
