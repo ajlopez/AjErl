@@ -79,7 +79,7 @@
     <Compile Include="Expressions\CompositeExpression.cs" />
     <Compile Include="Expressions\ConstantExpression.cs" />
     <Compile Include="Expressions\AtomExpression.cs" />
-    <Compile Include="Expressions\MatchBodyExpression.cs" />
+    <Compile Include="Expressions\ReceiveExpression.cs" />
     <Compile Include="Expressions\SendExpression.cs" />
     <Compile Include="Expressions\EqualExpression.cs" />
     <Compile Include="Expressions\StrictEqualExpression.cs" />

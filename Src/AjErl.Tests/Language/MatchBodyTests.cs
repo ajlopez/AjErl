@@ -15,9 +15,9 @@
         [TestMethod]
         public void MatchAtoms()
         {
-            MatchBody match = new MatchBody(null, new Atom("a"), new ConstantExpression(1));
+            MatchBody match = new MatchBody(new Atom("a"), new ConstantExpression(1));
 
-            var context = match.MakeContext(new Atom("a"));
+            var context = match.MakeContext(new Atom("a"), null);
 
             Assert.IsNotNull(context);
 
@@ -30,9 +30,9 @@
         [TestMethod]
         public void DontMatchDifferentAtoms()
         {
-            MatchBody match = new MatchBody(null, new Atom("a"), new ConstantExpression(1));
+            MatchBody match = new MatchBody(new Atom("a"), new ConstantExpression(1));
 
-            var context = match.MakeContext(new Atom("b"));
+            var context = match.MakeContext(new Atom("b"), null);
 
             Assert.IsNull(context);
         }
@@ -40,9 +40,9 @@
         [TestMethod]
         public void MatchVariableInteger()
         {
-            MatchBody match = new MatchBody(null, new Variable("X"), new VariableExpression(new Variable("X")));
+            MatchBody match = new MatchBody(new Variable("X"), new VariableExpression(new Variable("X")));
 
-            var context = match.MakeContext(123);
+            var context = match.MakeContext(123, null);
 
             Assert.IsNotNull(context);
 

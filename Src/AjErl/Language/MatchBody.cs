@@ -8,13 +8,11 @@
 
     public class MatchBody
     {
-        private Context context;
         private object head;
         private IExpression body;
 
-        public MatchBody(Context context, object head, IExpression body)
+        public MatchBody(object head, IExpression body)
         {
-            this.context = context;
             this.head = head;
             this.body = body;
         }
@@ -23,14 +21,14 @@
 
         public IExpression Body { get { return this.body; } }
 
-        public Context MakeContext(object argument)
+        public Context MakeContext(object argument, Context context)
         {
             Context newcontext = new Context();
 
             if (!MatchUtilities.MatchObjects(this.head, argument, newcontext))
                 return null;
 
-            newcontext.SetParent(this.context);
+            newcontext.SetParent(context);
             return newcontext;
         }
 

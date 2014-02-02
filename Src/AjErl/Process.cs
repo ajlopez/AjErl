@@ -9,11 +9,15 @@
 
     public class Process
     {
+        private static ThreadLocal<Process> current = new ThreadLocal<Process>();
+
         private Mailbox mailbox = new Mailbox();
 
         public Process()
         {
         }
+
+        public static Process Current { get { return current.Value; } set { current.Value = value; } }
 
         public void Start(IFunction function)
         {

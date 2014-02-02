@@ -62,12 +62,12 @@
   <ItemGroup>
     <Compile Include="Expressions\CallExpressionTests.cs" />
     <Compile Include="Expressions\CompositeExpressionTests.cs" />
-    <Compile Include="Expressions\MatchBodyExpressionTests.cs" />
     <Compile Include="Expressions\EqualExpressionTests.cs" />
     <Compile Include="Expressions\DelayedCallExpressionTests.cs" />
     <Compile Include="Expressions\FunExpressionTests.cs" />
     <Compile Include="Expressions\MultiFunExpressionTests.cs" />
     <Compile Include="Expressions\QualifiedCallExpressionTests.cs" />
+    <Compile Include="Expressions\ReceiveExpressionTests.cs" />
     <Compile Include="Expressions\SendExpressionTests.cs" />
     <Compile Include="Expressions\StrictEqualExpressionTests.cs" />
     <Compile Include="Forms\ExportFormTests.cs" />
