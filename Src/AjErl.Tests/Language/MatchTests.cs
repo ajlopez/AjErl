@@ -15,7 +15,7 @@
         [TestMethod]
         public void MatchAtoms()
         {
-            Match match = new Match(null, new Atom("a"), new ConstantExpression(1));
+            MatchBody match = new MatchBody(null, new Atom("a"), new ConstantExpression(1));
 
             var context = match.MakeContext(new Atom("a"));
 
@@ -30,7 +30,7 @@
         [TestMethod]
         public void DontMatchDifferentAtoms()
         {
-            Match match = new Match(null, new Atom("a"), new ConstantExpression(1));
+            MatchBody match = new MatchBody(null, new Atom("a"), new ConstantExpression(1));
 
             var context = match.MakeContext(new Atom("b"));
 
@@ -40,7 +40,7 @@
         [TestMethod]
         public void MatchVariableInteger()
         {
-            Match match = new Match(null, new Variable("X"), new VariableExpression(new Variable("X")));
+            MatchBody match = new MatchBody(null, new Variable("X"), new VariableExpression(new Variable("X")));
 
             var context = match.MakeContext(123);
 

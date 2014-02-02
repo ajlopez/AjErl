@@ -6,13 +6,13 @@
     using System.Text;
     using AjErl.Expressions;
 
-    public class Match
+    public class MatchBody
     {
         private Context context;
         private object head;
         private IExpression body;
 
-        public Match(Context context, object head, IExpression body)
+        public MatchBody(Context context, object head, IExpression body)
         {
             this.context = context;
             this.head = head;

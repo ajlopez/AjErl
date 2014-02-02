@@ -9,7 +9,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class MatchExpressionTests
+    public class MatchBodyExpressionTests
     {
         [TestMethod]
         public void MatchIntegers()
