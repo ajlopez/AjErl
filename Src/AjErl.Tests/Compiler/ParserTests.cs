@@ -908,5 +908,25 @@
 
             Assert.IsNull(parser.ParseExpression());
         }
+
+        [TestMethod]
+        public void ParseSendExpression()
+        {
+            Parser parser = new Parser("X ! 1.");
+
+            var expr = parser.ParseExpression();
+
+            Assert.IsNotNull(expr);
+            Assert.IsInstanceOfType(expr, typeof(SendExpression));
+
+            var sexpr = (SendExpression)expr;
+
+            Assert.IsInstanceOfType(sexpr.ProcessExpression, typeof(VariableExpression));
+            Assert.AreEqual("X", ((VariableExpression)sexpr.ProcessExpression).Variable.Name);
+            Assert.IsInstanceOfType(sexpr.MessageExpression, typeof(ConstantExpression));
+            Assert.AreEqual(1, ((ConstantExpression)sexpr.MessageExpression).Value);
+
+            Assert.IsNull(parser.ParseExpression());
+        }
     }
 }

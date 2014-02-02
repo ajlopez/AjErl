@@ -267,6 +267,20 @@
         }
 
         [TestMethod]
+        public void GetBangAsOperator()
+        {
+            Lexer lexer = new Lexer("!");
+
+            Token token = lexer.NextToken();
+
+            Assert.IsNotNull(token);
+            Assert.AreEqual(TokenType.Operator, token.Type);
+            Assert.AreEqual("!", token.Value);
+
+            Assert.IsNull(lexer.NextToken());
+        }
+
+        [TestMethod]
         public void GetEqualAsOperator()
         {
             Lexer lexer = new Lexer("==");

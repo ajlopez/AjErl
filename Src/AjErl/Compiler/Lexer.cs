@@ -8,7 +8,7 @@
 
     public class Lexer
     {
-        private static string operators = "=+-*/";
+        private static string operators = "=+-*/!";
         private static string[] operators2 = new string[] { "->", "==" };
         private static string[] operators3 = new string[] { "=:=" };
         private static string separators = ".,{}[]()|:;";
