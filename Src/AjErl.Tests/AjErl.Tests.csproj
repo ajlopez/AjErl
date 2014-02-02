@@ -141,6 +141,9 @@
     <None Include="Modules\arith.erl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Modules\area_server.erl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Modules\tail.erl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

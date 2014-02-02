@@ -6,6 +6,8 @@
     using System.Text;
     using AjErl.Language;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using AjErl.Compiler;
+    using AjErl.Expressions;
 
     [TestClass]
     public class MachineTests
@@ -95,7 +97,7 @@
         }
 
         [TestMethod]
-        [DeploymentItem("Modules\\Tail.erl")]
+        [DeploymentItem("Modules\\tail.erl")]
         public void LoadAndUseTailModuleWithTailRecursion()
         {
             Machine machine = new Machine();
@@ -117,6 +119,43 @@
             Assert.IsInstanceOfType(result, typeof(DelayedCall));
 
             Assert.AreEqual(3, Machine.ExpandDelayedCall(result));
+        }
+
+        [TestMethod]
+        [DeploymentItem("Modules\\area_server.erl")]
+        public void LoadAreaServer()
+        {
+            Machine machine = new Machine();
+
+            var module = machine.LoadModule("area_server");
+
+            Assert.IsNotNull(module);
+            Assert.IsNotNull(module.Context);
+            Assert.AreEqual("area_server", module.Name);
+
+            Assert.IsNotNull(module.Context.GetValue("loop/0"));
+
+            machine.RootContext.SetValue(module.Name, module);
+
+            this.EvaluateExpression("Pid = spawn(fun() -> area_server:loop() end).", machine.RootContext);
+
+            Process process = new Process();
+            Process.Current = process;
+
+            this.EvaluateExpression("Pid ! {self(), rectangle, 6, 10}.", machine.RootContext);
+            Assert.AreEqual(60, process.GetMessage());
+
+            this.EvaluateExpression("Pid ! {self(), circle, 23}.", machine.RootContext);
+            Assert.AreEqual(3.14159 * 23 * 23, process.GetMessage());
+
+            this.EvaluateExpression("Pid ! stop.", machine.RootContext);
+        }
+
+        private object EvaluateExpression(string text, Context context)
+        {
+            Parser parser = new Parser(text);
+            IExpression expression = parser.ParseExpression();
+            return expression.Evaluate(context);
         }
     }
 }
