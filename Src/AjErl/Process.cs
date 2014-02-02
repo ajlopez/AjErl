@@ -9,6 +9,8 @@
 
     public class Process
     {
+        private Mailbox mailbox = new Mailbox();
+
         public Process()
         {
         }
@@ -18,6 +20,16 @@
             ParameterizedThreadStart pts = new ParameterizedThreadStart(this.Run);
             Thread thread = new Thread(pts);
             thread.Start(function);
+        }
+
+        public void Tell(object message)
+        {
+            this.mailbox.Add(message);
+        }
+
+        public object GetMessage()
+        {
+            return this.mailbox.Take();
         }
 
         private void Run(object function)
