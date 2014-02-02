@@ -38,7 +38,8 @@
 
         private void Run(object function)
         {
-            ((IFunction)function).Apply(null, null);
+            Process.Current = this;
+            ((IFunction)function).Apply(null, new object[] { });
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace AjErl.Tests
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -279,13 +278,34 @@
             Assert.AreEqual("foo", writer.ToString());
         }
 
+        [TestMethod]
+        public void EvaluateProcessConversation()
+        {
+            Process process = new Process();
+            Process.Current = process;
+            this.EvaluateExpression("Pid = spawn(fun() -> receive { Sender, ping } -> Sender ! { self(), pong } end end).");
+            this.EvaluateExpression("Pid ! { self(), ping }.");
+
+            var result = this.EvaluateExpression("receive X -> X end.");
+
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(Tuple));
+
+            var tuple = (Tuple)result;
+
+            Assert.AreEqual(2, tuple.Arity);
+            Assert.AreSame(this.context.GetValue("Pid"), tuple.ElementAt(0));
+            Assert.IsInstanceOfType(tuple.ElementAt(1), typeof(Atom));
+            Assert.AreEqual(((Atom)tuple.ElementAt(1)).Name, "pong");
+        }
+
         private void EvaluateWithError(string text, string message)
         {
             try
             {
                 this.EvaluateExpression(text);
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
                 Assert.AreEqual(message, ex.Message);
             }
