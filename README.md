@@ -28,6 +28,8 @@ Work in Progress.
 - [Lists](http://www.erlang.org/doc/man/lists.html)
 - [Big Changes to Erlang](http://joearms.github.io/2014/02/01/big-changes-to-erlang.html)
 - [Processes](http://www.erlang.org/doc/efficiency_guide/processes.html)
+- [What's the difference between “green threads” and Erlang's processes?](http://stackoverflow.com/questions/1947180/whats-the-difference-between-green-threads-and-erlangs-processes)
+- [About Erlang/OTP and Multi-core performance in particular](http://www.erlang-factory.com/upload/presentations/105/KennethLundin-ErlangFactory2009London-AboutErlangOTPandMulti-coreperformanceinparticular.pdf)
 
 ### .NET
 
