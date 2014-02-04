@@ -27,6 +27,7 @@ Work in Progress.
 - [Errors and Processes](http://learnyousomeerlang.com/errors-and-processes)
 - [Lists](http://www.erlang.org/doc/man/lists.html)
 - [Big Changes to Erlang](http://joearms.github.io/2014/02/01/big-changes-to-erlang.html)
+- [Processes](http://www.erlang.org/doc/efficiency_guide/processes.html)
 
 ### .NET
 
