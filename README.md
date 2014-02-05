@@ -30,6 +30,8 @@ Work in Progress.
 - [Processes](http://www.erlang.org/doc/efficiency_guide/processes.html)
 - [What's the difference between “green threads” and Erlang's processes?](http://stackoverflow.com/questions/1947180/whats-the-difference-between-green-threads-and-erlangs-processes)
 - [About Erlang/OTP and Multi-core performance in particular](http://www.erlang-factory.com/upload/presentations/105/KennethLundin-ErlangFactory2009London-AboutErlangOTPandMulti-coreperformanceinparticular.pdf)
+- [Communicating sequential processes](http://en.wikipedia.org/wiki/Communicating_sequential_processes)
+- [Communicating Sequential Processes for JavaTM (JCSP)](http://www.cs.kent.ac.uk/projects/ofa/jcsp/)
 
 ### .NET
 
