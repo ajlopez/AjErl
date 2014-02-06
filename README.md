@@ -32,6 +32,8 @@ Work in Progress.
 - [About Erlang/OTP and Multi-core performance in particular](http://www.erlang-factory.com/upload/presentations/105/KennethLundin-ErlangFactory2009London-AboutErlangOTPandMulti-coreperformanceinparticular.pdf)
 - [Communicating sequential processes](http://en.wikipedia.org/wiki/Communicating_sequential_processes)
 - [Communicating Sequential Processes for JavaTM (JCSP)](http://www.cs.kent.ac.uk/projects/ofa/jcsp/)
+- [How, if at all, do Erlang Processes map to Kernel Threads?](http://stackoverflow.com/questions/605183/how-if-at-all-do-erlang-processes-map-to-kernel-threads)
+- [Inside the Erlang VM with focus on SMP](http://www.erlang.se/euc/08/euc_smp.pdf)
 
 ### .NET
 
