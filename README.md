@@ -34,6 +34,7 @@ Work in Progress.
 - [Communicating Sequential Processes for JavaTM (JCSP)](http://www.cs.kent.ac.uk/projects/ofa/jcsp/)
 - [How, if at all, do Erlang Processes map to Kernel Threads?](http://stackoverflow.com/questions/605183/how-if-at-all-do-erlang-processes-map-to-kernel-threads)
 - [Inside the Erlang VM with focus on SMP](http://www.erlang.se/euc/08/euc_smp.pdf)
+- [Creación y conexión de nodos Erlang remotos](http://aprendiendo-erlang.blogspot.com.ar/2011/06/crear-y-conectarnos-con-nodos-erlang.html)
 
 ### .NET
 
