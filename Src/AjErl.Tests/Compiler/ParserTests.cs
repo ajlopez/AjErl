@@ -291,6 +291,23 @@
         }
 
         [TestMethod]
+        public void ThrowIfTupleHasUnexpectedOperator()
+        {
+            Parser parser = new Parser("{1,2,=");
+
+            try
+            {
+                parser.ParseExpression();
+                Assert.Fail();
+            }
+            catch (System.Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Unexpected '='", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void ParseSimpleAdd()
         {
             Parser parser = new Parser("10+20.");
