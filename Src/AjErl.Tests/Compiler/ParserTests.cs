@@ -779,6 +779,23 @@
         }
 
         [TestMethod]
+        public void RaiseIfUnkownForm()
+        {
+            Parser parser = new Parser("-unknown().");
+
+            try
+            {
+                parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (System.Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Unknown form", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void ParseCompositeExpressionWithTwoConstants()
         {
             Parser parser = new Parser("1,2.");

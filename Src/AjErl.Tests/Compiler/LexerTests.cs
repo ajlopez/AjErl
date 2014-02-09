@@ -414,6 +414,40 @@
         }
 
         [TestMethod]
+        public void UnexpectedSign()
+        {
+            Lexer lexer = new Lexer("?");
+
+            try
+            {
+                lexer.NextToken();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Unexpected '?'", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void UnexpectedNumeral()
+        {
+            Lexer lexer = new Lexer("##");
+
+            try
+            {
+                lexer.NextToken();
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ParserException));
+                Assert.AreEqual("Unexpected '#'", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void GetVerticalBarAsSeparator()
         {
             Lexer lexer = new Lexer("|");

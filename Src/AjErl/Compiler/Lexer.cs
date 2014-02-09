@@ -95,7 +95,7 @@
             if (IsNameChar(ch))
                 return this.NextName(ch);
 
-            throw new ParserException(string.Format("unexpected '{0}'", ch));
+            throw new ParserException(string.Format("Unexpected '{0}'", ch));
         }
 
         public void PushToken(Token token)
