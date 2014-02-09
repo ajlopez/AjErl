@@ -4,10 +4,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using AjErl.Language;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using AjErl.Compiler;
     using AjErl.Expressions;
+    using AjErl.Language;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class MachineTests

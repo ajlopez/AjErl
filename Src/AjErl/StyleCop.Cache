@@ -216,15 +216,6 @@
     <milliseconds>199</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Function.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/19/2014 07:15:35</timestamp>
-    <milliseconds>88</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="Match.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -333,15 +324,6 @@
     <milliseconds>903</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Mailbox.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/26/2014 14:36:23</timestamp>
-    <milliseconds>135</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="EqualExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -432,15 +414,6 @@
     <milliseconds>971</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Machine.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/01/2014 18:22:36</timestamp>
-    <milliseconds>152</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="QualifiedCallExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -466,15 +439,6 @@
     </settings>
     <timestamp>02/01/2014 17:17:15</timestamp>
     <milliseconds>165</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 15:37:56</timestamp>
-    <milliseconds>513</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -504,18 +468,6 @@
     <milliseconds>373</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Process.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 15:08:49</timestamp>
-    <milliseconds>958</milliseconds>
-    <violations />
-  </sourcecode>
-  <project key="2025632572">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="Map.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -523,6 +475,81 @@
     </settings>
     <timestamp>02/02/2014 15:58:59</timestamp>
     <milliseconds>492</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ReceiveExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 17:07:34</timestamp>
+    <milliseconds>425</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 17:15:37</timestamp>
+    <milliseconds>427</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="SelfFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 17:23:47</timestamp>
+    <milliseconds>779</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Function.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 17:45:14</timestamp>
+    <milliseconds>763</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MatchBody.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 16:49:23</timestamp>
+    <milliseconds>503</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Machine.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 17:25:53</timestamp>
+    <milliseconds>212</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="2025632572">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="Mailbox.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/09/2014 09:16:15</timestamp>
+    <milliseconds>539</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Process.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/09/2014 09:16:15</timestamp>
+    <milliseconds>526</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>

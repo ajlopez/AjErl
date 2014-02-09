@@ -21,10 +21,10 @@
         // it should be called by only by the current process
         public object Take()
         {
-            if (!this.wasrejected && savequeue != null)
+            if (!this.wasrejected && this.savequeue != null)
             {
-                this.queues.Push(savequeue);
-                savequeue = null;
+                this.queues.Push(this.savequeue);
+                this.savequeue = null;
             }
 
             while (this.queues.Count > 0 && this.queues.Peek().Count == 0)
