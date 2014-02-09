@@ -18,8 +18,7 @@
             this.queue.Add(message);
         }
 
-        // it should be called by only one active thread
-        // possible implementation: lock the actor before call mailbox.Take()
+        // it should be called by only by the current process
         public object Take()
         {
             if (!this.wasrejected && savequeue != null)
@@ -42,8 +41,7 @@
             return message;
         }
 
-        // it should be called only by the current actor
-        // Take and Reject should be synchronized
+        // it should be called only by the current process
         public void Reject(object message)
         {
             if (this.savequeue == null)
