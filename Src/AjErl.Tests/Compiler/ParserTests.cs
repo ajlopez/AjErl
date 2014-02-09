@@ -633,6 +633,22 @@
         }
 
         [TestMethod]
+        public void RaiseIfParseUnclosedMultiFunctionForm()
+        {
+            Parser parser = new Parser("f(0) -> 1;");
+
+            try
+            {
+                var result = parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (ParserException ex)
+            {
+                Assert.AreEqual("expected atom", ex.Message);
+            }
+        }
+
+        [TestMethod]
         public void ParseSimpleModuleForm()
         {
             Parser parser = new Parser("-module(mymodule).");
@@ -668,6 +684,54 @@
         public void RaiseIfNoArity()
         {
             Parser parser = new Parser("-export([foo/bar, bar/2]).");
+
+            try
+            {
+                parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (System.Exception ex)
+            {
+                Assert.AreEqual("Expected integer", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseIfNoPointAtEnd()
+        {
+            Parser parser = new Parser("-export([foo/3, bar/2]);");
+
+            try
+            {
+                parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (System.Exception ex)
+            {
+                Assert.AreEqual("Unexpected ';'", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseIfNameAtEnd()
+        {
+            Parser parser = new Parser("-export([foo/3, bar/2]) zoo");
+
+            try
+            {
+                parser.ParseForm();
+                Assert.Fail();
+            }
+            catch (System.Exception ex)
+            {
+                Assert.AreEqual("Unexpected 'zoo'", ex.Message);
+            }
+        }
+
+        [TestMethod]
+        public void RaiseIfEndOfInputNoArity()
+        {
+            Parser parser = new Parser("-export([foo/");
 
             try
             {
