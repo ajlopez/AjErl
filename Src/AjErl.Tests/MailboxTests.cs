@@ -33,6 +33,42 @@
         }
 
         [TestMethod]
+        public void AddAndTakeMessagesWithReject()
+        {
+            Mailbox box = new Mailbox();
+
+            box.Add(1);
+            box.Add(2);
+            box.Add(3);
+
+            Assert.AreEqual(1, box.Take());
+            Assert.AreEqual(2, box.Take());
+            box.Reject(2);
+            Assert.AreEqual(3, box.Take());
+            Assert.AreEqual(2, box.Take());
+        }
+
+        [TestMethod]
+        public void AddAndTakeMessagesWithTwoRejects()
+        {
+            Mailbox box = new Mailbox();
+
+            box.Add(1);
+            box.Add(2);
+            box.Add(3);
+            box.Add(4);
+
+            Assert.AreEqual(1, box.Take());
+            Assert.AreEqual(2, box.Take());
+            box.Reject(2);
+            Assert.AreEqual(3, box.Take());
+            box.Reject(3);
+            Assert.AreEqual(4, box.Take());
+            Assert.AreEqual(2, box.Take());
+            Assert.AreEqual(3, box.Take());
+        }
+
+        [TestMethod]
         public void TakeADelayedAddedMessage()
         {
             Mailbox box = new Mailbox();
