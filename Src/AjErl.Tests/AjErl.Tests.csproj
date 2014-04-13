@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Communication\OutputChannelTests.cs" />
     <Compile Include="Expressions\CallExpressionTests.cs" />
     <Compile Include="Expressions\CompositeExpressionTests.cs" />
     <Compile Include="Expressions\EqualExpressionTests.cs" />
@@ -151,6 +152,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
