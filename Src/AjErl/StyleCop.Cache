@@ -468,15 +468,6 @@
     <milliseconds>492</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="ReceiveExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 17:07:34</timestamp>
-    <milliseconds>425</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -531,18 +522,6 @@
     <milliseconds>539</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Process.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/09/2014 09:16:15</timestamp>
-    <milliseconds>526</milliseconds>
-    <violations />
-  </sourcecode>
-  <project key="2025632572">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -550,6 +529,54 @@
     </settings>
     <timestamp>02/09/2014 09:45:54</timestamp>
     <milliseconds>795</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="2025632572">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="InputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>04/13/2014 07:06:28</timestamp>
+    <milliseconds>65</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Types.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>04/13/2014 06:54:14</timestamp>
+    <milliseconds>672</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="OutputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>04/13/2014 06:57:41</timestamp>
+    <milliseconds>625</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ReceiveExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>04/13/2014 06:34:10</timestamp>
+    <milliseconds>803</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Process.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>04/13/2014 06:33:31</timestamp>
+    <milliseconds>473</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>
