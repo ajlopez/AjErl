@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Communication\InputChannelTests.cs" />
     <Compile Include="Communication\OutputChannelTests.cs" />
     <Compile Include="Expressions\CallExpressionTests.cs" />
     <Compile Include="Expressions\CompositeExpressionTests.cs" />

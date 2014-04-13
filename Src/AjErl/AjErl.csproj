@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Communication\InputChannel.cs" />
     <Compile Include="Communication\OutputChannel.cs" />
     <Compile Include="Communication\Types.cs" />
     <Compile Include="Compiler\Lexer.cs" />
