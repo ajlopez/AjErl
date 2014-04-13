@@ -29,6 +29,8 @@
                     return match.Evaluate(newcontext);
             }
 
+            Process.Current.RejectMessage(message);
+
             return null;
         }
 

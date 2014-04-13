@@ -37,6 +37,11 @@
             return this.mailbox.Take();
         }
 
+        public void RejectMessage(object message)
+        {
+            this.mailbox.Reject(message);
+        }
+
         private void Run(object function)
         {
             Process.Current = this;

@@ -333,15 +333,6 @@
     <milliseconds>877</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="LexerTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:40:52</timestamp>
-      <milliseconds>643</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 15:38:52</timestamp>
-    <milliseconds>840</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="SendExpressionTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:40:52</timestamp>
@@ -367,15 +358,6 @@
     </settings>
     <timestamp>02/02/2014 15:59:17</timestamp>
     <milliseconds>77</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ParserTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:40:52</timestamp>
-      <milliseconds>643</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 17:17:31</timestamp>
-    <milliseconds>215</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="EvaluateTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -414,15 +396,6 @@
     <milliseconds>174</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="MailboxTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:40:52</timestamp>
-      <milliseconds>643</milliseconds>
-    </settings>
-    <timestamp>02/09/2014 09:12:17</timestamp>
-    <milliseconds>321</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="ReceiveExpressionTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:40:52</timestamp>
@@ -441,9 +414,6 @@
     <milliseconds>696</milliseconds>
     <violations />
   </sourcecode>
-  <project key="251411062">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="SelfFunctionTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:40:52</timestamp>
@@ -451,6 +421,36 @@
     </settings>
     <timestamp>02/09/2014 09:17:02</timestamp>
     <milliseconds>277</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="251411062">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="LexerTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:40:52</timestamp>
+      <milliseconds>643</milliseconds>
+    </settings>
+    <timestamp>02/09/2014 09:51:31</timestamp>
+    <milliseconds>768</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ParserTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:40:52</timestamp>
+      <milliseconds>643</milliseconds>
+    </settings>
+    <timestamp>02/09/2014 16:39:21</timestamp>
+    <milliseconds>976</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MailboxTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:40:52</timestamp>
+      <milliseconds>643</milliseconds>
+    </settings>
+    <timestamp>02/09/2014 16:31:05</timestamp>
+    <milliseconds>127</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>

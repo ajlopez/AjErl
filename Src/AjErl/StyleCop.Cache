@@ -441,15 +441,6 @@
     <milliseconds>165</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 15:39:30</timestamp>
-    <milliseconds>311</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="SendExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -531,9 +522,6 @@
     <milliseconds>212</milliseconds>
     <violations />
   </sourcecode>
-  <project key="2025632572">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="Mailbox.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -550,6 +538,18 @@
     </settings>
     <timestamp>02/09/2014 09:16:15</timestamp>
     <milliseconds>526</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="2025632572">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/09/2014 09:45:54</timestamp>
+    <milliseconds>795</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>
