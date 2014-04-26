@@ -46,6 +46,23 @@
         }
 
         [TestMethod]
+        public void WriteDouble()
+        {
+            MemoryStream stream = new MemoryStream();
+            OutputChannel channel = new OutputChannel(new BinaryWriter(stream));
+
+            channel.Write(123.45);
+
+            stream.Seek(0, SeekOrigin.Begin);
+
+            BinaryReader reader = new BinaryReader(stream);
+
+            Assert.AreEqual((byte)Types.Double, reader.ReadByte());
+            Assert.AreEqual(123.45, reader.ReadDouble());
+            reader.Close();
+        }
+
+        [TestMethod]
         public void WriteNull()
         {
             MemoryStream stream = new MemoryStream();

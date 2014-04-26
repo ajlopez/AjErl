@@ -9,6 +9,7 @@
     {
         Null = 0,
         Integer = 1,
-        String = 2
+        Double = 2,
+        String = 3
     }
 }

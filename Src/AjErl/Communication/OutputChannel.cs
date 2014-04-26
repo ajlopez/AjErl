@@ -30,6 +30,13 @@
                 return;
             }
 
+            if (obj is double)
+            {
+                this.writer.Write((byte)Types.Double);
+                this.writer.Write((double)obj);
+                return;
+            }
+
             if (obj is string)
             {
                 this.writer.Write((byte)Types.String);
