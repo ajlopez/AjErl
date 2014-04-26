@@ -29,6 +29,23 @@
         }
 
         [TestMethod]
+        public void WriteString()
+        {
+            MemoryStream stream = new MemoryStream();
+            OutputChannel channel = new OutputChannel(new BinaryWriter(stream));
+
+            channel.Write("foo");
+
+            stream.Seek(0, SeekOrigin.Begin);
+
+            BinaryReader reader = new BinaryReader(stream);
+
+            Assert.AreEqual((byte)Types.String, reader.ReadByte());
+            Assert.AreEqual("foo", reader.ReadString());
+            reader.Close();
+        }
+
+        [TestMethod]
         public void WriteNull()
         {
             MemoryStream stream = new MemoryStream();

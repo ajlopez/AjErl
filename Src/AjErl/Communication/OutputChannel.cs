@@ -29,6 +29,13 @@
                 this.writer.Write((int)obj);
                 return;
             }
+
+            if (obj is string)
+            {
+                this.writer.Write((byte)Types.String);
+                this.writer.Write((string)obj);
+                return;
+            }
         }
     }
 }

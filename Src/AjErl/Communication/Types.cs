@@ -8,6 +8,7 @@
     public enum Types
     {
         Null = 0,
-        Integer = 1
+        Integer = 1,
+        String = 2
     }
 }
