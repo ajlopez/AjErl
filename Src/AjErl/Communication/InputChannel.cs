@@ -27,6 +27,8 @@
                     return this.reader.ReadInt32();
                 case (byte)Types.Double:
                     return this.reader.ReadDouble();
+                case (byte)Types.String:
+                    return this.reader.ReadString();
             }
 
             throw new InvalidDataException();

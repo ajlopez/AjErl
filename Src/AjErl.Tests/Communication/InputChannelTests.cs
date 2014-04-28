@@ -51,6 +51,19 @@
         }
 
         [TestMethod]
+        public void ReadString()
+        {
+            MemoryStream stream = new MemoryStream();
+            OutputChannel output = new OutputChannel(new BinaryWriter(stream));
+            output.Write("foo");
+            stream.Seek(0, SeekOrigin.Begin);
+
+            InputChannel channel = new InputChannel(new BinaryReader(stream));
+
+            Assert.AreEqual("foo", channel.Read());
+        }
+
+        [TestMethod]
         public void ReadInvalidData()
         {
             MemoryStream stream = new MemoryStream();
