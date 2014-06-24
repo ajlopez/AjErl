@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AjErl.Compiler.Parser">
+    <Position X="0.75" Y="0.5" Width="2.5" />
+    <Members>
+      <Field Name="binaryoperators" Hidden="true" />
+      <Method Name="IsBinaryOperator" Hidden="true" />
+      <Field Name="lexer" Hidden="true" />
+      <Method Name="NextToken" Hidden="true" />
+      <Method Name="ParseAtom" Hidden="true" />
+      <Method Name="ParseBinaryExpression" Hidden="true" />
+      <Method Name="ParseCompositeExpression" Hidden="true" />
+      <Method Name="ParseExportForm" Hidden="true" />
+      <Method Name="ParseExpressionList" Hidden="true" />
+      <Method Name="ParseFunctionForm" Hidden="true" />
+      <Method Name="ParseFunExpression" Hidden="true" />
+      <Method Name="ParseInteger" Hidden="true" />
+      <Method Name="ParseMatchExpression" Hidden="true" />
+      <Method Name="ParseModuleForm" Hidden="true" />
+      <Method Name="ParsePoint" Hidden="true" />
+      <Method Name="ParseReceiveExpression" Hidden="true" />
+      <Method Name="ParseSimpleExpression" Hidden="true" />
+      <Method Name="ParseSimpleFunExpression" Hidden="true" />
+      <Method Name="ParseTerm" Hidden="true" />
+      <Method Name="ParseToken" Hidden="true" />
+      <Method Name="PushToken" Hidden="true" />
+      <Method Name="TryParseAtom" Hidden="true" />
+      <Method Name="TryParseToken" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>oAMAwRFAIBgAAABAIBAAAAAAAAAAIAAAQARBQJAAAAA=</HashCode>
+      <FileName>Compiler\Parser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AjErl.Compiler.Lexer">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <Members>
+      <Field Name="chars" Hidden="true" />
+      <Method Name="IsNameChar" Hidden="true" />
+      <Method Name="NextChar" Hidden="true" />
+      <Method Name="NextCharSkippingWhiteSpaces" Hidden="true" />
+      <Method Name="NextInteger" Hidden="true" />
+      <Method Name="NextName" Hidden="true" />
+      <Method Name="NextReal" Hidden="true" />
+      <Method Name="NextSimpleChar" Hidden="true" />
+      <Method Name="NextString" Hidden="true" />
+      <Field Name="operators" Hidden="true" />
+      <Field Name="operators2" Hidden="true" />
+      <Field Name="operators3" Hidden="true" />
+      <Method Name="PushChar" Hidden="true" />
+      <Field Name="reader" Hidden="true" />
+      <Field Name="separators" Hidden="true" />
+      <Field Name="separators2" Hidden="true" />
+      <Field Name="tokens" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IAMAAAAQQAgAIAEIAAIAYAAQAIAAAAAAAAAgUAIQAAA=</HashCode>
+      <FileName>Compiler\Lexer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="AjErl.Compiler.TokenType">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAACQAAAAAAhAAAAQAAAAAIAA=</HashCode>
+      <FileName>Compiler\TokenType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
