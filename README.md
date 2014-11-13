@@ -37,6 +37,7 @@ Work in Progress.
 - [Creación y conexión de nodos Erlang remotos](http://aprendiendo-erlang.blogspot.com.ar/2011/06/crear-y-conectarnos-con-nodos-erlang.html)
 - [Erlang String Handling](https://medium.com/functional-erlang/7588daad8f05)
 - [What Sucks About Erlang](http://damienkatz.net/2008/03/what_sucks_abou.html)
+- [Tiny Actor Run-Time in JavaScript](https://github.com/organix/tartjs)
 
 ### .NET
 
