@@ -450,25 +450,25 @@
     <milliseconds>127</milliseconds>
     <violations />
   </sourcecode>
+  <project key="251411062">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="InputChannelTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:40:52</timestamp>
       <milliseconds>643</milliseconds>
     </settings>
-    <timestamp>04/13/2014 07:11:14</timestamp>
-    <milliseconds>340</milliseconds>
+    <timestamp>05/17/2014 12:33:10</timestamp>
+    <milliseconds>395</milliseconds>
     <violations />
   </sourcecode>
-  <project key="251411062">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="OutputChannelTests.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:40:52</timestamp>
       <milliseconds>643</milliseconds>
     </settings>
-    <timestamp>04/13/2014 07:15:07</timestamp>
-    <milliseconds>618</milliseconds>
+    <timestamp>04/26/2014 20:24:46</timestamp>
+    <milliseconds>187</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>

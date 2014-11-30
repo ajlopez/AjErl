@@ -279,6 +279,15 @@
         }
 
         [TestMethod]
+        public void EvaluateIoNl()
+        {
+            StringWriter writer = new StringWriter();
+            this.machine.TextWriter = writer;
+            this.EvaluateTo("io:nl().", "ok");
+            Assert.AreEqual("\r\n", writer.ToString());
+        }
+
+        [TestMethod]
         public void EvaluateProcessConversation()
         {
             Process process = new Process();

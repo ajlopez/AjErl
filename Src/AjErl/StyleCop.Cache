@@ -531,36 +531,6 @@
     <milliseconds>795</milliseconds>
     <violations />
   </sourcecode>
-  <project key="2025632572">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
-  <sourcecode name="InputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>04/13/2014 07:06:28</timestamp>
-    <milliseconds>65</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Types.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>04/13/2014 06:54:14</timestamp>
-    <milliseconds>672</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="OutputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>04/13/2014 06:57:41</timestamp>
-    <milliseconds>625</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="ReceiveExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -577,6 +547,36 @@
     </settings>
     <timestamp>04/13/2014 06:33:31</timestamp>
     <milliseconds>473</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="2025632572">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="OutputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>04/26/2014 20:25:33</timestamp>
+    <milliseconds>120</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="InputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>05/17/2014 12:33:10</timestamp>
+    <milliseconds>408</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Types.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>04/26/2014 20:24:34</timestamp>
+    <milliseconds>937</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>

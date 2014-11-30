@@ -19,11 +19,19 @@
             this.SetName("io");
             this.Context.SetValue("write/1", new FuncFunction(this.Write));
             this.AddExportNames(new string[] { "write/1" });
+            this.Context.SetValue("nl/0", new FuncFunction(this.Nl));
+            this.AddExportNames(new string[] { "nl/0" });
         }
 
         private object Write(Context context, IList<object> arguments)
         {
             this.machine.TextWriter.Write(Machine.ToString(arguments[0]));
+            return this.ok;
+        }
+
+        private object Nl(Context context, IList<object> arguments)
+        {
+            this.machine.TextWriter.WriteLine();
             return this.ok;
         }
     }
