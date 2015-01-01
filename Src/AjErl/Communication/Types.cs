@@ -7,9 +7,17 @@
 
     public enum Types
     {
-        Null = 0,
-        Integer = 1,
-        Double = 2,
-        String = 3
+        Null,
+        Byte,
+        Character,
+        Short,
+        Integer,
+        Long,
+        Single,
+        Double,
+        Decimal,
+        String,
+        Object,
+        Type
     }
 }
