@@ -1,5 +1,80 @@
 <stylecopresultscache>
   <version>10</version>
+  <sourcecode name="FunctionDefinition.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/25/2013 08:06:06</timestamp>
+    <milliseconds>906</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Match.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/19/2014 07:19:46</timestamp>
+    <milliseconds>353</milliseconds>
+    <violations />
+  </sourcecode>
+  <project key="2025632572">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="OutputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/01/2015 06:07:19</timestamp>
+    <milliseconds>321</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="InputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/01/2015 05:54:51</timestamp>
+    <milliseconds>942</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="PropertyType.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/01/2015 05:57:06</timestamp>
+    <milliseconds>513</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Types.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/01/2015 06:02:32</timestamp>
+    <milliseconds>329</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="TypeSerializer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/01/2015 06:10:53</timestamp>
+    <milliseconds>895</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/09/2014 09:45:54</timestamp>
+    <milliseconds>795</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="ParserException.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -27,31 +102,22 @@
     <milliseconds>257</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="IElement.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="Context.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>03/31/2012 19:22:38</timestamp>
-    <milliseconds>95</milliseconds>
+    <timestamp>12/28/2013 20:16:37</timestamp>
+    <milliseconds>465</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="AssemblyInfo.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>02/21/2012 15:47:13</timestamp>
-    <milliseconds>886</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="AtomExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/15/2013 19:41:03</timestamp>
-    <milliseconds>154</milliseconds>
+    <timestamp>02/02/2014 17:15:37</timestamp>
+    <milliseconds>427</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="AddExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -63,184 +129,13 @@
     <milliseconds>636</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="ConstantExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="AtomExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>12/15/2013 19:37:51</timestamp>
-    <milliseconds>513</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="DivExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/15/2013 18:49:09</timestamp>
-    <milliseconds>303</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="IExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/15/2013 19:36:35</timestamp>
-    <milliseconds>220</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="DivideExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/15/2013 18:26:14</timestamp>
-    <milliseconds>346</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="RemExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/15/2013 18:51:26</timestamp>
-    <milliseconds>229</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="MultiplyExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/08/2013 17:48:28</timestamp>
-    <milliseconds>188</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="VariableExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/15/2013 19:42:24</timestamp>
-    <milliseconds>948</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="SubtractExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/08/2013 17:48:14</timestamp>
-    <milliseconds>998</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="EmptyList.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/22/2013 18:07:12</timestamp>
-    <milliseconds>602</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ListExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/25/2013 07:48:19</timestamp>
-    <milliseconds>552</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="IForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/25/2013 07:38:37</timestamp>
-    <milliseconds>233</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="FunctionDefinition.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/25/2013 08:06:06</timestamp>
-    <milliseconds>906</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Context.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/28/2013 20:16:37</timestamp>
-    <milliseconds>465</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="MatchExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/19/2014 07:26:18</timestamp>
-    <milliseconds>431</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ModuleForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>12/28/2013 20:37:28</timestamp>
-    <milliseconds>851</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="SpawnFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/19/2014 16:19:57</timestamp>
-    <milliseconds>239</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="IFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/01/2014 18:55:36</timestamp>
-    <milliseconds>199</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Match.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/19/2014 07:19:46</timestamp>
-    <milliseconds>353</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="MultiFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/18/2014 18:48:51</timestamp>
-    <milliseconds>509</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="MultiFunctionForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/19/2014 16:53:01</timestamp>
-    <milliseconds>325</milliseconds>
+    <timestamp>12/15/2013 19:41:03</timestamp>
+    <milliseconds>154</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="BinaryExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -270,13 +165,22 @@
     <milliseconds>58</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="TupleExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="ConstantExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>01/26/2014 14:32:44</timestamp>
-    <milliseconds>210</milliseconds>
+    <timestamp>12/15/2013 19:37:51</timestamp>
+    <milliseconds>513</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="DivExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/15/2013 18:49:09</timestamp>
+    <milliseconds>303</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="DelayedCallExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -288,40 +192,13 @@
     <milliseconds>434</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="CompileModuleFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="DivideExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>01/26/2014 14:32:36</timestamp>
-    <milliseconds>537</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="FunctionForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/19/2014 19:09:00</timestamp>
-    <milliseconds>853</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="MatchUtilities.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/26/2014 14:32:53</timestamp>
-    <milliseconds>907</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="DelayedCall.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/26/2014 14:36:37</timestamp>
-    <milliseconds>903</milliseconds>
+    <timestamp>12/15/2013 18:26:14</timestamp>
+    <milliseconds>346</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="EqualExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -342,6 +219,33 @@
     <milliseconds>594</milliseconds>
     <violations />
   </sourcecode>
+  <sourcecode name="IExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/15/2013 19:36:35</timestamp>
+    <milliseconds>220</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ListExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/25/2013 07:48:19</timestamp>
+    <milliseconds>552</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MatchExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/19/2014 07:26:18</timestamp>
+    <milliseconds>431</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="MultiFunExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -349,6 +253,186 @@
     </settings>
     <timestamp>01/26/2014 16:33:41</timestamp>
     <milliseconds>467</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MultiplyExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/08/2013 17:48:28</timestamp>
+    <milliseconds>188</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="QualifiedCallExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/01/2014 18:14:59</timestamp>
+    <milliseconds>626</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ReceiveExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>04/13/2014 06:34:10</timestamp>
+    <milliseconds>803</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="RemExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/15/2013 18:51:26</timestamp>
+    <milliseconds>229</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="SendExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 15:05:54</timestamp>
+    <milliseconds>200</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="StrictEqualExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/26/2014 19:05:58</timestamp>
+    <milliseconds>464</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="SubtractExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/08/2013 17:48:14</timestamp>
+    <milliseconds>998</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="TupleExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/26/2014 14:32:44</timestamp>
+    <milliseconds>210</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="VariableExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/15/2013 19:42:24</timestamp>
+    <milliseconds>948</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ExportForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/30/2014 19:28:44</timestamp>
+    <milliseconds>311</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="IForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/25/2013 07:38:37</timestamp>
+    <milliseconds>233</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ModuleForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/28/2013 20:37:28</timestamp>
+    <milliseconds>851</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="FunctionForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/19/2014 19:09:00</timestamp>
+    <milliseconds>853</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MultiFunctionForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/19/2014 16:53:01</timestamp>
+    <milliseconds>325</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="SelfFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 17:23:47</timestamp>
+    <milliseconds>779</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="CompileModuleFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/26/2014 14:32:36</timestamp>
+    <milliseconds>537</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="SpawnFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/19/2014 16:19:57</timestamp>
+    <milliseconds>239</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Atom.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/01/2014 19:29:05</timestamp>
+    <milliseconds>373</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="DelayedCall.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/26/2014 14:36:37</timestamp>
+    <milliseconds>903</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="EmptyList.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>12/22/2013 18:07:12</timestamp>
+    <milliseconds>602</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="FuncFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -360,6 +444,24 @@
     <milliseconds>356</milliseconds>
     <violations />
   </sourcecode>
+  <sourcecode name="IElement.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>03/31/2012 19:22:38</timestamp>
+    <milliseconds>95</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="IFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/01/2014 18:55:36</timestamp>
+    <milliseconds>199</milliseconds>
+    <violations />
+  </sourcecode>
   <sourcecode name="List.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -369,13 +471,49 @@
     <milliseconds>210</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="StrictEqualExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="Map.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>01/26/2014 19:05:58</timestamp>
-    <milliseconds>464</milliseconds>
+    <timestamp>02/02/2014 15:58:59</timestamp>
+    <milliseconds>492</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MatchBody.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 16:49:23</timestamp>
+    <milliseconds>503</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Function.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/02/2014 17:45:14</timestamp>
+    <milliseconds>763</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="Module.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/30/2014 19:30:11</timestamp>
+    <milliseconds>971</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="MultiFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>01/18/2014 18:48:51</timestamp>
+    <milliseconds>509</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="Tuple.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -396,114 +534,6 @@
     <milliseconds>530</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="ExportForm.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/30/2014 19:28:44</timestamp>
-    <milliseconds>311</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Module.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>01/30/2014 19:30:11</timestamp>
-    <milliseconds>971</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="QualifiedCallExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/01/2014 18:14:59</timestamp>
-    <milliseconds>626</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="IoModule.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/01/2014 17:16:43</timestamp>
-    <milliseconds>560</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="ListsModule.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/01/2014 17:17:15</timestamp>
-    <milliseconds>165</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="SendExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 15:05:54</timestamp>
-    <milliseconds>200</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Atom.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/01/2014 19:29:05</timestamp>
-    <milliseconds>373</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Map.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 15:58:59</timestamp>
-    <milliseconds>492</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Parser.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 17:15:37</timestamp>
-    <milliseconds>427</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="SelfFunction.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 17:23:47</timestamp>
-    <milliseconds>779</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Function.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 17:45:14</timestamp>
-    <milliseconds>763</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="MatchBody.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>02/02/2014 16:49:23</timestamp>
-    <milliseconds>503</milliseconds>
-    <violations />
-  </sourcecode>
   <sourcecode name="Machine.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
@@ -522,22 +552,31 @@
     <milliseconds>539</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="Lexer.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="MatchUtilities.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>02/09/2014 09:45:54</timestamp>
-    <milliseconds>795</milliseconds>
+    <timestamp>01/26/2014 14:32:53</timestamp>
+    <milliseconds>907</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="ReceiveExpression.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="IoModule.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>04/13/2014 06:34:10</timestamp>
-    <milliseconds>803</milliseconds>
+    <timestamp>11/30/2014 20:59:06</timestamp>
+    <milliseconds>858</milliseconds>
+    <violations />
+  </sourcecode>
+  <sourcecode name="ListsModule.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+    <settings>
+      <timestamp>04/21/2013 17:37:42</timestamp>
+      <milliseconds>101</milliseconds>
+    </settings>
+    <timestamp>02/01/2014 17:17:15</timestamp>
+    <milliseconds>165</milliseconds>
     <violations />
   </sourcecode>
   <sourcecode name="Process.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
@@ -549,34 +588,22 @@
     <milliseconds>473</milliseconds>
     <violations />
   </sourcecode>
-  <project key="2025632572">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
-  <sourcecode name="OutputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="AssemblyInfo.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>04/26/2014 20:25:33</timestamp>
-    <milliseconds>120</milliseconds>
+    <timestamp>02/21/2012 15:47:13</timestamp>
+    <milliseconds>886</milliseconds>
     <violations />
   </sourcecode>
-  <sourcecode name="InputChannel.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
+  <sourcecode name="TypeUtilities.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
     <settings>
       <timestamp>04/21/2013 17:37:42</timestamp>
       <milliseconds>101</milliseconds>
     </settings>
-    <timestamp>05/17/2014 12:33:10</timestamp>
-    <milliseconds>408</milliseconds>
-    <violations />
-  </sourcecode>
-  <sourcecode name="Types.cs" parser="Microsoft.StyleCop.CSharp.CsParser">
-    <settings>
-      <timestamp>04/21/2013 17:37:42</timestamp>
-      <milliseconds>101</milliseconds>
-    </settings>
-    <timestamp>04/26/2014 20:24:34</timestamp>
-    <milliseconds>937</milliseconds>
+    <timestamp>01/01/2015 05:59:10</timestamp>
+    <milliseconds>556</milliseconds>
     <violations />
   </sourcecode>
 </stylecopresultscache>
