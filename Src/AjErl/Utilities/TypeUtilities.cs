@@ -10,6 +10,7 @@
     // Based on PythonSharp.Utilities
     // Based on RubySharp.Utilities
     // Based on Aktores.Core.Utilities
+    // For referenced assemblies check: http://stackoverflow.com/questions/9997508/referenced-assembly-not-found-how-to-get-all-dlls-included-in-solution
     public static class TypeUtilities
     {
         private static bool referencedAssembliesLoaded = false;
