@@ -58,6 +58,13 @@
       <FileName>Compiler\Lexer.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="AjErl.Compiler.Token">
+    <Position X="2.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABACAAAQAgAAAAAAA=</HashCode>
+      <FileName>Compiler\Token.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="AjErl.Compiler.TokenType">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
